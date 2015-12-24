@@ -41,7 +41,8 @@ if (!empty($postdata)) {
         $data = json_decode($postdata);
     }
     catch(Exception $e){
-        $data = null;
+        $msg[] = 'Exception : ' . $e->getMessage();
+        $data  = [];
     }
     
     $repo = isset( $data.repository )? $data.repository : [] ;
