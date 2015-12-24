@@ -28,22 +28,25 @@ $mail->IsHTML(true);                                  // Set email format to HTM
 $email = 'guy@barnahum.com'; //not required, but useful for debugging
 $repos = [ 'reactor' =>[ 'path'=>'~/barnahum.com/reactor' ]];
 $msg   = [];
-    
-echo 'POST:<br>';
-echo '<pre>' . print_r( $_POST, true) . '</pre>';
-echo '<br>';
-    
+
 //get repo name from post payload or manual test
     
-$repo = null;
-    
+$repo     = null;
 $postdata = file_get_contents("php://input");
     
 // validate data posted by git webhook
-if (!empty($postdata['payload'])) {
-    $data = json_decode($postdata['payload']);
-    $repo = $data->repository->name;
-    $msg[] = $repo . ' POST recieved';
+if (!empty($postdata)) {
+    
+    try{
+        $data = json_decode($postdata);
+    }
+    catch(){
+        $data = null;
+    }
+    
+    $repo = isset($data.repository)? $data.repository:null ;
+    $msg[] = 'POST recieved for ' . print_r(repo, true) ;
+    $repo  = isset($repo.name)? $repo.name : null;
 }
 else
 // or maybe we are just in debug mode?
@@ -53,11 +56,8 @@ if (!empty ($_GET['repo'])) {
 }
 else{
     $msg[] = 'No target repo provided';
+    $msg[] = 'POST raw-data :' . $postdata;
 }
-
-$msg[] = '$_POST<br><pre>';
-$msg[] = print_r($postdata,true);
-$msg[] = '</pre>';
 
 if (!empty($repo)){
     //sanitize repo name for security
