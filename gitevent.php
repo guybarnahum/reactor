@@ -1,7 +1,14 @@
 <?php
+    
+    function error( $msg )
+    {
+        echo $msg;
+        die ($msg);
+    }
+    
     // config
     $email = 'guy@barnahum.com'; //not required, but useful for debugging
-    $repos = array( 'reactor'=>array( 'path'=>'~/barnahum.com/reactor' ));
+    $repos = array( 'reactor' =>array( 'path'=>'~/barnahum.com/reactor' ));
 
     
     //get repo name from post payload or manual test
@@ -14,8 +21,7 @@
     }
     else{
         $msg = 'no payload';
-        if (!empty($email)) mail($email, 'new commit to unknown', $msg );
-        die( $msg );
+        error( $msg );
     }
     
     //sanitize repo name for security
@@ -27,11 +33,14 @@
     if (!array_key_exists($repo, $repos)){
         $msg = ' repo name "' . $name . '" not supported';
         if (!empty($email)) mail($email, 'new commit to ' . $repo, $msg . ' ' . $_POST['payload']);
-        die( $msg );
+        error( $msg );
     }
     
     //check that required paths are present in config
-    if (empty($repos[$repo]['path']) || empty($repos[$repo]['deploy'])) die('repo path and repo deploy must both be set');
+    if (empty($repos[$repo]['path']) ){
+        $msg = 'repo path must both be set for ' . $repo;
+        error( $msg );
+    }
     
     //todo, scan list of deleted files in this commit and delete them
     
@@ -41,3 +50,5 @@
     
     //send email if configured
     if (!empty($email)) mail($email, 'new commit to ' . $repo, $msg . ' ' . $_POST['payload']);
+
+    echo $msg ;
