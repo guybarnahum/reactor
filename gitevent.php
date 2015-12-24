@@ -40,7 +40,7 @@ if (!empty($postdata)) {
     try{
         $data = json_decode($postdata);
     }
-    catch(){
+    catch(Exception $e){
         $data = null;
     }
     
