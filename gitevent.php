@@ -43,7 +43,10 @@ else if (!empty($_GET['repo'])) {
     $msg[] = $repo . ' GET recieved';
 }
 else{
-    $msg[] = 'no target repo provided';
+    $msg[] = 'No target repo provided';
+    $msg[] = '$_REQUEST<br><pre>';
+    $msg[] = print_r($_REQUEST,true);
+    $msg[] = '</pre>';
 }
     
 if (!empty($repo)){
