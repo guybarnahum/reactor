@@ -1,51 +1,95 @@
 <?php
     
-    function error( $msg )
-    {
-        die ($msg);
-    }
-    
-    // config
-    $email = 'guy@barnahum.com'; //not required, but useful for debugging
-    $repos = array( 'reactor' =>array( 'path'=>'~/barnahum.com/reactor' ));
+// .................................................................. setup mail
+require 'vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
 
+$mail = new PHPMailer;
+// Setting up PHPMailer
+$mail->IsSMTP();                                       // Set mailer to use SMTP
+// Visit http://phpmailer.worxware.com/index.php?pg=tip_srvrs for more info on server settings
+// For GMail    => smtp.gmail.com
+//     Hotmail  => smtp.live.com
+//     Yahoo    => smtp.mail.yahoo.com
+//     Lycos    => smtp.mail.lycos.com
+//     AOL      => smtp.aol.com
+$mail->Host = 'smtp.gmail.com';                       // Specify main and backup server
+$mail->SMTPAuth = true;                               // Enable SMTP authentication
+//This is the email that you need to set so PHPMailer will send the email from
+$mail->Username = 'reactorlabs@gmail.com';             // SMTP username
+$mail->Password = 'AX9ZuZ2QAX9ZuZ2Q';                  // SMTP password
+$mail->SMTPSecure = 'tls';
+$mail->Port = 587;                                    // TCP port to connect to
+// Add the address to send the mail to
+$mail->AddAddress('reactorlabs@gmail.com');
+$mail->WordWrap = 50;                                 // Set word wrap to 50 characters
+$mail->IsHTML(true);                                  // Set email format to HTML
     
-    //get repo name from post payload or manual test
-    if (!empty($_POST['payload'])) {
-        $data = json_decode($_POST['payload']);
-        $repo = $data->repository->name;
-    }
-    else if (!empty($_GET['repo'])) {
-        $repo = $_GET['repo'];
-    }
-    else{
-        $msg = 'no payload';
-        error( $msg );
-    }
+// config
+$email = 'guy@barnahum.com'; //not required, but useful for debugging
+$repos = [ 'reactor' =>[ 'path'=>'~/barnahum.com/reactor' ]];
+$msg   = [];
     
+//get repo name from post payload or manual test
+    
+$repo = null;
+    
+if (!empty($_POST['payload'])) {
+    $data = json_decode($_POST['payload']);
+    $repo = $data->repository->name;
+    $msg[] = $repo . ' POST recieved';
+}
+else if (!empty($_GET['repo'])) {
+    $repo = $_GET['repo'];
+    $msg[] = $repo . ' GET recieved';
+}
+else{
+    $msg[] = 'no target repo provided';
+}
+    
+if (!empty($repo)){
     //sanitize repo name for security
     $repo = escapeshellcmd($repo);
-    
+}
+
+if (!empty($repo)){
     //check that repo name is supported
     if (!array_key_exists($repo, $repos)){
-        $msg = ' repo name `' . $repo . '` not supported';
-        error( $msg );
+        $msg[] = ' repo name `' . $repo . '` not supported';
+        $repo = null;
     }
+}
     
+if (!empty($repo)){
     //check that required paths are present in config
     if (empty($repos[$repo]['path']) ){
-        $msg = 'repo path must both be set for ' . $repo;
-        error( $msg );
+        $msg[] = 'repo path must both be set for ' . $repo;
+        $repo = null;
     }
+}
     
-    //todo, scan list of deleted files in this commit and delete them
+//todo, scan list of deleted files in this commit and delete them
     
-    //update git, deploy to directory
-    $msg = 'attempting to git pull from ' . $repos[$repo]['path']    ;
-    $msg .= exec('whoami;cd ' . $repos[$repo]['path'] . ';git pull' );
+//update git, deploy to directory
 
-    echo $msg ;
+if (!empty($repo)){
+    $msg[] = 'attempting to git pull for ' . $repo . ' from ' . $repos[$repo]['path'] ;
+    $msg[] = exec('whoami;cd ' . $repos[$repo]['path'] . ';git pull' );
+}
 
-    //send email if configured
-    if (!empty($email)) @mail($email, 'new commit to ' . $repo, $msg . ' ' . $_POST['payload']);
+// ........................................................... done - send email
+    
+$body = stripslashes( implode( "<br>", $msg ) );
+    
+// The sender of the form/mail
+$mail->From     = $email;
+$mail->FromName = "noreply@reactor.barnahum.com";
+$mail->Subject = '[Reactor.BarNahum.com]: gitevent ' ;
+$mail->Body = $body;
+        
+if( @$mail->Send() ) {
+    echo 'email sent ok - ' . $body;
+} else {
+    echo 'email failure - <small>' . $mail->ErrorInfo . '</small><br>' . $body;
+}
+
 
