@@ -32,7 +32,6 @@
     //check that repo name is supported
     if (!array_key_exists($repo, $repos)){
         $msg = ' repo name "' . $name . '" not supported';
-        if (!empty($email)) mail($email, 'new commit to ' . $repo, $msg . ' ' . $_POST['payload']);
         error( $msg );
     }
     
@@ -47,8 +46,9 @@
     //update git, deploy to directory
     $msg = 'attempting to git pull from ' . $repos[$repo]['path']    ;
     $msg .= exec('whoami;cd ' . $repos[$repo]['path'] . ';git pull' );
-    
-    //send email if configured
-    if (!empty($email)) mail($email, 'new commit to ' . $repo, $msg . ' ' . $_POST['payload']);
 
     echo $msg ;
+
+    //send email if configured
+    if (!empty($email)) @mail($email, 'new commit to ' . $repo, $msg . ' ' . $_POST['payload']);
+
