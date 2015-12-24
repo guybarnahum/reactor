@@ -21,11 +21,13 @@
     //sanitize repo name for security
     $repo = escapeshellcmd($repo);
     
+    echo $repo . '<br>';
+    
     //check that repo name is supported
     if (!array_key_exists($repo, $repos)){
         $msg = ' repo name "' . $name . '" not supported';
         if (!empty($email)) mail($email, 'new commit to ' . $repo, $msg . ' ' . $_POST['payload']);
-        die();
+        die( $msg );
     }
     
     //check that required paths are present in config
