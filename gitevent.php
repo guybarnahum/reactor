@@ -37,9 +37,11 @@ echo '<br>';
     
 $repo = null;
     
+$postdata = file_get_contents("php://input");
+    
 // validate data posted by git webhook
-if (!empty($_POST['payload'])) {
-    $data = json_decode($_POST['payload']);
+if (!empty($postdata['payload'])) {
+    $data = json_decode($postdata['payload']);
     $repo = $data->repository->name;
     $msg[] = $repo . ' POST recieved';
 }
@@ -54,7 +56,7 @@ else{
 }
 
 $msg[] = '$_POST<br><pre>';
-$msg[] = print_r($_POST,true);
+$msg[] = print_r($postdata,true);
 $msg[] = '</pre>';
 
 if (!empty($repo)){
