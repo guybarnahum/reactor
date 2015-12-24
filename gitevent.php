@@ -33,22 +33,26 @@ $msg   = [];
     
 $repo = null;
     
+// validate data posted by git webhook
 if (!empty($_POST['payload'])) {
     $data = json_decode($_POST['payload']);
     $repo = $data->repository->name;
     $msg[] = $repo . ' POST recieved';
 }
-else if (!empty($_GET['repo'])) {
+else
+// or maybe we are just in debug mode?
+if (!empty ($_GET['repo'])) {
     $repo = $_GET['repo'];
     $msg[] = $repo . ' GET recieved';
 }
 else{
     $msg[] = 'No target repo provided';
-    $msg[] = '$_REQUEST<br><pre>';
-    $msg[] = print_r($_REQUEST,true);
-    $msg[] = '</pre>';
 }
-    
+
+$msg[] = '$_POST<br><pre>';
+$msg[] = print_r($_POST,true);
+$msg[] = '</pre>';
+
 if (!empty($repo)){
     //sanitize repo name for security
     $repo = escapeshellcmd($repo);
