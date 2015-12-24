@@ -3,3 +3,5 @@
 *.xcuserstate
 
 Reactor.xcodeproj/project.xcworkspace/xcuserdata/guyb.xcuserdatad/UserInterfaceState.xcuserstate
+
+.htpasswd
