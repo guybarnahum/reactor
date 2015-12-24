@@ -44,7 +44,7 @@ if (!empty($postdata)) {
         $data = null;
     }
     
-    $repo = isset($data.repository)? $data.repository:null ;
+    $repo = isset( $data.repository )? $data.repository : [] ;
     $msg[] = 'POST recieved for ' . print_r(repo, true) ;
     $repo  = isset($repo.name)? $repo.name : null;
 }
