@@ -45,9 +45,9 @@ if (!empty($postdata)) {
         $data  = [];
     }
     
-    $repo = isset( $data.repository )? $data.repository : [] ;
+    $repo = isset( $data[ 'repository' ])? $data[ 'repository' ] : [] ;
     $msg[] = 'POST recieved for ' . print_r(repo, true) ;
-    $repo  = isset($repo.name)? $repo.name : null;
+    $repo  = isset($repo[ 'name' ])? $repo[ 'name' ] : null;
 }
 else
 // or maybe we are just in debug mode?
