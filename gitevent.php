@@ -87,9 +87,9 @@ $mail->Subject = '[Reactor.BarNahum.com]: gitevent ' ;
 $mail->Body = $body;
         
 if( @$mail->Send() ) {
-    echo 'email sent ok - ' . $body;
+    echo 'email sent ok<br>' . $body;
 } else {
-    echo 'email failure - <small>' . $mail->ErrorInfo . '</small><br>' . $body;
+    echo 'email failure<br><small>' . $mail->ErrorInfo . '</small><br>' . $body;
 }
 
 
