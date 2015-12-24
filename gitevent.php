@@ -2,7 +2,6 @@
     
     function error( $msg )
     {
-        echo $msg;
         die ($msg);
     }
     
@@ -27,11 +26,9 @@
     //sanitize repo name for security
     $repo = escapeshellcmd($repo);
     
-    echo $repo . '<br>';
-    
     //check that repo name is supported
     if (!array_key_exists($repo, $repos)){
-        $msg = ' repo name "' . $name . '" not supported';
+        $msg = ' repo name `' . $repo . '` not supported';
         error( $msg );
     }
     
