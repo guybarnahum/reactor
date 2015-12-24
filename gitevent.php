@@ -29,6 +29,10 @@ $email = 'guy@barnahum.com'; //not required, but useful for debugging
 $repos = [ 'reactor' =>[ 'path'=>'~/barnahum.com/reactor' ]];
 $msg   = [];
     
+echo 'POST:<br>';
+echo '<pre>' . print_r( $_POST, true) . '</pre>';
+echo '<br>';
+    
 //get repo name from post payload or manual test
     
 $repo = null;
