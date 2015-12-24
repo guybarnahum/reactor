@@ -7,3 +7,7 @@ Reactor.xcodeproj/project.xcworkspace/xcuserdata/guyb.xcuserdatad/UserInterfaceS
 .htpasswd
 
 .htaccess
+
+*.pbxproj
+
+*.xccheckout
