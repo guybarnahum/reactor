@@ -38,10 +38,7 @@ $postdata = file_get_contents("php://input");
 if (!empty($postdata)) {
     try{
         $data = json_decode($postdata);
-        echo print_r($data,true) . "\n<br>";
-        echo print_r($data->repository,true) . "\n<br>";
-        echo print_r($data->repository->name,true) . "\n<br>";
-        $repo = '' ;
+        $repo = $data->repository->name ;
         $msg[] = 'Repo name: '. $repo ;
     }
     catch(Exception $e){
