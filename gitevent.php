@@ -38,13 +38,12 @@ $postdata = file_get_contents("php://input");
 if (!empty($postdata)) {
     try{
         $data = json_decode($postdata);
-        if ( isset( $data.repository.name ) ){
-            $repo = $data.repository.name ;
-            $msg[] = 'Repo name: '. $repo ;
-        }
+        $repo = $data.repository.name ;
+        $msg[] = 'Repo name: '. $repo ;
     }
     catch(Exception $e){
         $msg[] = 'Exception : ' . $e->getMessage();
+        $repo  = '';
     }
 }
 else
