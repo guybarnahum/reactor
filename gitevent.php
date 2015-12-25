@@ -31,23 +31,21 @@ $msg   = [];
 
 //get repo name from post payload or manual test
     
-$repo     = null;
+$repo     = '';
 $postdata = file_get_contents("php://input");
     
 // validate data posted by git webhook
 if (!empty($postdata)) {
-    
     try{
         $data = json_decode($postdata);
-        $repo = isset( $data.repository.name )? data.repository.name  : null ;
+        if ( isset( $data.repository.name ) ){
+            $repo = $data.repository.name ;
+            $msg[] = 'Repo name: '. $repo ;
+        }
     }
     catch(Exception $e){
         $msg[] = 'Exception : ' . $e->getMessage();
-        $data  = null;
-        $repo  = null
     }
-    
-    $msg[] = 'POST recieved for ' . print_r(repo, true) ;
 }
 else
 // or maybe we are just in debug mode?
