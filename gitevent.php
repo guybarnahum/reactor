@@ -39,8 +39,8 @@ if (!empty($postdata)) {
     try{
         $data = json_decode($postdata);
         echo print_r($data,true) . "\n<br>";
-        echo print_r($data.repository,true) . "\n<br>";
-        echo print_r($data.repository.name,true) . "\n<br>";
+        echo print_r($data->repository,true) . "\n<br>";
+        echo print_r($data->repository->name,true) . "\n<br>";
         $repo = '' ;
         $msg[] = 'Repo name: '. $repo ;
     }
