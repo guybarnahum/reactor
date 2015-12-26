@@ -30,6 +30,14 @@
         <link rel="stylesheet" href="assets/css/swatch-white-red.min.css">
         <link rel="stylesheet" href="assets/css/swatch-yellow-black.min.css">
         <link rel="stylesheet" href="assets/css/fonts.min.css" media="screen">
+        
+        <!-- Add an underline for active seclection of a.active class -->
+        <style>
+        .underline-active li a.active{
+            text-decoration: underline;
+        }
+        </style>
+        
     </head>
     <body>
         <header id="masthead" class="navbar navbar-sticky swatch-red-white" role="banner">
@@ -135,142 +143,148 @@
                 <header class="section-header underline">
                     <h1 class="headline super hairline">People</h1>
                 </header>
+                
                 <div class="row">
-                    <ul class="list-unstyled row box-list">
+                
+                    <ul class="isotope-filters text-center underline-active">
+                        <li>
+                            <a class="pseudo-border active" data-filter="*" href="#">
+                            all
+                            </a>
+                        </li>
+                        <li>
+                            <a class="pseudo-border" data-filter=".filter-sf" href="#">
+                            San Francisco
+                            </a>
+                        </li>
+                        <li>
+                            <a class="pseudo-border" data-filter=".filter-tlv" href="#">
+                            Tel Aviv
+                            </a>
+                        </li>
+                        <li>
+                            <a class="pseudo-border" data-filter=".filter-hw" href="#">
+                            Hardware
+                            </a>
+                        </li>
+                        <li>
+                            <a class="pseudo-border" data-filter=".filter-sw" href="#">
+                            Software
+                            </a>
+                        </li>
+                        <li>
+                            <a class="pseudo-border" data-filter=".filter-vc" href="#">
+                            Venture Capital
+                            </a>
+                        </li>
+                    </ul>
                     
+                    <div class="portfolio isotope no-transition portfolio-round row">
+
                         <!-- Guy Bar-Nahum -->
-                        
-                        <li class="col-md-4 os-animation" data-os-animation="fadeInUp" data-os-animation-delay=".0s">
-                            <div class="box-round box-huge">
-                                <div class="box-dummy"></div>
-                                <figure class="box-inner ">
-                                    <img class="svg-inject" 
-                                        src="assets/images/people/GuyBarNahum.jpg"
-                                        alt="Guy Bar-Nahum"
-                                    />
-                                    <figcaption class="box-caption">
-                                        <h4>Likes</h4>
-                                        <p>Coffee and Beer</p>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                            <h3 class="text-center">
-                                    <a href="https://www.linkedin.com/in/guybarnahum" target="_blank">
-                                        Guy Bar-Nahum
-                                    </a>
-                                    <small class="block">Software, UX & Strategy</small>
-                            </h3>
-                            <p class="text-center ">Ex VP UX Mobile @ Samsung, Ex Director iPod Software @ Apple</p>
-                            <ul class="list-inline text-center social-icons social-simple">
-                                <li>
-                                    <a href="https://www.linkedin.com/in/guybarnahum" target="_blank">
+
+                        <div class="portfolio-item infinite-item col-md-4 col-sm-4 filter-sw filter-tlv filter-sf">
+                            <figure class="portfolio-figure">
+                                <img class="svg-inject"
+                                    src="assets/images/people/GuyBarNahum.jpg"
+                                    alt="Guy Bar-Nahum"
+                                />
+                                <figcaption class="box-caption">
+                                    <h4><br>Likes<br> Coffee and Beer</h4>
+                                    <a class="link" href="https://www.linkedin.com/in/guybarnahum" target="_blank">
                                         <i class="fa fa-linkedin"></i>
                                     </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.linkedin.com/in/guybarnahum" target="_blank">
-                                        <i class="fa fa-facebook-square"></i>
+                                    <a class="more" href="https://www.linkedin.com/in/guybarnahum" target="_blank">
+                                    <i class="fa fa-facebook"></i>
                                     </a>
-                                </li>
-                            </ul>
-                        </li>
-                        
+                                </figcaption>
+                            </figure>
+                            <h3 class="text-center">
+                                <a href="https://www.linkedin.com/in/guybarnahum" target="_blank">
+                                    Guy Bar-Nahum
+                                </a>
+                                <small class="block">Software, UX & Strategy</small>
+                            </h3>
+                            <p class="text-center ">
+                                Ex VP UX Mobile @ Samsung, Ex Director iPod Software @ Apple
+                            </p>
+                        </div>
                         
                         <!-- David Tupman -->
-
-                        <li class="col-md-4 text-center os-animation" data-os-animation="fadeInUp" data-os-animation-delay=".3s">
-                            <div class="box-round box-huge">
-                                <div class="box-dummy"></div>
-                                <figure class="box-inner ">
+                        
+                        <div class="portfolio-item infinite-item same-height col-md-4 col-sm-4 filter-sf filter-hw filter-pd">
+                            <figure class="portfolio-figure">
                                 <img class="svg-inject"
-                                src="assets/images/people/DavidTupman.jpg"
-                                alt="David Tupman"
+                                    src="assets/images/people/DavidTupman.jpg"
+                                    alt="David Tupman"
                                 />
-                                    <figcaption class="box-caption">
-                                        <h4>Says</h4>
-                                        <p>I like ancient stuff</p>
-                                    </figcaption>
-                                </figure>
-                            </div>
+                                <figcaption class="box-caption">
+                                    <h4><br>Says I like<br>ancient stuff</h4>
+                                    <a class="link" href="https://www.linkedin.com/in/david-tupman-32048b" target="_blank">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+                                    <a class="more" href="https://www.linkedin.com/in/david-tupman-32048b" target="_blank">
+                                    <i class="fa fa-facebook"></i>
+                                    </a>
+                                </figcaption>
+                            </figure>
                             <h3 class="text-center">
                                 <a href="https://www.linkedin.com/in/david-tupman-32048b" target="_blank">
                                     David Tupman
                                 </a>
                                 <small class="block">Hardware, Product Design & Strategy</small>
                             </h3>
-                            <p class="text-center ">Ex VP iPhone Hardware @ Apple, Member of the Board @ Cirrus Logic @ PixelWorks, Technical Advisor to the Board @ Movidius</p>
-                            <ul class="list-inline text-center social-icons social-simple">
-                                <li>
-                                    <a href="https://www.linkedin.com/in/david-tupman-32048b" target="_blank">
-                                        <i class="fa fa-pinterest"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.linkedin.com/in/david-tupman-32048b" target="_blank">
-                                        <i class="fa fa-instagram"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        
+                            <p class="text-center ">Ex VP iPhone Hardware @ Apple, Member of the Board @ Cirrus Logic @ PixelWorks, Technical Advisor to the Board @ Movidius
+                            </p>
+                        </div>
+
                         <!-- Michael Rosenblatt -->
 
-                        <li class="col-md-4 text-center os-animation" data-os-animation="fadeInUp" data-os-animation-delay=".6s">
-                            <div class="box-round box-huge">
-                                <div class="box-dummy"></div>
-                                <figure class="box-inner ">
+                        <div class="portfolio-item infinite-item same-height col-md-4 col-sm-4 filter-sf filter-hw filter-sw filter-pd">
+                            <figure class="portfolio-figure">
                                 <img class="svg-inject"
-                                src="assets/images/people/MichaelRosenblatt.jpg"
-                                alt="Michael Rosenblatt"
+                                    src="assets/images/people/MichaelRosenblatt.jpg"
+                                    alt="Michael Rosenblatt"
                                 />
-                                    <figcaption class="box-caption">
-                                        <h4>Moto</h4>
-                                        <p>Live and let die</p>
-                                    </figcaption>
-                                </figure>
-                            </div>
+                                <figcaption class="box-caption">
+                                    <h4><br>Says<br>Lets build it</h4>
+                                    <a class="link" href="https://www.linkedin.com/in/mrosenblatt" target="_blank">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+                                    <a class="more" href="https://www.linkedin.com/in/mrosenblatt" target="_blank">
+                                    <i class="fa fa-facebook"></i>
+                                    </a>
+                                </figcaption>
+                            </figure>
                             <h3 class="text-center">
                                 <a href="https://www.linkedin.com/in/mrosenblatt" target="_blank">
                                     Michael Rosenblatt
                                 </a>
                                 <small class="block">Product Design, Manufacturing & Hardware Technologies</small>
                             </h3>
-                            <p class="text-center ">Ex Director @ Samsung, Apple, MIT </p>
-                            <ul class="list-inline text-center social-icons social-simple">
-                                <li>
-                                    <a href="https://www.linkedin.com/in/mrosenblatt" target="_blank">
-                                        <i class="fa fa-facebook-square"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.linkedin.com/in/mrosenblatt" target="_blank">
-                                        <i class="fa fa-dribbble"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.linkedin.com/in/mrosenblatt" target="_blank">
-                                        <i class="fa fa-google-plus-square"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        
-                        <!-- Oded Hermoni -->
+                            <p class="text-center ">
+                                Ex Director @ Samsung, Apple, MIT
+                            </p>
+                        </div>
 
-                        <li class="col-md-4 text-center os-animation" data-os-animation="fadeInUp" data-os-animation-delay=".6s">
-                            <div class="box-round box-huge">
-                                <div class="box-dummy"></div>
-                                <figure class="box-inner ">
+                        <!-- Oded Hermoni -->
+                        
+                        <div class="portfolio-item infinite-item same-height col-md-4 col-sm-4 filter-sf filter-tlv filter-vc">
+                            <figure class="portfolio-figure">
                                 <img class="svg-inject"
                                     src="assets/images/people/OdedHermoni.jpg"
                                     alt="Oded Hermoni"
                                 />
-                                    <figcaption class="box-caption">
-                                        <h4>Moto</h4>
-                                        <p>Show me the money!</p>
-                                    </figcaption>
-                                </figure>
-                            </div>
+                                <figcaption class="box-caption">
+                                    <h4><br>Says<br>Lets build it</h4>
+                                    <a class="link" href="https://www.linkedin.com/in/odedhermoni" target="_blank">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+                                    <a class="more" href="https://www.linkedin.com/in/odedhermoni" target="_blank">
+                                    <i class="fa fa-facebook"></i>
+                                    </a>
+                                </figcaption>
+                            </figure>
                             <h3 class="text-center">
                                 <a href="https://www.linkedin.com/in/odedhermoni" target="_blank">
                                     Oded Hermoni
@@ -278,374 +292,328 @@
                                 <small class="block">Early Stage Investments</small>
                             </h3>
                             <p class="text-center ">Israel and Bay Area VC @ Rhodium, J-Angels</p>
-                            <ul class="list-inline text-center social-icons social-simple">
-                                <li>
-                                    <a href="https://www.linkedin.com/in/odedhermoni" target="_blank">
-                                        <i class="fa fa-facebook-square"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.linkedin.com/in/odedhermoni" target="_blank">
-                                        <i class="fa fa-dribbble"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.linkedin.com/in/odedhermoni" target="_blank">
-                                        <i class="fa fa-google-plus-square"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <!-- End of People -->
-                        
-                    </ul>
+                        </div>
+                    
+                        <!-- End of Principals -->
+                    </div>
                 </div>
            
-           <!-- Advisors -->
+                <!-- Advisors -->
         
                 <header class="section-header underline">
                     <h1 class="headline super hairline">Advisors</h1>
                 </header>
                 <div class="row">
-                    <ul class="list-unstyled row box-list">
-                    
+                
+                    <ul class="isotope-filters text-center underline-active">
+                        <li>
+                            <a class="pseudo-border active" data-filter="*" href="#">
+                            all
+                            </a>
+                        </li>
+                        <li>
+                            <a class="pseudo-border" data-filter=".filter-sf" href="#">
+                            San Francisco
+                            </a>
+                        </li>
+                        <li>
+                            <a class="pseudo-border" data-filter=".filter-tlv" href="#">
+                            Tel Aviv
+                            </a>
+                        </li>
+                        <li>
+                            <a class="pseudo-border" data-filter=".filter-hw" href="#">
+                            Hardware
+                            </a>
+                        </li>
+                        <li>
+                            <a class="pseudo-border" data-filter=".filter-sw" href="#">
+                            Software
+                            </a>
+                        </li>
+                        <li>
+                            <a class="pseudo-border" data-filter=".filter-vc" href="#">
+                            Venture Capital
+                            </a>
+                        </li>
+                    </ul>
+                
+                
+                    <div class="portfolio isotope no-transition portfolio-round row">
+
                         <!-- Ran Reske -->
 
-                        <li class="col-md-4 text-center os-animation" data-os-animation="fadeInUp" data-os-animation-delay=".6s">
-                            <div class="box-round box-big">
-                                <div class="box-dummy"></div>
-                                <figure class="box-inner ">
+                        <div class="portfolio-item infinite-item col-md-4 col-sm-4 filter-sf filter-vc">
+                            <figure class="portfolio-figure">
                                 <img class="svg-inject"
                                     src="assets/images/people/RanReske.jpg"
                                     alt="Ran Reske"
                                 />
-                                    <figcaption class="box-caption">
-                                        <h4>Moto</h4>
-                                        <p>Show me the money!</p>
-                                    </figcaption>
-                                </figure>
-                            </div>
+                                <figcaption class="box-caption">
+                                    <br>
+                                    <h4>Moto<br>Show me the money!</h4>
+                                    <a class="link" href="https://www.linkedin.com/in/ran-reske-133ba31" target="_blank">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+                                    <a class="more" href="https://www.linkedin.com/in/ran-reske-133ba31" target="_blank">
+                                    <i class="fa fa-facebook"></i>
+                                    </a>
+                                </figcaption>
+                            </figure>
                             <h3 class="text-center">
                                 <a href="https://www.linkedin.com/in/ran-reske-133ba31" target="_blank">
                                     Ran Reske
                                 </a>
                                 <small class="block">Investments & Buisness Development</small>
                             </h3>
-                            <p class="text-center ">Ex VC @ Norwest Venture Partners</p>
-                            <ul class="list-inline text-center social-icons social-simple">
-                                <li>
-                                    <a href="https://www.linkedin.com/in/ran-reske-133ba31" target="_blank">
-                                        <i class="fa fa-facebook-square"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.linkedin.com/in/ran-reske-133ba31" target="_blank">
-                                        <i class="fa fa-linkedin"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
+                            <p class="text-center ">
+                                Ex VC @ Norwest Venture Partners
+                            </p>
+                        </div>
+                        
                         <!-- Shriram Narayanan -->
-
-                        <li class="col-md-4 text-center os-animation" data-os-animation="fadeInUp" data-os-animation-delay=".6s">
-                            <div class="box-round box-big">
-                                <div class="box-dummy"></div>
-                                <figure class="box-inner ">
+                        
+                        <div class="portfolio-item infinite-item col-md-4 col-sm-4 filter-sf filter-vc">
+                            <figure class="portfolio-figure">
                                 <img class="svg-inject"
                                     src="assets/images/people/Unknown.png"
                                     alt="Shriram Narayanan"
                                 />
-                                    <figcaption class="box-caption">
-                                        <h4>Says</h4>
-                                        <p>Lets do this!</p>
-                                    </figcaption>
-                                </figure>
-                            </div>
+                                <figcaption class="box-caption">
+                                    <br>
+                                    <h4>Moto<br>Show me the money!</h4>
+                                    <a class="link" href="https://www.linkedin.com/in/shriram-narayanan-949b86" target="_blank">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+                                    <a class="more" href="https://www.linkedin.com/in/shriram-narayanan-949b86" target="_blank">
+                                    <i class="fa fa-facebook"></i>
+                                    </a>
+                                </figcaption>
+                            </figure>
                             <h3 class="text-center">
                                 <a href="https://www.linkedin.com/in/shriram-narayanan-949b86" target="_blank">
                                     Shriram Narayanan
                                 </a>
                                 <small class="block">Finance and Strategy</small>
                             </h3>
-                            <p class="text-center ">Director Corporate Development @ Intel </p>
-                            <ul class="list-inline text-center social-icons social-simple">
-                                <li>
-                                    <a href="https://www.linkedin.com/in/shriram-narayanan-949b86" target="_blank">
-                                        <i class="fa fa-facebook-square"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.linkedin.com/in/shriram-narayanan-949b86" target="_blank">
-                                        <i class="fa fa-linkedin"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                            <p class="text-center ">
+                                Director Corporate Development @ Intel
+                            </p>
+                        </div>
                         
                         <!-- Michael Cornwell -->
-
-                        <li class="col-md-4 text-center os-animation" data-os-animation="fadeInUp" data-os-animation-delay=".6s">
-                            <div class="box-round box-big">
-                                <div class="box-dummy"></div>
-                                <figure class="box-inner ">
+                        
+                        <div class="portfolio-item infinite-item col-md-4 col-sm-4 filter-asia filter-hw filter-sw">
+                            <figure class="portfolio-figure">
                                 <img class="svg-inject"
                                     src="assets/images/people/MichaelCornwell.jpg"
                                     alt="Michael Cornwell"
                                 />
-                                    <figcaption class="box-caption">
-                                        <h4>Says</h4>
-                                        <p>Lets do this!</p>
-                                    </figcaption>
-                                </figure>
-                            </div>
+                                <figcaption class="box-caption">
+                                    <br>
+                                    <h4>Moto<br>Show me the money!</h4>
+                                    <a class="link" href="https://www.linkedin.com/in/cornwell" target="_blank">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+                                    <a class="more" href="https://www.linkedin.com/in/cornwell" target="_blank">
+                                    <i class="fa fa-facebook"></i>
+                                    </a>
+                                </figcaption>
+                            </figure>
                             <h3 class="text-center">
                                 <a href="https://sg.linkedin.com/in/cornwell" target="_blank">
                                     Michael Cornwell
                                 </a>
                                 <small class="block">Technology, Asia</small>
                             </h3>
-                            <p class="text-center ">Ex Apple, Sun, CTO Pure Storage</p>
-                            <ul class="list-inline text-center social-icons social-simple">
-                                <li>
-                                    <a href="https://sg.linkedin.com/in/cornwell" target="_blank">
-                                        <i class="fa fa-facebook-square"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://sg.linkedin.com/in/cornwell" target="_blank">
-                                        <i class="fa fa-linkedin"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
+                            <p class="text-center ">
+                                Ex Apple, Sun, CTO Pure Storage
+                            </p>                        
+                        </div>
+                        
                         <!-- Andy Grignon -->
 
-                        <li class="col-md-4 text-center os-animation" data-os-animation="fadeInUp" data-os-animation-delay=".6s">
-                            <div class="box-round box-big">
-                                <div class="box-dummy"></div>
-                                <figure class="box-inner ">
+                        <div class="portfolio-item infinite-item col-md-4 col-sm-4 filter-sf filter-sw filter-hw">
+                            <figure class="portfolio-figure">
                                 <img class="svg-inject"
                                     src="assets/images/people/AndyGrignon.jpg"
                                     alt="Andy Grignon"
                                 />
-                                    <figcaption class="box-caption">
-                                        <h4>Says</h4>
-                                        <p>Lets do this!</p>
-                                    </figcaption>
-                                </figure>
-                            </div>
+                                <figcaption class="box-caption">
+                                    <br>
+                                    <h4>Moto<br>Show me the money!</h4>
+                                    <a class="link" href="https://www.linkedin.com/in/andygrignon" target="_blank">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+                                    <a class="more" href="https://www.linkedin.com/in/andygrignon" target="_blank">
+                                    <i class="fa fa-facebook"></i>
+                                    </a>
+                                </figcaption>
+                            </figure>
                             <h3 class="text-center">
                                 <a href="https://www.linkedin.com/in/andygrignon" target="_blank">
                                     Andy Grignon
                                 </a>
                                 <small class="block">Software & Product Strategy</small>
                             </h3>
-                            <p class="text-center ">Ex VP webOS Apps & Platform @ Palm, Ex Apple</p>
-                            <ul class="list-inline text-center social-icons social-simple">
-                                <li>
-                                    <a href="https://www.linkedin.com/in/andygrignon" target="_blank">
-                                        <i class="fa fa-facebook-square"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.linkedin.com/in/andygrignon" target="_blank">
-                                        <i class="fa fa-linkedin"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
+                            <p class="text-center ">
+                                Ex VP webOS Apps & Platform @ Palm, Ex Apple
+                            </p>
+                        </div>
+                        
                         <!-- Jeff Dauber -->
 
-                        <li class="col-md-4 text-center os-animation" data-os-animation="fadeInUp" data-os-animation-delay=".6s">
-                            <div class="box-round box-big">
-                                <div class="box-dummy"></div>
-                                <figure class="box-inner ">
+                        <div class="portfolio-item infinite-item col-md-4 col-sm-4 filter-gallery filter-sf filter-hw filter-pd">
+                            <figure class="portfolio-figure">
                                 <img class="svg-inject"
                                     src="assets/images/people/JeffDauber.jpg"
                                     alt="Jeff Dauber"
                                 />
-                                    <figcaption class="box-caption">
-                                        <h4>Says</h4>
-                                        <p>Lets do this!</p>
-                                    </figcaption>
-                                </figure>
-                            </div>
+                                <figcaption class="box-caption">
+                                    <br>
+                                    <h4>Moto<br>Show me the money!</h4>
+                                    <a class="link" href="https://www.linkedin.com/in/jeff-dauber-936162" target="_blank">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+                                    <a class="more" href="https://www.linkedin.com/in/jeff-dauber-936162" target="_blank">
+                                    <i class="fa fa-facebook"></i>
+                                    </a>
+                                </figcaption>
+                            </figure>
                             <h3 class="text-center">
                                 <a href="https://www.linkedin.com/in/jeff-dauber-936162" target="_blank">
                                     Jeff Dauber
                                 </a>
                                 <small class="block">Hardware & Product Engineering</small>
                             </h3>
-                            <p class="text-center ">Ex Sr. Director iPhone, Watch, Mac and Core Technologies @ Apple</p>
-                            <ul class="list-inline text-center social-icons social-simple">
-                                <li>
-                                    <a href="https://www.linkedin.com/in/jeff-dauber-936162" target="_blank">
-                                        <i class="fa fa-facebook-square"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.linkedin.com/in/jeff-dauber-936162" target="_blank">
-                                        <i class="fa fa-linkedin"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
+                            <p class="text-center ">
+                                Ex Sr. Director iPhone, Watch, Mac and Core Technologies @ Apple
+                            </p>
+                        </div>
+                        
                         <!-- Jesse Dorogusker -->
-
-                        <li class="col-md-4 text-center os-animation" data-os-animation="fadeInUp" data-os-animation-delay=".6s">
-                            <div class="box-round box-big">
-                                <div class="box-dummy"></div>
-                                <figure class="box-inner ">
+                        
+                        <div class="portfolio-item infinite-item col-md-4 col-sm-4 filter-sf filter-hw filter-sw filter-pd">
+                            <figure class="portfolio-figure">
                                 <img class="svg-inject"
                                     src="assets/images/people/JesseDorogusker.jpg"
                                     alt="Jesse Dorogusker"
                                 />
-                                    <figcaption class="box-caption">
-                                        <h4>Says</h4>
-                                        <p>Lets do this!</p>
-                                    </figcaption>
-                                </figure>
-                            </div>
+                                <figcaption class="box-caption">
+                                    <br>
+                                    <h4>Moto<br>Show me the money!</h4>
+                                    <a class="link" href="https://www.linkedin.com/in/jessedorogusker" target="_blank">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+                                    <a class="more" href="https://www.linkedin.com/in/jessedorogusker" target="_blank">
+                                    <i class="fa fa-facebook"></i>
+                                    </a>
+                                </figcaption>
+                            </figure>
                             <h3 class="text-center">
                                 <a href="https://www.linkedin.com/in/jessedorogusker" target="_blank">
-                                    Jesse Dorogusker
+                                Jesse Dorogusker
                                 </a>
                                 <small class="block">Hardware & Product Engineering</small>
                             </h3>
-                            <p class="text-center ">Ex Director Engineering iPhone | iPad | iPod Accessories @ Apple, Hardware Lead @ Square</p>
-                            <ul class="list-inline text-center social-icons social-simple">
-                                <li>
-                                    <a href="https://www.linkedin.com/in/jessedorogusker" target="_blank">
-                                        <i class="fa fa-facebook-square"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.linkedin.com/in/jessedorogusker" target="_blank">
-                                        <i class="fa fa-linkedin"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                            <p class="text-center ">
+                                Ex Director Engineering iPhone | iPad | iPod Accessories @ Apple, Hardware Lead @ Square
+                            </p>
+                        </div>
                         
                         <!-- Moe Tanabian -->
-
-                        <li class="col-md-4 text-center os-animation" data-os-animation="fadeInUp" data-os-animation-delay=".6s">
-                            <div class="box-round box-big">
-                                <div class="box-dummy"></div>
-                                <figure class="box-inner ">
+                        
+                         <div class="portfolio-item infinite-item col-md-4 col-sm-4 filter-sf filter-hw filter-pd filter-sw">
+                            <figure class="portfolio-figure">
                                 <img class="svg-inject"
                                     src="assets/images/people/MoeTanabian.jpg"
                                     alt="Moe Tanabian"
                                 />
-                                    <figcaption class="box-caption">
-                                        <h4>Says</h4>
-                                        <p>IoT is cool</p>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                            <h3 class="text-center">
-                                    <a href="https://www.linkedin.com/in/mtanabian" target="_blank">
-                                        Moe Tanabian
-                                    </a>
-                                    <small class="block">Hardware & Product Engineering</small>
-                            </h3>
-                            <p class="text-center ">VP IoT Innovation Lab @ Samsung, Kindle Engineering @ Amazon</p>
-                            <ul class="list-inline text-center social-icons social-simple">
-                                <li>
-                                    <a href="https://www.linkedin.com/in/mtanabian" target="_blank">
-                                        <i class="fa fa-facebook-square"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.linkedin.com/in/mtanabian" target="_blank">
+                                <figcaption class="box-caption">
+                                    <br>
+                                    <h4>Moto<br>Show me the money!</h4>
+                                    <a class="link" href="https://www.linkedin.com/in/mtanabian" target="_blank">
                                         <i class="fa fa-linkedin"></i>
                                     </a>
-                                </li>
-                            </ul>
-                        </li>
-
+                                    <a class="more" href="https://www.linkedin.com/in/mtanabian" target="_blank">
+                                    <i class="fa fa-facebook"></i>
+                                    </a>
+                                </figcaption>
+                            </figure>
+                            <h3 class="text-center">
+                                <a href="https://www.linkedin.com/in/mtanabian" target="_blank">
+                                    Moe Tanabian
+                                </a>
+                                <small class="block">Hardware & Product Engineering</small>
+                            </h3>
+                            <p class="text-center ">
+                                VP IoT Innovation Lab @ Samsung, Kindle Engineering @ Amazon
+                            </p>
+                        </div>
+ 
                         <!-- Alan Messer -->
 
-                        <li class="col-md-4 text-center os-animation" data-os-animation="fadeInUp" data-os-animation-delay=".6s">
-                            <div class="box-round box-big">
-                                <div class="box-dummy"></div>
-                                <figure class="box-inner ">
+                         <div class="portfolio-item infinite-item col-md-4 col-sm-4 filter-sf filter-sw">
+                            <figure class="portfolio-figure">
                                 <img class="svg-inject"
                                     src="assets/images/people/AlanMesser.jpg"
                                     alt="Alan Messer"
                                 />
-                                    <figcaption class="box-caption">
-                                        <h4>Says</h4>
-                                        <p>Go UK, Go!</p>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                            <h3 class="text-center">
-                                    <a href="https://www.linkedin.com/in/alanmesser" target="_blank">
-                                        Alan Messer
-                                    </a>
-                                    <small class="block">IoT and AI Platfrom Software</small>
-                            </h3>
-                            <p class="text-center ">VP Advanced Software Technology @ Samsung</p>
-                            <ul class="list-inline text-center social-icons social-simple">
-                                <li>
-                                    <a href="https://www.linkedin.com/in/alanmesser" target="_blank">
-                                        <i class="fa fa-facebook-square"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.linkedin.com/in/alanmesser" target="_blank">
+                                <figcaption class="box-caption">
+                                    <br>
+                                    <h4>Moto<br>Show me the money!</h4>
+                                    <a class="link" href="https://www.linkedin.com/in/alanmesser" target="_blank">
                                         <i class="fa fa-linkedin"></i>
                                     </a>
-                                </li>
-                            </ul>
-                        </li>
+                                    <a class="more" href="https://www.linkedin.com/in/alanmesser" target="_blank">
+                                    <i class="fa fa-facebook"></i>
+                                    </a>
+                                </figcaption>
+                            </figure>
+                            <h3 class="text-center">
+                                <a href="https://www.linkedin.com/in/alanmesser" target="_blank">
+                                    Alan Messer
+                                </a>
+                                <small class="block">IoT and AI Platfrom Software</small>
+                            </h3>
+                            <p class="text-center ">
+                                VP Advanced Software Technology @ Samsung
+                            </p>
+                        </div>
                         
                         <!-- BC Hwang -->
 
-                        <li class="col-md-4 text-center os-animation" data-os-animation="fadeInUp" data-os-animation-delay=".6s">
-                            <div class="box-round box-big">
-                                <div class="box-dummy"></div>
-                                <figure class="box-inner ">
+                         <div class="portfolio-item infinite-item col-md-4 col-sm-4 filter-asia filter-sw filter-vc">
+                            <figure class="portfolio-figure">
                                 <img class="svg-inject"
                                     src="assets/images/people/BCHwang.jpg"
                                     alt="BC Hwang"
                                 />
-                                    <figcaption class="box-caption">
-                                        <h4>Says</h4>
-                                        <p>Go Korea, Go!</p>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                            <h3 class="text-center">
-                                    <a href="https://www.linkedin.com/in/kinghwang" target="_blank">
-                                        Byeong Cheol (BC) Hwang
-                                    </a>
-                                    <small class="block">Samsung Business Development, Korea</small>
-                            </h3>
-                            <p class="text-center ">Sr. Director Mobile UX @ Samsung</p>
-                            <ul class="list-inline text-center social-icons social-simple">
-                                <li>
-                                    <a href="https://www.linkedin.com/in/kinghwang" target="_blank">
-                                        <i class="fa fa-facebook-square"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.linkedin.com/in/kinghwang" target="_blank">
+                                <figcaption class="box-caption">
+                                    <br>
+                                    <h4>Moto<br>Show me the money!</h4>
+                                    <a class="link" href="https://www.linkedin.com/in/kinghwang" target="_blank">
                                         <i class="fa fa-linkedin"></i>
                                     </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <!-- End of Advisors -->
+                                    <a class="more" href="https://www.linkedin.com/in/kinghwang" target="_blank">
+                                    <i class="fa fa-facebook"></i>
+                                    </a>
+                                </figcaption>
+                            </figure>
+                            <h3 class="text-center">
+                                <a href="https://www.linkedin.com/in/kinghwang" target="_blank">
+                                    Byeong Cheol (BC) Hwang
+                                </a>
+                                <small class="block">Samsung Business Development, Korea</small>
+                            </h3>
+                            <p class="text-center ">
+                                Sr. Director Mobile UX @ Samsung
+                            </p>
+                        </div>
                         
-                    </ul>
+                        <!-- End of Advisors -->
+                    
+                    </div>
                 </div>
             </div>
 
@@ -1060,5 +1028,108 @@
         <script src="assets/js/contact.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js"></script>
         <script src="assets/js/map.min.js"></script>
+        
+        <!-- When using isotope in portfolio class set it to fitRows layout -->
+        <script>
+            $(document).ready( function() {
+                $('.portfolio').isotope({
+                    layoutMode: 'fitRows',
+                    itemSelector: '.portfolio-item'
+                });
+            });
+        </script>
+        
+<!--
+<ul class="list-unstyled isotope no-transition">
+    <li class="col-md-4 post-item filter-images isotope-item">
+        <div class="grid-post swatch-red-white">
+            <article class="post post-showinfo">
+                <div class="post-media overlay">
+                    <a class="feature-image magnific hover-animate" href="assets/images/design/vector/img-4-800x600.png" title="Thats a nice image">
+                        <img alt="some image" src="assets/images/design/vector/img-4-800x600.png">
+                        <i class="fa fa-search-plus"></i>
+                    </a>
+                </div>
+                <div class="post-head small-screen-center">
+                    <h2 class="post-title">
+                        <a href="post.html">
+                            This theme is so nice!
+                        </a>
+                    </h2>
+                    <small class="post-author">
+                        <a href="blog.html">John Langan,</a>
+                    </small>
+                    <small class="post-date">
+                        <a href="post.html">12 August 2014</a>
+                    </small>
+                    <div class="post-icon flat-shadow flat-hex">
+                        <div class="hex hex-big">
+                            <i class="fa fa-camera"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="post-body">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, quo, veniam culpa maiores iure distinctio atque similique veritatis rem et adipisci eveniet aspernatur aut sapiente amet doloremque eos quasi numquam.Lorem ipsum dolor sit amet, consectetur
+                        adipisicing elit. Facilis, quo, veniam culpa maiores iure distinctio atque similique veritatis rem et adipisci eveniet aspernatur aut sapiente amet doloremque eos quasi numquam.
+                    </p>
+                    <a class="more-link" href="post.html">
+                        read more
+                    </a>
+                </div>
+                <div class="bordered post-extras text-center">
+                    <div class="text-center">
+                        <span class="post-category">
+                            <a href="post.html">
+                                <i class="fa fa-folder-open"></i>
+                                Flat world
+                            </a>
+                        </span>
+                        <span class="post-tags">
+                            <i class="fa fa-tags"></i>
+                            <a href="post.html">
+                              Design
+                            </a>
+                        </span>
+                        <span class="post-link">
+                          <a href="post.html">
+                            <i class="fa fa-comments"></i>
+                            2 comments
+                          </a>
+                        </span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </li>
+</ul>
+
+<div class="portfolio isotope no-transition portfolio-round portfolio-shadows row">
+    <div class="portfolio-item infinite-item col-md-4 col-sm-4 filter-gallery filter-image">
+        <figure class="portfolio-figure">
+            <a href="portfolio-item-big.html">
+                <img width="600" height="518" src="assets/images/design/vector/img-8-600x600.png" class="img-responsive" alt="some image">
+            </a>
+            <figcaption>
+                <h4>
+                    <a href="portfolio-item-big.html">
+                        Gallery items
+                    </a>
+                </h4>
+                <p>You think water moves fast? You should see ice.</p>
+                <a class="magnific-gallery more" data-links="assets/images/design/vector/img-4-1200x600.png,assets/images/design/vector/img-3-1200x600.png" data-prev-text="Previous" data-next-text="Next">
+                    <i class="fa fa-search-plus"></i>
+                </a>
+                <a class="link" href="portfolio-item-big.html">
+                    <i class="fa fa-link"></i>
+                </a>
+            </figcaption>
+        </figure>
+    </div>
+</div>
+
+-->
+
+        
     </body>
 </html>
