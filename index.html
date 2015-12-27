@@ -1143,7 +1143,8 @@
         var app = new annotator.App();
         
         app.include(annotator.ui.main);
-        app.include(annotator.storage.http, { prefix: 'annotator/'});
+        app.include(annotator.storage.debug);
+        // app.include(annotator.storage.http, { prefix: 'annotator/'});
         app.start()
            .then(function () {
            app.annotations.load();
