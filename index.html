@@ -1137,6 +1137,20 @@
             });
         </script>
         
+        <!-- Annotator -->
+        <script src="assets/js/annotator.min.js"></script>
+        <script>
+        var app = new annotator.App();
+        
+        app.include(annotator.ui.main);
+        app.include(annotator.storage.http, { prefix: 'annotator/'});
+        app.start()
+           .then(function () {
+           app.annotations.load();
+        });
+        
+        </script>
+        
 <!--
 <ul class="list-unstyled isotope no-transition">
     <li class="col-md-4 post-item filter-images isotope-item">
