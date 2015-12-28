@@ -1148,7 +1148,8 @@
         $('.container').annotator()
                        .annotator('setupPlugins', null, {
                             Auth: { 
-                                tokenUrl: 'http://reactor.barnahum.com/jwt/token.php'
+                                tokenUrl: '/jwt/token.php'
+                            //    tokenUrl: 'http://reactor.barnahum.com/jwt/token.php'
                             },
                             Permissions: false,
                             AnnotateItPermissions: {}
