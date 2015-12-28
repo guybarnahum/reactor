@@ -1121,6 +1121,7 @@
         <a class="go-top" href="javascript:void(0)">
             <i class="fa fa-angle-up"></i>
         </a>
+
         <script src="assets/js/packages.min.js"></script>
         <script src="assets/js/theme.min.js"></script>
         <script src="assets/js/contact.min.js"></script>
@@ -1138,18 +1139,18 @@
         </script>
         
         <!-- Annotator -->
-        <script src="assets/js/annotator.min.js"></script>
+        <script src="http://assets.annotateit.org/annotator/v1.2.10/annotator-full.min.js"></script>
+        <link rel="stylesheet" href="http://assets.annotateit.org/annotator/v1.2.10/annotator.min.css">
+        
         <script>
-        var app = new annotator.App();
-        
-        app.include(annotator.ui.main);
-        app.include(annotator.storage.debug);
-        // app.include(annotator.storage.http, { prefix: 'annotator/'});
-        app.start()
-           .then(function () {
-           app.annotations.load();
-        });
-        
+        $('body').annotator()
+                    .annotator('setupPlugins', null, {
+                            Auth: { 
+                                tokenUrl: 'http://barnahum.com/jwt/token.php'
+                            },
+                            Permissions: false,
+                            AnnotateItPermissions: {}
+                    });
         </script>
         
 <!--
