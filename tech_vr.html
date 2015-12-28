@@ -262,10 +262,10 @@
         
         $('.container').annotator()
                        .annotator('setupPlugins', null, {
-                            Filter: false,
                             Auth: {
                                 tokenUrl: 'http://reactor.barnahum.com/jwt/token.php'
                             },
+                            Filter: false,
                             Permissions: false,
                             AnnotateItPermissions: {}
                     });
