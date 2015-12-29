@@ -13,6 +13,7 @@
 		640B8F361C28C54200BD8EB7 /* tech_iot.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = tech_iot.html; path = ../reactor/tech_iot.html; sourceTree = "<group>"; };
 		640B8F371C28C54200BD8EB7 /* tech_vr.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = tech_vr.html; path = ../reactor/tech_vr.html; sourceTree = "<group>"; };
 		640B8F381C2A189700BD8EB7 /* how-we-work.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "how-we-work.html"; path = "../reactor/how-we-work.html"; sourceTree = "<group>"; };
+		6475AC711C2C9A1E001A1E41 /* gitevent.php */ = {isa = PBXFileReference; lastKnownFileType = text.script.php; path = gitevent.php; sourceTree = "<group>"; };
 		64C927FC1C24B93700719DC1 /* 404.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = 404.html; sourceTree = "<group>"; };
 		64C927FD1C24B93700719DC1 /* about-me.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "about-me.html"; sourceTree = "<group>"; };
 		64C927FE1C24B93700719DC1 /* about-us-home.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "about-us-home.html"; sourceTree = "<group>"; };
@@ -606,6 +607,7 @@
 				64C928301C24B93700719DC1 /* assets */,
 				64C929E01C24B93700719DC1 /* vendor */,
 				64C92A5F1C24B93700719DC1 /* contact_mailer.php */,
+				6475AC711C2C9A1E001A1E41 /* gitevent.php */,
 			);
 			sourceTree = "<group>";
 		};
