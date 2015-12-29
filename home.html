@@ -178,17 +178,22 @@
             // call back function from url
             $.getJSON( url, function(data) {
                 
-                for( item in data ){
+                if (data instanceof Array){
                     
-                    if ( item.hasOwnProperty('content') ){
-                        q   = "“" + item.content + "”";
-                        who = item.hasOwnProperty('title')? item.title:"Unknown";
-                        q  += "<br><br>- "+ who;
+                    for( var ix = 0; ix < data.length; ix++  ){
                         
-                        alert(q);
-                    }
-                    else{
-                        console.log(item);
+                        var item = data[ ix ];
+                        
+                        if ( item.hasOwnProperty('content') ){
+                            q   = "“" + item.content + "”";
+                            who = item.hasOwnProperty('title')? item.title:"Unknown";
+                            q  += "<br><br>- "+ who;
+                            
+                            console.log(ix +" : " +q);
+                        }
+                        else{
+                            console.log(item);
+                        }
                     }
                 }
             });
