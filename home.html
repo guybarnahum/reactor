@@ -170,6 +170,19 @@
         "“ Science is what we understand well enough to explain to a computer. Art is everything else we do.” <br><br><b>- Donald Knuth",
         ];
         
+        function init_design_qoutes( num )
+        {
+            var url  = 'http://quotesondesign.com/wp-json/posts';
+                url += '?filter[orderby]=rand&filter[posts_per_page]=' + num;
+                
+            // call back function from url
+            $.getJSON( url, function(data) {
+                alert(data)
+                });
+        }
+        
+        init_design_qoutes( qoutes.length );
+        
         function get_random_qoute()
         {
             return qoutes[ Math.floor(Math.random()*qoutes.length) ];
