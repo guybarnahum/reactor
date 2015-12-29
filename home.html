@@ -185,14 +185,15 @@
                         var item = data[ ix ];
                         
                         if ( item.hasOwnProperty('content') ){
-                            q   = "“" + item.content + "”";
+                            q = "“" + item.content + "”";
+                            q = q.replace( "<p>", "");
+                            q = q.replace( "</p>","");
+                            
                             who = item.hasOwnProperty('title')? item.title:"Unknown";
                             q  += "<br><br>- "+ who;
                             
                             console.log(ix +" : " +q);
-                        }
-                        else{
-                            console.log(item);
+                            qoutes.push( q );
                         }
                     }
                 }
