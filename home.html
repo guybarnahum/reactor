@@ -177,8 +177,21 @@
                 
             // call back function from url
             $.getJSON( url, function(data) {
-                alert(data)
-                });
+                
+                for( item in data ){
+                    
+                    if ( item.hasOwnProperty('content') ){
+                        q   = "“" + item.content + "”";
+                        who = item.hasOwnProperty('title')? item.title:"Unknown";
+                        q  += "<br><br>- "+ who;
+                        
+                        alert(q);
+                    }
+                    else{
+                        console.log(item);
+                    }
+                }
+            });
         }
         
         init_design_qoutes( qoutes.length );
