@@ -1,0 +1,9 @@
+@media print {
+        
+.pagebreak { page-break-before: always; }
+        
+.isotope-filters,.decor-top,.annotator-notice { display: none; }
+
+a[href]:after { content: none !important; }
+
+}
