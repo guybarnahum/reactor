@@ -42,6 +42,16 @@
             background: #e74c3c;
             color: #fff;
         }
+        
+        @media print {
+        
+        .pagebreak { page-break-before: always; }
+        
+        .isotope-filters { display: none; }
+        .decor-top { display: none; }
+        
+        }
+        
         </style>
         
     </head>
@@ -86,7 +96,7 @@
                 </nav>
             </div>
         </header>
-        
+
         <!-- Home -->
         
         <section class="section swatch-red-white" id="home">
@@ -111,7 +121,7 @@
         
         <!-- What we do -->
         
-        <section class="section swatch-red-white">
+        <section class="section pagebreak swatch-red-white">
              <div class="decor-top">
                 <svg class="decor" height="100%" preserveaspectratio="none" version="1.1" viewbox="0 0 100 100" width="100%" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0 0 L100 100 L0 100" stroke-width="0"></path>
@@ -136,18 +146,18 @@
 
         <!-- People -->
         
-        <section class="section swatch-white-red has-top" id="people">
+        <section class="section pagebreak swatch-white-red has-top" id="people">
             <div class="decor-top">
                 <svg class="decor" height="100%" preserveaspectratio="none" version="1.1" viewbox="0 0 100 100" width="100%" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0 100 L100 0 L100 100" stroke-width="0"></path>
                 </svg>
             </div>
             
-            <!-- Principals -->
+            <!-- Partners -->
             
             <div class="container">
                 <header class="section-header underline">
-                    <h1 class="headline super hairline">People</h1>
+                    <h1 class="headline super hairline">Partners</h1>
                 </header>
                 
                 <div class="row">
@@ -223,34 +233,6 @@
                             </p>
                         </div>
                         
-                        <!-- David Tupman -->
-                        
-                        <div class="portfolio-item infinite-item same-height col-md-4 col-sm-4 in-sf hw pd">
-                            <figure class="portfolio-figure">
-                                <img class="svg-inject"
-                                    src="assets/images/people/DavidTupman.jpg"
-                                    alt="David Tupman"
-                                />
-                                <figcaption class="box-caption">
-                                    <h4><br>Says I like<br> ancient stuff</h4>
-                                    <a class="link" href="https://www.linkedin.com/in/david-tupman-32048b" target="_blank">
-                                        <i class="fa fa-linkedin"></i>
-                                    </a>
-                                    <a class="more" href="https://www.linkedin.com/in/david-tupman-32048b" target="_blank">
-                                    <i class="fa fa-facebook"></i>
-                                    </a>
-                                </figcaption>
-                            </figure>
-                            <h3 class="text-center">
-                                <a href="https://www.linkedin.com/in/david-tupman-32048b" target="_blank">
-                                    David Tupman
-                                </a>
-                                <small class="block">Hardware, Product Design & Strategy</small>
-                            </h3>
-                            <p class="text-center ">Ex VP iPhone Hardware @ Apple, Member of the Board @ Cirrus Logic @ PixelWorks, Technical Advisor to the Board @ Movidius
-                            </p>
-                        </div>
-
                         <!-- Michael Rosenblatt -->
 
                         <div class="portfolio-item infinite-item same-height col-md-4 col-sm-4 in-sf hw sw pd">
@@ -311,60 +293,42 @@
                     </div>
                 </div>
            
-                <!-- Advisors -->
-        
+                <!-- Advisory Board -->
+                
                 <header class="section-header underline">
-                    <h1 class="headline super hairline">Advisers</h1>
+                    <h1 class="headline super hairline">Advisory Board</h1>
                 </header>
                 <div class="row">
-                
-                    <ul class="isotope-filters text-center underline-active">
-                        <li>
-                            <a class="pseudo-border active" data-filter="*" href="#">
-                            All
-                            </a>
-                        </li>
-                        <br>
-                        <li>
-                            <a class="pseudo-border" data-filter=".in-sf" href="#">
-                            San Francisco
-                            </a>
-                        </li>
-                        <li>
-                            <a class="pseudo-border" data-filter=".in-tlv" href="#">
-                            Tel Aviv
-                            </a>
-                        </li>
-                        <li>
-                            <a class="pseudo-border" data-filter=".in-asia" href="#">
-                            Asia
-                            </a>
-                        </li>
-                        <br>
-                        <li>
-                            <a class="pseudo-border" data-filter=".hw" href="#">
-                            Hardware
-                            </a>
-                        </li>
-                        <li>
-                            <a class="pseudo-border" data-filter=".sw" href="#">
-                            Software / User Experience
-                            </a>
-                        </li>
-                        <li>
-                            <a class="pseudo-border" data-filter=".pd" href="#">
-                            Product Design
-                            </a>
-                        </li>
-                        <li>
-                            <a class="pseudo-border" data-filter=".vc" href="#">
-                            Venture Capital
-                            </a>
-                        </li>
-                    </ul>
-                
                     <div class="portfolio isotope no-transition portfolio-round row">
 
+                        <!-- David Tupman -->
+                        
+                        <div class="portfolio-item infinite-item same-height col-md-4 col-sm-4 in-sf hw pd">
+                            <figure class="portfolio-figure">
+                                <img class="svg-inject"
+                                    src="assets/images/people/DavidTupman.jpg"
+                                    alt="David Tupman"
+                                />
+                                <figcaption class="box-caption">
+                                    <h4><br>Says I like<br> ancient stuff</h4>
+                                    <a class="link" href="https://www.linkedin.com/in/david-tupman-32048b" target="_blank">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+                                    <a class="more" href="https://www.linkedin.com/in/david-tupman-32048b" target="_blank">
+                                    <i class="fa fa-facebook"></i>
+                                    </a>
+                                </figcaption>
+                            </figure>
+                            <h3 class="text-center">
+                                <a href="https://www.linkedin.com/in/david-tupman-32048b" target="_blank">
+                                    David Tupman
+                                </a>
+                                <small class="block">Hardware, Product Design & Strategy</small>
+                            </h3>
+                            <p class="text-center ">Ex VP iPhone Hardware @ Apple, Member of the Board @ Cirrus Logic @ PixelWorks, Technical Advisor to the Board @ Movidius
+                            </p>
+                        </div>
+                        
                         <!-- Ran Reske -->
 
                         <div class="portfolio-item infinite-item col-md-4 col-sm-4 
@@ -426,6 +390,62 @@
                                 Director Corporate Development @ Intel
                             </p>
                         </div>
+                    </div>
+                </div>
+                
+                <!-- Startup Mentors -->
+                
+                <header class="section-header underline">
+                    <h1 class="headline super hairline">Startup Mentors</h1>
+                </header>
+                <div class="row">
+                
+                    <ul class="isotope-filters text-center underline-active">
+                        <li>
+                            <a class="pseudo-border active" data-filter="*" href="#">
+                            All
+                            </a>
+                        </li>
+                        <br>
+                        <li>
+                            <a class="pseudo-border" data-filter=".in-sf" href="#">
+                            San Francisco
+                            </a>
+                        </li>
+                        <li>
+                            <a class="pseudo-border" data-filter=".in-tlv" href="#">
+                            Tel Aviv
+                            </a>
+                        </li>
+                        <li>
+                            <a class="pseudo-border" data-filter=".in-asia" href="#">
+                            Asia
+                            </a>
+                        </li>
+                        <br>
+                        <li>
+                            <a class="pseudo-border" data-filter=".hw" href="#">
+                            Hardware
+                            </a>
+                        </li>
+                        <li>
+                            <a class="pseudo-border" data-filter=".sw" href="#">
+                            Software / User Experience
+                            </a>
+                        </li>
+                        <li>
+                            <a class="pseudo-border" data-filter=".pd" href="#">
+                            Product Design
+                            </a>
+                        </li>
+                        <li>
+                            <a class="pseudo-border" data-filter=".vc" href="#">
+                            Venture Capital
+                            </a>
+                        </li>
+                    </ul>
+                
+                    <div class="portfolio isotope no-transition portfolio-round row">
                         
                         <!-- Michael Cornwell -->
                         
@@ -654,7 +674,7 @@
         
         <!-- How We Work-->
         
-        <section class="section swatch-red-white" id="how-we-work">
+        <section class="section pagebreak swatch-red-white" id="how-we-work">
         
             <div class="decor-top">
                 <svg class="decor" height="100%" preserveaspectratio="none" version="1.1" viewbox="0 0 100 100" width="100%" xmlns="http://www.w3.org/2000/svg">
@@ -724,7 +744,7 @@
 
         <!-- What makes us different? -->
         
-        <section class="section swatch-red-white">
+        <section class="section pagebreak swatch-red-white">
             <div class="decor-top">
                 <svg class="decor" height="100%" preserveaspectratio="none" version="1.1" viewbox="0 0 100 100" width="100%" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0 0 L50 100 L100 0 L100 100 L0 100" stroke-width="0"></path>
@@ -777,7 +797,7 @@
                             <div class="box-round box-medium">
                                 <div class="box-dummy"></div>
                                 <div class="box-inner">
-                                    <img width="256" height="256" src="assets/images/iot-icon.png" class="attachment-square-image-small wp-post-image" alt="Focus" draggable="false">
+                                    <i class="fa fa-bullseye"></i>
                                 </div>
                             </div>
                             <h3 class="text-center ">
@@ -818,7 +838,7 @@
         
         <!-- Tel Aviv -->
         
-        <section class="section swatch-red-white" id="tlv">
+        <section class="section pagebreak swatch-red-white" id="tlv">
             <div class="decor-top">
                 <svg class="decor" height="100%" preserveaspectratio="none" version="1.1" viewbox="0 0 100 100" width="100%" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0 0 L50 100 L100 0 L100 100 L0 100" stroke-width="0"></path>
@@ -891,7 +911,7 @@
 
         <!-- Why San Francisco -->
         
-        <section class="section swatch-white-red">
+        <section class="section pagebreak swatch-white-red">
         
             <div class="decor-top">
                 <svg class="decor" height="100%" preserveaspectratio="none" version="1.1" viewbox="0 0 100 100" width="100%" xmlns="http://www.w3.org/2000/svg">
@@ -937,7 +957,7 @@
 
         <!-- Internet-Of-Things -->
         
-        <section class="section swatch-red-white" id="iot">
+        <section class="section pagebreak swatch-red-white" id="iot">
             <div class="decor-top">
                 <svg class="decor" height="100%" preserveaspectratio="none" version="1.1" viewbox="0 0 100 100" width="100%" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0 0 L100 100 L0 100" stroke-width="0"></path>
@@ -1019,7 +1039,7 @@
         
         <!-- Contact -->
 
-        <section class="section swatch-white-red has-top" id="contact">
+        <section class="section hidden-print pagebreak swatch-white-red has-top" id="contact">
         
             <div class="decor-top">
                 <svg class="decor" height="100%" preserveaspectratio="none" version="1.1" viewbox="0 0 100 100" width="100%" xmlns="http://www.w3.org/2000/svg">
@@ -1082,7 +1102,7 @@
         <!-- Footer -->
         
         <footer id="footer" role="contentinfo">
-            <section class="section swatch-red-white has-top">
+            <section class="section hidden-print swatch-red-white has-top">
                 <div class="decor-top">
                     <svg class="decor" height="100%" preserveaspectratio="none" version="1.1" viewbox="0 0 100 100" width="100%" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0 0 L50 100 L100 0 L100 100 L0 100" stroke-width="0"></path>
