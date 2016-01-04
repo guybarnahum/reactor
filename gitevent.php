@@ -7,14 +7,14 @@ require 'vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
 function get_version( $touch = false )
 {
     $cwd   = __DIR__;
-    $ver   = file_get_contents( "$cwd/version.txt" );
-    $build = file_get_contents( "$cwd/build.txt"   );
+    $ver   = @file_get_contents( "$cwd/version.txt" );
+    $build = @file_get_contents( "$cwd/build.txt"   );
     
     $num = intval( $build ); // its 0 in case of missing or invalid value
     
     if ( $touch ){
         $num += 1;
-        file_put_contents( './build.txt' , $num  );
+        @file_put_contents( "$cwd/build.txt" , $num  );
     }
     
     return "$ver$num";
