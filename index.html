@@ -1259,20 +1259,21 @@
         
          var url  = 'http://reactor.barnahum.com/version.php';
                 
-            // call back function from url
-            $.getJSON( url, function(data) {
+        // call back function from url
+        $.getJSON( url, function(data) {
+            
+            alert( data );
+            if (data instanceof String){
                 
-                if (data instanceof String){
-                    
-                    console.log( 'version data :' + data );
-                    
-                    if (data.length > 12){
-                        data = data.substr(0,11)+'&hellip;';
-                        console.log( 'version data shorten to :' + data );
-                    }
-                    
-                    $('.version').text( data );
+                console.log( 'version data :' + data );
+                
+                if (data.length > 12){
+                    data = data.substr(0,11)+'&hellip;';
+                    console.log( 'version data shorten to :' + data );
                 }
+                
+                $('.version').text( data );
+            }
             });
             
         </script>
