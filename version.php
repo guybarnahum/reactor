@@ -15,4 +15,4 @@ function get_version( $touch = false )
     return "$ver$num";
 }
     
-echo get_version();
+echo json_encode(get_version());
