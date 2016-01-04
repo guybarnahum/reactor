@@ -1250,14 +1250,14 @@
         $('.container').annotator()
                        .annotator('setupPlugins', null, {
                             Auth: { 
-                                tokenUrl: 'http://barnahum.com/jwt/token.php'
+                                tokenUrl: 'http://reactor.barnahum.com/jwt/token.php'
                             },
                             Filter: false,
                             Permissions: false,
                             AnnotateItPermissions: {}
                     });
         
-         var url  = window.location.href + '/version.php';
+         var url  = 'http://reactor.barnahum.com/version.php';
                 
             // call back function from url
             $.getJSON( url, function(data) {
