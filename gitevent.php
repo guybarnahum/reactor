@@ -1,8 +1,14 @@
 <?php
-    
+
 // .................................................................. setup mail
 require 'vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
 
+    
+function get_version( $path )
+{
+    $ver = file_get_contents
+}
+    
 $mail = new PHPMailer;
 // Setting up PHPMailer
 $mail->IsSMTP();                                       // Set mailer to use SMTP
@@ -85,22 +91,27 @@ if (!empty($repo)){
 if (!empty($repo)){
     $msg[] = 'attempting to git pull for ' . $repo . ' from ' . $repos[$repo]['path'] ;
     $msg[] = exec('whoami;cd ' . $repos[$repo]['path'] . ';git pull' );
-}
 
-// ........................................................... done - send email
+    $body = stripslashes( implode( "<br>", $msg ) );
+
+    if ( stripos( $body, 'Already up-to-date' ) === false ){
+        // update version.txt
+        $ver = get_version( __DIR__ . '/version.txt' );
+    }
+
+    // done - send email
     
-$body = stripslashes( implode( "<br>", $msg ) );
-    
-// The sender of the form/mail
-$mail->From     = $email;
-$mail->FromName = "noreply@reactor.barnahum.com";
-$mail->Subject = '[Reactor.BarNahum.com]: gitevent ' ;
-$mail->Body = $body;
-        
-if( @$mail->Send() ) {
-    echo 'email sent ok<br>' . $body;
-} else {
-    echo 'email failure<br><small>' . $mail->ErrorInfo . '</small><br>' . $body;
+    // The sender of the form/mail
+    $mail->From     = $email;
+    $mail->FromName = "noreply@reactor.barnahum.com";
+    $mail->Subject = '[Reactor.BarNahum.com]: gitevent ' ;
+    $mail->Body = $body;
+            
+    if( @$mail->Send() ) {
+        echo 'email sent ok<br>' . $body;
+    } else {
+        echo 'email failure<br><small>' . $mail->ErrorInfo . '</small><br>' . $body;
+    }
 }
 
 
