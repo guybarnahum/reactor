@@ -1257,13 +1257,18 @@
                             AnnotateItPermissions: {}
                     });
         
+        function isString(x) {
+            return x !== null &&
+                   x !== undefined && 
+                   x.constructor === String
+        }
+
          var url  = 'http://reactor.barnahum.com/version.php';
-                
+         
         // call back function from url
         $.getJSON( url, function(data) {
             
-            alert( data );
-            if (data instanceof String){
+            if ( isString( data ){
                 
                 console.log( 'version data :' + data );
                 
