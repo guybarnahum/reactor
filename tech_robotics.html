@@ -266,18 +266,7 @@
 
         <script src="http://assets.annotateit.org/annotator/v1.2.10/annotator-full.min.js"></script>
         <link rel="stylesheet" href="http://assets.annotateit.org/annotator/v1.2.10/annotator.min.css">
-        
-        <script>
-        
-        $('.container').annotator()
-                       .annotator('setupPlugins', null, {
-                            Auth: { 
-                                tokenUrl: 'http://reactor.barnahum.com/jwt/token.php'
-                            },
-                            Filter: false,
-                            Permissions: false,
-                            AnnotateItPermissions: {}
-                    });
-        </script>
+        <script src="assets/js/shared.js"></script>
+
     </body>
 </html>
