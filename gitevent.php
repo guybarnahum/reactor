@@ -4,9 +4,19 @@
 require 'vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
 
     
-function get_version( $path )
+function get_version( $touch = false )
 {
-    $ver = file_get_contents
+    $ver   = file_get_contents( __DIR__ . '/version.txt' );
+    $build = file_get_contents( __DIR__ . '/build.txt'   );
+    
+    $num = intval( $build ); // its 0 in case of missing or invalid value
+    
+    if ( $touch ){
+        $num += 1;
+        file_put_contents( __DIR__ . '/build.txt' , $num  );
+    }
+    
+    return "$ver$num";
 }
     
 $mail = new PHPMailer;
@@ -92,19 +102,16 @@ if (!empty($repo)){
     $msg[] = 'attempting to git pull for ' . $repo . ' from ' . $repos[$repo]['path'] ;
     $msg[] = exec('whoami;cd ' . $repos[$repo]['path'] . ';git pull' );
 
-    $body = stripslashes( implode( "<br>", $msg ) );
-
-    if ( stripos( $body, 'Already up-to-date' ) === false ){
-        // update version.txt
-        $ver = get_version( __DIR__ . '/version.txt' );
-    }
+    $body  = stripslashes( implode( "<br>", $msg ) );
+    $touch = ( stripos( $body, 'Already up-to-date' ) === false );
+    $ver   = get_version( $touch );
 
     // done - send email
     
     // The sender of the form/mail
     $mail->From     = $email;
     $mail->FromName = "noreply@reactor.barnahum.com";
-    $mail->Subject = '[Reactor.BarNahum.com]: gitevent ' ;
+    $mail->Subject = '[Reactor.BarNahum.com]: github ' . $ver ;
     $mail->Body = $body;
             
     if( @$mail->Send() ) {
