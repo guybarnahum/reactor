@@ -5,7 +5,8 @@
  DirectoryIndex __FILE__
 */
 
-
+$host=$_SERVER[ 'HTTP_HOST' ];
+    
 Header( "HTTP/1.1 301 Moved Permanently" );
-Header( "Location: http://reactor.barnahum.com/index-alt.html" );
+Header( "Location: http://$host/index-alt.html" );
 ?>
