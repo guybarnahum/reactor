@@ -89,8 +89,10 @@ function response( $qoutes )
         case 'rand'     : $q = get_random_qoutes  ( $qoutes, $num ); break;
         case 'shuffle'  : $q = get_shuffled_qoutes( $qoutes, $num ); break;
     }
-        
-    return json_encode( $q );
+    
+    $res = (object)[ 'args' => $args, 'response' => $q ];
+    
+    return json_encode( $res );
 }
 
 echo response( $qoutes );
