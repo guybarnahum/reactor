@@ -4,12 +4,12 @@
     
     [ 'content' => '“Java is to JavaScript what Car is to Carpet.”', 'title' =>'Chris Heilmann' ],
     [ 'content' => '“It&#39;s hard enough to find an error in your code when you&#39;re looking for it; it&#39;s even harder when you&#39;ve assumed your code is error-free.”', 'title' =>'Steve McConnell' ],
-    [ 'content' => '“If debugging is the process of removing software bugs,<br> then programming must be the process of putting them in.”', 'title'=>' Edsger Dijkstra' ],
-    [ 'content' => '“Rules of Optimization:<br> Rule 1: Don&#39;t do it.<br> Rule 2 (for experts only): Don&#39;t do it yet.”', 'title'=>'Michael A. Jackson' ],
-    [ 'content' => '“The best method for accelerating a computer is the one that boosts it by 9.8 m/s2. <br><br>- Anonymous' ],
+    [ 'content' => '“If debugging is the process of removing software bugs,\n then programming must be the process of putting them in.”', 'title'=>' Edsger Dijkstra' ],
+    [ 'content' => '“Rules of Optimization:\n Rule 1: Don&#39;t do it.\n Rule 2 (for experts only): Don&#39;t do it yet.”', 'title'=>'Michael A. Jackson' ],
+    [ 'content' => '“The best method for accelerating a computer is the one that boosts it by 9.8 m/s2.', 'title' =>'Anonymous' ],
     [ 'content' => '“Walking on water and developing software from a specification are easy if both are frozen. ”', 'title'=>'Edward V Berard' ],
     [ 'content' => '“Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it. ”', 'title'=>'Brian Kernighan' ],
-    [ 'content' => '“It&#39;s not at all important to get it right the first time.<br> It&#39;s vitally important to get it right the last time. ”', 'title'=>'Andrew Hunt and David Thomas' ],
+    [ 'content' => '“It&#39;s not at all important to get it right the first time.\n It&#39;s vitally important to get it right the last time. ”', 'title'=>'Andrew Hunt and David Thomas' ],
     [ 'content' => '“First, solve the problem. Then, write the code. ”', 'title'=>'John Johnson' ],
     [ 'content' => '“Should array indices start at 0 or 1? My compromise of 0.5 was rejected without, I thought, proper consideration. ”', 'title'=>'Stan Kelly-Bootle' ],
     [ 'content' => '“Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live. ”', 'title'=>'Rick Osborne' ],
@@ -28,8 +28,8 @@
     [ 'content' => '“Without requirements or design, programming is the art of adding bugs to an empty text file. ”', 'title'=>'Louis Srygley' ],
     [ 'content' => '“When someone says, \"I want a programming language in which I need only say what I want done,\" give him a lollipop. ”', 'title'=>'Alan Perlis' ],
     [ 'content' => '“Computers are good at following instructions, but not at reading your mind. ”', 'title'=>'Donald Knuth' ],
-    [ 'content' => '“Any code of your own that you haven&#39;t looked at for six or more months might as well have been written by someone else. ” <br><br><b>- Eagleson&#39;s law</b>' ],
-    [ 'content' => '“Science is what we understand well enough to explain to a computer. Art is everything else we do.” <br><br><b>- Donald Knuth' ],
+    [ 'content' => '“Any code of your own that you haven&#39;t looked at for six or more months might as well have been written by someone else. ”', 'title' =>'Eagleson&#39;s law</b>' ],
+    [ 'content' => '“Science is what we understand well enough to explain to a computer. Art is everything else we do.”', 'title' =>'Donald Knuth' ],
     
     ];
 
@@ -53,8 +53,12 @@ function get_random_qoutes( $qoutes, $num, $shuffle = false )
         if ( count($a) == 0 ) $a = $qoutes;
     
         // pick random $qoute
-        $qix = mt_rand( 0, count( $a ) - 1 );
-        $q[] = (object)$a[ $qix ];
+        $qix   = mt_rand( 0, count( $a ) - 1 );
+        $qoute = (object)$a[ $qix ];
+        
+        // make html
+        $qoute.content = nl2br($qoute.content,false);
+        $q[] = $qoute;
         
         if ( $shuffle ){
             unset( $a[ $qix ] );
