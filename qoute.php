@@ -72,7 +72,7 @@ function get_random_qoutes( $qoutes, $num, $shuffle = false )
 // .................................................................... response
 function response( $qoutes )
 {
-    $args  = func_get_args();
+    $args = $_REQUEST;
     
     if ( isset( $args[ 'max' ] ) ){
         $num = min( count( $qoutes ), $args[ 'max' ] );
@@ -90,9 +90,9 @@ function response( $qoutes )
         case 'shuffle'  : $q = get_shuffled_qoutes( $qoutes, $num ); break;
     }
     
-    $res = (object)[ 'num'=> $num, 'response' => $q ];
+    $res = (object)[ 'args' => $args, 'num'=> $num, 'response' => $q ];
     
     return json_encode( $res );
 }
 
-echo json_encode(func_get_args()); //response( $qoutes );
+echo response( $qoutes );
