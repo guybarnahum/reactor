@@ -72,7 +72,7 @@
                     </h1>
                 </header>
                 <div class="row">
-                    <div id="list">
+                    <div class="portfolio isotope" id="list">
                     </div>
                 </div>
             </div>
@@ -111,7 +111,7 @@
                     script.setAttribute( 'data-related', 'false'  );
                     script.setAttribute( 'data-text'   , obj.name );
                     
-                    html = "<div id='" + obj.lu + "' class='" + obj.filters + "'></div>";
+                    html = "<div class='portfolio-item col-xs-4' id='" + obj.lu + "' class='" + obj.filters + "'></div>";
                     
                     $( '#' + id     ).append( html   );
                     $( '#' + obj.lu ).append( script );
@@ -331,7 +331,16 @@
         <script>
         $(document).ready(function(){
             build_list( 'list', people );
+            
+            // When using isotope in portfolio class set it to fitRows layout
+            
+            $('.portfolio').isotope({
+                layoutMode: 'fitRows',
+                itemSelector: '.portfolio-item'
+                });
             });
+            
+            
         
         </script>
     </body>
