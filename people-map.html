@@ -82,21 +82,21 @@
             
             var people=[
             
-                { lu : 'guybarnahum'        , filters :'in-sf in-tlv' },
-                { lu : 'mrosenblatt'        , filters :'in-sf in-tlv' },
-                { lu : 'odedhermoni'        , filters :'in-sf in-tlv' },
-                { lu : 'david-tupman-32048b', filters :'in-sf in-tlv' },
-                { lu : 'haihabot'           , filters :'in-sf in-tlv' },
-                { lu : 'shriram-narayanan-949b86', filters :'in-sf in-tlv' },
-                { lu : 'cornwell'           , filters :'in-sf in-tlv' },
-                { lu : 'andygrignon'        , filters :'in-sf in-tlv' },
-                { lu : 'jeff-dauber-936162' , filters :'in-sf in-tlv' },
-                { lu : 'jessedorogusker'    , filters :'in-sf in-tlv' },
-                { lu : 'mtanabian'          , filters :'in-sf in-tlv' },
-                { lu : 'ran-reske-133ba31'  , filters :'in-sf in-tlv' },
-                { lu : 'alanmesser'         , filters :'in-sf in-tlv' },
-                { lu : 'chrisdressel'       , filters :'in-sf in-tlv' },
-                { lu : 'kinghwang'          , filters :'in-sf in-tlv' },
+                { name: 'Guy Bar-Nahum'     , lu : 'guybarnahum'        , filters :'in-sf in-tlv' },
+                { name: 'Michael Rosenblatt', lu : 'mrosenblatt'        , filters :'in-sf in-tlv' },
+                { name: 'Oded Hermoni'      , lu : 'odedhermoni'        , filters :'in-sf in-tlv' },
+                { name: 'David Tupman'      , lu : 'david-tupman-32048b', filters :'in-sf in-tlv' },
+                { name: 'Hai Habot'         , lu : 'haihabot'           , filters :'in-sf in-tlv' },
+                { name: 'Shriram Narayanan' , lu : 'shriram-narayanan-949b86', filters :'in-sf in-tlv' },
+                { name: 'Michael Cornwell'  , lu : 'cornwell'           , filters :'in-sf in-tlv' },
+                { name: 'Andy Grignon'      , lu : 'andygrignon'        , filters :'in-sf in-tlv' },
+                { name: 'Jeff Dauber'       , lu : 'jeff-dauber-936162' , filters :'in-sf in-tlv' },
+                { name: 'Jesse Dorogusker'  , lu : 'jessedorogusker'    , filters :'in-sf in-tlv' },
+                { name: 'Moe Tanabian'      , lu : 'mtanabian'          , filters :'in-sf in-tlv' },
+                { name: 'Ran Reske'         , lu : 'ran-reske-133ba31'  , filters :'in-sf in-tlv' },
+                { name: 'Alan Messer'       , lu : 'alanmesser'         , filters :'in-sf in-tlv' },
+                { name: 'Chris Dressel'     , lu : 'chrisdressel'       , filters :'in-sf in-tlv' },
+                { name: 'BC Hwang'          , lu : 'kinghwang'          , filters :'in-sf in-tlv' },
             ];
             
             function build_list( id, objects )
@@ -106,10 +106,11 @@
                     var obj = objects[i];
                     var script          = document.createElement('script');
                     script.type         = 'IN/MemberProfile';
-                    script.setAttribute( 'data-id'    , 'https://www.linkedin.com/in/' +  obj.lu );
-                    script.setAttribute( 'data-format', 'inline' );
-                    script.setAttribute( 'data-related','false'  );
-                
+                    script.setAttribute( 'data-id'     , 'https://www.linkedin.com/in/' +  obj.lu );
+                    script.setAttribute( 'data-format' , 'hover'  );
+                    script.setAttribute( 'data-related', 'false'  );
+                    script.setAttribute( 'data-text'   , obj.name );
+                    
                     html = "<div id='" + obj.lu + "' class='" + obj.filters + "'></div>";
                     
                     $( '#' + id     ).append( html   );
