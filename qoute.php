@@ -35,14 +35,14 @@
 
 // ......................................................... get_shuffled_qoutes
     
-function get_shuffled_qoutes( $num )
+function get_shuffled_qoutes( $qoutes, $num )
 {
-    return get_random_qoutes( $num, $shuffle = true );
+    return get_random_qoutes( $qoutes, $num, $shuffle = true );
 }
     
 // ........................................................... get_random_qoutes
     
-function get_random_qoutes( $num, $shuffle = false )
+function get_random_qoutes( $qoutes, $num, $shuffle = false )
 {
     $a = array();
     $q = array();
@@ -54,7 +54,7 @@ function get_random_qoutes( $num, $shuffle = false )
     
         // pick random $qoute
         $qix = mt_rand( 0, count( $a ) - 1 );
-        $q[] = $a[ $qix ];
+        $q[] = (object)$a[ $qix ];
         
         if ( $shuffle ){
             unset( $a[ $qix ] );
@@ -66,7 +66,7 @@ function get_random_qoutes( $num, $shuffle = false )
 }
     
 // .................................................................... response
-function response()
+function response( $qoutes )
 {
     $args  = func_get_args();
     $num   = isset( $args[ 'num'   ] )? $args[ 'num'   ] : 16;
@@ -75,11 +75,11 @@ function response()
     switch( $order ){
 
         default         :
-        case 'rand'     : $q = get_random_qoutes  ( $num ); break;
-        case 'shuffle'  : $q = get_shuffled_qoutes( $num ); break;
+        case 'rand'     : $q = get_random_qoutes  ( $qoutes, $num ); break;
+        case 'shuffle'  : $q = get_shuffled_qoutes( $qoutes, $num ); break;
     }
         
     return json_encode( $q );
 }
 
-echo response();
+echo response( $qoutes );
