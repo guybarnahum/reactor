@@ -90,7 +90,7 @@ function response( $qoutes )
         case 'shuffle'  : $q = get_shuffled_qoutes( $qoutes, $num ); break;
     }
     
-    $res = (object)[ 'args' => $args, 'num'=> $num, 'response' => $q ];
+    $res = (object)[ 'num'=> $num, 'response' => $q ];
     
     return json_encode( $res );
 }
