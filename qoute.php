@@ -50,7 +50,7 @@ function get_random_qoutes( $num, $shuffle = false )
     while( $num-- ){
     
         // refill source of qoutes?
-        if ( empty($a) ) $a = $qoutes;
+        if ( count($a) == 0 ) $a = $qoutes;
     
         // pick random $qoute
         $qix = mt_rand( 0, count( $a ) - 1 );
