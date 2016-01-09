@@ -73,7 +73,14 @@ function get_random_qoutes( $qoutes, $num, $shuffle = false )
 function response( $qoutes )
 {
     $args  = func_get_args();
-    $num   = isset( $args[ 'num'   ] )? $args[ 'num'   ] : 16;
+    
+    if ( isset( $args[ 'max' ] ) ){
+        $num = min( count( $qoutes ), $args[ 'max' ] );
+    }
+    else{
+        $num   = isset( $args[ 'num'   ] )? $args[ 'num'   ] : 16;
+    }
+    
     $order = isset( $args[ 'order' ] )? $args[ 'order' ] : 'rand';
 
     switch( $order ){
