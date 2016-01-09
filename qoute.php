@@ -74,8 +74,6 @@ function response( $qoutes )
 {
     $args  = func_get_args();
     
-    echo '<pre>' . print_r( $args, true ) . '</pre>';
-    
     if ( isset( $args[ 'max' ] ) ){
         $num = min( count( $qoutes ), $args[ 'max' ] );
     }
@@ -97,4 +95,4 @@ function response( $qoutes )
     return json_encode( $res );
 }
 
-echo response( $qoutes );
+echo json_encode(func_get_args()); //response( $qoutes );
