@@ -74,11 +74,13 @@ function response( $qoutes )
 {
     $args  = func_get_args();
     
+    echo '<pre>' . print_r( $args, true ) . '</pre>';
+    
     if ( isset( $args[ 'max' ] ) ){
         $num = min( count( $qoutes ), $args[ 'max' ] );
     }
     else{
-        $num   = isset( $args[ 'num'   ] )? $args[ 'num'   ] : 16;
+        $num   = isset( $args[ 'num' ] )? $args[ 'num'   ] : 16;
     }
     
     $order = isset( $args[ 'order' ] )? $args[ 'order' ] : 'rand';
