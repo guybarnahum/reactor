@@ -57,7 +57,7 @@ function get_random_qoutes( $qoutes, $num, $shuffle = false )
         $qoute = (object)$a[ $qix ];
         
         // make html
-        $qoute.content = nl2br($qoute.content,false);
+        $qoute->content = nl2br( $qoute->content,false);
         $q[] = $qoute;
         
         if ( $shuffle ){
