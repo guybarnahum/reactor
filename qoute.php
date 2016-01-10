@@ -82,6 +82,8 @@ function get_random_qoutes( $qoutes, $num, $shuffle = false )
 function response( $qoutes = false )
 {
     $args = $_REQUEST;
+
+    $dbg  = isset( $args[ 'debug' ] );
     
     if ( $qoutes === false ){
     
@@ -94,8 +96,12 @@ function response( $qoutes = false )
             case 'reactor'  : $qoutes = $reactor_qoutes ; break;
         }
     }
-    
+
     // we should $qoutes defined here..
+
+    if ( $dbg ){
+        echo '<pre>' . print_r( $qoutes ) . '</pre>' ;
+    }
     
     if ( isset( $args[ 'max' ] ) ){
         $num = min( count( $qoutes ), $args[ 'max' ] );
@@ -113,7 +119,7 @@ function response( $qoutes = false )
         case 'shuffle'  : $q = get_shuffled_qoutes( $qoutes, $num ); break;
     }
     
-    if ( isset( $args[ 'debug' ] ) )
+    if ( $dbg )
         $res = (object)[ 'args' => $args, 'num'=> $num, 'response' => $q ];
     else
         $res = $q;
