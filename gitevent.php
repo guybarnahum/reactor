@@ -107,8 +107,8 @@ if (!empty($repo)){
     $body  = stripslashes( implode( "<br>", $msg ) );
     $touch = ( stripos( $body, 'Already up-to-date' ) === false );
     $ver   = get_version( $touch );
-    
     $body  = 'Version ' . $ver . '<br>' . $body;
+    
     // done - send email
     
     // The sender of the form/mail
@@ -116,7 +116,9 @@ if (!empty($repo)){
     $mail->FromName = "noreply@reactor.barnahum.com";
     $mail->Subject = '[Reactor.BarNahum.com]: github webhook' ;
     $mail->Body = $body;
-            
+    
+    echo 'Version ' . $ver . '<br>';
+    
     if( @$mail->Send() ) {
         echo 'email sent ok<br>' . $body;
     } else {
