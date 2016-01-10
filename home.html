@@ -177,7 +177,7 @@
             init_software_qoutes( num );
             init_design_qoutes  ( num );
         }
-                
+        
         function get_random_qoute()
         {
             return qoutes[ Math.floor(Math.random()*qoutes.length) ];
@@ -198,6 +198,8 @@
                 $(this).fadeIn('slow');
             });
         }
+        
+        init_qoutes( 24 );
         
         display_random_qoute( '#qoute' );
         setInterval("display_random_qoute('#qoute')", 12000);
