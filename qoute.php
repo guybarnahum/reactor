@@ -9,8 +9,6 @@
     
     ];
     
-    ];
-    
     $sw_qoutes = [
     
     [ 'content' =>"Java is to JavaScript what Car is to Carpet.", 'title' =>'Chris Heilmann' ],
