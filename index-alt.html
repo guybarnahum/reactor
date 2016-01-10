@@ -103,7 +103,7 @@
             <div class="container">
                 <header class="section-header text-center underline">
                     <h1 class="headline hyper bold">Reactor Labs</h1><br>
-                    <h1 class="headline medium hairline">Make something Great!</h1>
+                    <h1 class="headline medium hairline" id='qoute'></h1>
                 </header>
             </div>
         </section>
@@ -1238,33 +1238,98 @@
         
         <script>
         
-            $(document).ready( function() {
-        
-                var isIE = ( window.navigator.userAgent.indexOf("MSIE ") > 0 );
-                
-                // ul select auto reset
-                
-                if (!isIE){
-                    $('ul.auto-reset li').click(
-                    function(){
-                        var child = $(this).prevAll().length;
-                        if (child  != 0 ){
-                            setTimeout( 
-                            function(t){$(t).trigger('click');} , // what
-                            30000                               , // when
-                            $(this).parent().find('a').first()  );// to-whom
-                        }
-                    });
-                }
-                
-                // isotope in portfolio class set it to fitRows layout
+        var $qoutes = [];
             
-                $('.portfolio').isotope({
-                    layoutMode: 'fitRows',
-                    itemSelector: '.portfolio-item'
-                    });
-
+        function init_qoutes( num )
+        {
+            var url = 'http://reactor.barnahum.com/qoute.php?num=' + num;
+            
+            // call back function from url
+            $.getJSON( url, function(data) {
+                
+                if (data instanceof Array){
+                    
+                    for( var ix = 0; ix < data.length; ix++  ){
+                        
+                        var item = data[ ix ];
+                        
+                        if ( item.hasOwnProperty('content') ){
+                            q = "“" + item.content + "”";
+                            q = q.replace( "<p>", "");
+                            q = q.replace( "</p>","");
+                            
+                            who = item.hasOwnProperty('title')? item.title:"Unknown";
+                            q  += "<br><br>- "+ who;
+                            
+                            console.log(ix +" : " +q);
+                            qoutes.push( q );
+                        }
+                    }
+                }
             });
+        }
+
+        var q_ix = 0;
+        
+        function get_next_qoute()
+        {
+            if ( qoutes.length == 0 ) return false;
+            
+            q_ix = ( q_ix + 1 ) % qoutes.length;
+            return qoutes[ q_ix ];
+        }
+        
+        function display_next_qoute( id )
+        {
+            $(id).fadeOut('slow', 
+            
+            // oncompletion of fadeOut, change and fadeIn..
+            function(){
+            
+                var qoute = get_random_qoute();
+                
+                if ( qoute !== false ){
+                
+                    var html = "<div style=''>";
+                        html += "<p class='hairline'><i>" + qoute + "</i></p>";
+                        html += "</div>";
+            
+                    $(this).html( html );
+                    $(this).fadeIn('slow');
+                }
+            });
+        }
+        
+        $(document).ready( function() {
+    
+            var isIE = ( window.navigator.userAgent.indexOf("MSIE ") > 0 );
+            
+            // ul select auto reset
+            
+            if (!isIE){
+                $('ul.auto-reset li').click(
+                function(){
+                    var child = $(this).prevAll().length;
+                    if (child  != 0 ){
+                        setTimeout( 
+                        function(t){$(t).trigger('click');} , // what
+                        30000                               , // when
+                        $(this).parent().find('a').first()  );// to-whom
+                    }
+                });
+            }
+            
+            // isotope in portfolio class set it to fitRows layout
+        
+            $('.portfolio').isotope({
+                layoutMode: 'fitRows',
+                itemSelector: '.portfolio-item'
+                });
+
+            init_qoutes( 8 );
+            display_next_qoute( '#qoute' );
+            setInterval("display_next_qoute('#qoute')", 6000);
+        });
             
         </script>
         
