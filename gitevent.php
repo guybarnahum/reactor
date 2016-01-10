@@ -100,6 +100,7 @@ if (!empty($repo)){
 //update git, deploy to directory
 
 if (!empty($repo)){
+    $msg[] = 'Version ' . $ver;
     $msg[] = 'attempting to git pull for ' . $repo . ' from ' . $repos[$repo]['path'] ;
     $msg[] = exec('whoami;cd ' . $repos[$repo]['path'] . ';git pull' );
 
@@ -112,7 +113,7 @@ if (!empty($repo)){
     // The sender of the form/mail
     $mail->From     = $email;
     $mail->FromName = "noreply@reactor.barnahum.com";
-    $mail->Subject = '[Reactor.BarNahum.com]: github ' . $ver ;
+    $mail->Subject = '[Reactor.BarNahum.com]: github webhook' ;
     $mail->Body = $body;
             
     if( @$mail->Send() ) {
