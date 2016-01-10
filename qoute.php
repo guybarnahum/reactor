@@ -86,13 +86,11 @@ function response( $qoutes = false )
     $dbg  = isset( $args[ 'debug' ] );
     
     if ( $qoutes === false ){
-    
+
+        global $sw_qoutes, $reactor_qoutes;
+        
         $type = isset( $args[ 'type' ] )? $args[ 'type' ] : 'sw';
     
-        if ( $dbg ){
-            echo 'type:' . $type . '<br>';
-        }
-        
         switch( $type ){
             
             default         :
@@ -104,7 +102,7 @@ function response( $qoutes = false )
     // we should $qoutes defined here..
 
     if ( $dbg ){
-        echo '2<pre>' . print_r( $qoutes, true ) . '</pre>' ;
+        echo '<pre>' . print_r( $qoutes, true ) . '</pre>' ;
     }
     
     if ( isset( $args[ 'max' ] ) ){
