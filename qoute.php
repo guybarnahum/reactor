@@ -28,7 +28,7 @@
     [ 'content' =>"Without requirements or design, programming is the art of adding bugs to an empty text file.", 'title'=>'Louis Srygley' ],
     [ 'content' =>"When someone says, \"I want a programming language in which I need only say what I want done,\" give him a lollipop.", 'title'=>'Alan Perlis' ],
     [ 'content' =>"Computers are good at following instructions, but not at reading your mind.", 'title'=>'Donald Knuth' ],
-    [ 'content' =>"Any code of your own that you haven&#39;t looked at for six or more months might as well have been written by someone else.", 'title' =>'Eagleson&#39;s law</b>' ],
+    [ 'content' =>"Any code of your own that you haven&#39;t looked at for six or more months might as well have been written by someone else.", 'title' =>'Eagleson&#39;s Law' ],
     [ 'content' =>"Science is what we understand well enough to explain to a computer. Art is everything else we do.", 'title' =>'Donald Knuth' ],
     
     ];
