@@ -100,7 +100,7 @@ function response( $qoutes = false )
     // we should $qoutes defined here..
 
     if ( $dbg ){
-        echo '<pre>' . print_r( $qoutes ) . '</pre>' ;
+        echo '<pre>' . print_r( $qoutes, true ) . '</pre>' ;
     }
     
     if ( isset( $args[ 'max' ] ) ){
