@@ -1254,13 +1254,7 @@
                         var item = data[ ix ];
                         
                         if ( item.hasOwnProperty('content') ){
-                            q = "“" + item.content + "”";
-                            q = q.replace( "<p>", "");
-                            q = q.replace( "</p>","");
-                            
-                            who = item.hasOwnProperty('title')? item.title:"Unknown";
-                            q  += "<br><br>- "+ who;
-                            
+                            q = item.content;
                             console.log(ix +" : " +q);
                             qoutes.push( q );
                         }
@@ -1289,12 +1283,7 @@
                 var qoute = get_next_qoute();
                 
                 if ( qoute !== false ){
-                
-                    var html = "<div style=''>";
-                        html += "<p class='hairline'><i>" + qoute + "</i></p>";
-                        html += "</div>";
-            
-                    $(this).html( html );
+                    $(this).html( qoute );
                     $(this).fadeIn('slow');
                 }
             });
