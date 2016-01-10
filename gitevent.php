@@ -100,14 +100,15 @@ if (!empty($repo)){
 //update git, deploy to directory
 
 if (!empty($repo)){
-    $msg[] = 'Version ' . $ver;
+
     $msg[] = 'attempting to git pull for ' . $repo . ' from ' . $repos[$repo]['path'] ;
     $msg[] = exec('whoami;cd ' . $repos[$repo]['path'] . ';git pull' );
 
     $body  = stripslashes( implode( "<br>", $msg ) );
     $touch = ( stripos( $body, 'Already up-to-date' ) === false );
     $ver   = get_version( $touch );
-
+    
+    $body  = 'Version ' . $ver . '<br>' . $body;
     // done - send email
     
     // The sender of the form/mail
