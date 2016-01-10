@@ -1,6 +1,17 @@
 <?php
 
-    $qoutes = [
+    $reactor_qoutes = [
+    
+        [ 'content' =>"Make someting great!", 'title' =>'' ],
+        [ 'content' =>"Just do it!", 'title' =>'Nike' ],
+        [ 'content' =>"You are not alone", 'title' =>'' ],
+        [ 'content' =>"Together we can make this happen", 'title' =>'' ],
+    
+    ];
+    
+    ];
+    
+    $sw_qoutes = [
     
     [ 'content' =>"Java is to JavaScript what Car is to Carpet.", 'title' =>'Chris Heilmann' ],
     [ 'content' =>"It&#39;s hard enough to find an error in your code when you&#39;re looking for it; it&#39;s even harder when you&#39;ve assumed your code is error-free.", 'title' =>'Steve McConnell' ],
@@ -70,9 +81,23 @@ function get_random_qoutes( $qoutes, $num, $shuffle = false )
 }
     
 // .................................................................... response
-function response( $qoutes )
+function response( $qoutes = false )
 {
     $args = $_REQUEST;
+    
+    if ( $qoutes === false ){
+    
+        $type = isset( $args[ 'type' ] )? $args[ 'type' ] : 'sw';
+        
+        switch( $type ){
+            
+            default         :
+            case 'sw'       : $qoutes = $sw_qoutes      ; break;
+            case 'reactor'  : $qoutes = $reactor_qoutes ; break;
+        }
+    }
+    
+    // we should $qoutes defined here..
     
     if ( isset( $args[ 'max' ] ) ){
         $num = min( count( $qoutes ), $args[ 'max' ] );
