@@ -90,7 +90,7 @@ function response( $qoutes )
         case 'shuffle'  : $q = get_shuffled_qoutes( $qoutes, $num ); break;
     }
     
-    if ( isset('debug' )
+    if ( isset( $args[ 'debug' ] ) )
         $res = (object)[ 'args' => $args, 'num'=> $num, 'response' => $q ];
     else
         $res = $q;
