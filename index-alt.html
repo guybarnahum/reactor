@@ -1242,7 +1242,7 @@
             
         function init_qoutes( num )
         {
-            var url = 'http://reactor.barnahum.com/qoute.php?type=reactor&num=' + num;
+            var url = 'http://reactor.barnahum.com/qoute.php?type=reactor&max=' + num;
             
             // call back function from url
             $.getJSON( url, function(data) {
@@ -1286,7 +1286,7 @@
             // oncompletion of fadeOut, change and fadeIn..
             function(){
             
-                var qoute = get_random_qoute();
+                var qoute = get_next_qoute();
                 
                 if ( qoute !== false ){
                 
@@ -1326,7 +1326,7 @@
                 itemSelector: '.portfolio-item'
                 });
 
-            init_qoutes( 8 );
+            init_qoutes( 16 );
             display_next_qoute( '#qoute' );
             setInterval("display_next_qoute('#qoute')", 6000);
         });
