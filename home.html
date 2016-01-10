@@ -92,11 +92,12 @@
         
         <!-- Annotator -->
 
+        <!--
         <script src="http://assets.annotateit.org/annotator/v1.2.10/annotator-full.min.js"></script>
         <link rel="stylesheet" href="http://assets.annotateit.org/annotator/v1.2.10/annotator.min.css">
         
         <script>
-        /*
+        
         $('.container').annotator()
                        .annotator('setupPlugins', null, {
                             Auth: { 
@@ -106,8 +107,9 @@
                             Filter: false,
                             AnnotateItPermissions: {}
                     });
-        */
+        
         </script>
+        -->
         
         <script>
 
@@ -199,10 +201,15 @@
             });
         }
         
+        // populate the qoutes
         init_qoutes( 24 );
         
-        display_random_qoute( '#qoute' );
-        setInterval("display_random_qoute('#qoute')", 12000);
+        // display the qoutes
+        $( document ).ready(function() {
+        
+            display_random_qoute( '#qoute' );
+            setInterval("display_random_qoute('#qoute')", 12000);
+        });
         
         </script>
         
