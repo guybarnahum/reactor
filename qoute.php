@@ -121,4 +121,4 @@ function response( $qoutes = false )
     return json_encode( $res );
 }
 
-echo response( $qoutes );
+echo response();
