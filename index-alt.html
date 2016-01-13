@@ -190,7 +190,7 @@
                 
                 <div class="row">
                 
-                    <div class="col-xs-8 col-xs-offset-2">
+                    <div class="col-xs-6 col-xs-offset-3">
                         <h3>We are not "just" an accelerator "program"</h3>
                         <ul>
                             <li>Focus on early stage (idea, initial team)</li>
@@ -329,7 +329,7 @@
                         <!-- Guy Bar-Nahum -->
 
                         <div class="portfolio-item infinite-item col-xs-4 
-                            sw in-tlv in-sf">
+                                    sw in-tlv in-sf" id="guybarnahum">
                             <figure class="portfolio-figure">
                                 <img class="svg-inject"
                                     src="assets/images/people/GuyBarNahum.jpg"
@@ -358,7 +358,8 @@
                         
                         <!-- Michael Rosenblatt -->
 
-                        <div class="portfolio-item infinite-item same-height col-xs-4 in-sf hw sw pd">
+                        <div class="portfolio-item infinite-item same-height col-xs-4 
+                                    in-sf hw sw pd" id="mrosenblatt">
                             <div>
                                 <figure class="portfolio-figure">
                                     <img class="svg-inject"
@@ -389,7 +390,8 @@
 
                         <!-- Oded Hermoni -->
                         
-                        <div class="portfolio-item infinite-item same-height col-xs-4 in-sf in-tlv vc">
+                        <div class="portfolio-item infinite-item same-height col-xs-4
+                                    in-sf in-tlv vc" id="odedhermoni">
                             <figure class="portfolio-figure">
                                 <img class="svg-inject"
                                     src="assets/images/people/OdedHermoni.jpg"
@@ -434,7 +436,8 @@
 
                         <!-- David Tupman -->
                         
-                        <div class="portfolio-item infinite-item same-height col-xs-4 in-sf hw pd">
+                        <div class="portfolio-item infinite-item same-height col-xs-4
+                                    in-sf hw pd" id="davidtupman">
                             <figure class="portfolio-figure">
                                 <img class="svg-inject"
                                     src="assets/images/people/DavidTupman.jpg"
@@ -463,7 +466,7 @@
                         <!-- Hai Habot -->
 
                         <div class="portfolio-item infinite-item col-xs-4 
-                            in-sf vc">
+                            in-sf vc" id="haihabot">
                             <figure class="portfolio-figure">
                                 <img class="svg-inject"
                                     src="assets/images/people/HaiHabot.jpg"
@@ -494,7 +497,7 @@
                         <!-- Shriram Narayanan -->
                         
                         <div class="portfolio-item infinite-item col-xs-4 
-                            in-sf vc">
+                            in-sf vc" id="shriramnarayanan">
                             <figure class="portfolio-figure">
                                 <img class="svg-inject"
                                     src="assets/images/people/Unknown.png"
@@ -1221,9 +1224,33 @@
                         </div>
                     </div>
                 </div>
+                
                 <div id="text-4" class="sidebar-widget widget_text">
                     <div class="textwidget text-center">
                         REACTOR LABS 2016, ALL RIGHTS RESERVED
+                        <br>
+                        <a class="show-hide text-center" href="javascript:void(0)"
+                            data-target="show-hide-panel">&copy;</a>
+                    </div>
+                    <div class="swatch-white-red" id="show-hide-panel" style="display: none;">
+                        <a class="show-hide" href='javascript:void(0)' 
+                            data-target="guybarnahum">+Guy Bar-Nahum</a>
+                        <br>
+                        <a class="show-hide" href='javascript:void(0)' 
+                            data-target="mrosenblatt">+Michael Rosenblatt</a>
+                        <br>
+                        <a class="show-hide" href='javascript:void(0)' 
+                            data-target="odedhermoni">+Oded Hermoni</a>
+                        <br>
+                        <a class="show-hide" href='javascript:void(0)' 
+                            data-target="davidtupman">+David Tupman</a>
+                        <br>
+                        <a class="show-hide" href='javascript:void(0)' 
+                            data-target="haihabot">+Hai Habot</a>
+                        <br>
+                        <a class="show-hide" href='javascript:void(0)' 
+                            data-target="shriramnarayanan">+Shriram Narayanan</a>
+                        <br>
                     </div>
                 </div>
             </div>
@@ -1292,6 +1319,30 @@
             });
         }
         
+        function set_html( sel, toggle )
+        {
+            div = '#' + $(sel).attr('data-target');
+        
+            var h = $(sel).html();
+            
+            if ( toggle ){
+                 toggle = $(div).is(":visible");
+            }
+            else{
+                toggle = !$(div).is(":visible");
+            }
+           
+            if ( toggle ){
+                from = '-'; to = '+';
+            }
+            else{
+                from = '+'; to = '-';
+            }
+            
+            h = h.split( from ).join( to );
+            $(sel).html( h );
+        }
+        
         $(document).ready( function() {
     
             var isIE = ( window.navigator.userAgent.indexOf("MSIE ") > 0 );
@@ -1318,9 +1369,18 @@
                 itemSelector: '.portfolio-item'
                 });
 
+            $( 'a.show-hide' ).each( function(){
+                set_html( this, toggle=false );
+            });
+            
             $('a.show-hide').click( function(e){
-                div = $(this).closest('.portfolio-item');
-                div.hide();
+            
+                div = '#' + $(this).attr('data-target');
+            
+                set_html( this, toggle=true );
+            
+                $(div).slideToggle();
+                
                 });
             
             // get qoutes and update them every 24s
