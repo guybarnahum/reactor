@@ -6,7 +6,7 @@
         [ 'content' =>"Just do it!", 'title' =>'Nike' ],
         [ 'content' =>"You are not alone", 'title' =>'' ],
         [ 'content' =>"Together we can make this happen", 'title' =>'' ],
-    
+        [ 'content' =>"Most of our value is in our network", 'title' =>'' ],
     ];
     
     $sw_qoutes = [
