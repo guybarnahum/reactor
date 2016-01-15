@@ -555,6 +555,41 @@
             </div>
         </section>
         
+        <!-- Industry & Partnerships -->
+        <!--
+        <section class="section swatch-red-white has-top" id="partnerships">
+        
+            <div class="decor-top">
+                <svg class="decor" height="100%" preserveaspectratio="none" version="1.1" viewbox="0 0 100 100" width="100%" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0 L100 100 L0 100" stroke-width="0"></path>
+                </svg>
+            </div>
+            
+            <div class="container">
+                <header class="section-header no-underline">
+                    <h1 class="headline hyper hairline">
+                        Industry & Partnerships
+                    </h1>
+                </header>
+                 <div id="slider-flex2" class="flexslider os-animation"
+                    data-flex-speed="7000"
+                    data-flex-itemwidth="235pxpx"
+                    data-flex-animation="slide"
+                    data-flex-controls="show"
+                    data-flex-directions="show"
+                    data-flex-controlsalign="center"
+                    data-flex-captionhorizontal=""
+                    data-flex-captionvertical=""
+                    data-flex-controlsposition=""
+                    data-flex-directions-type="">
+                
+                    <ul class="slides" id="companies-content" >
+                    </ul>
+                </div>
+            </div>
+        </div>
+        -->
+        
         <!-- Contact -->
  
 <!--
@@ -577,14 +612,14 @@
                                                         http://reactor.barnahum.com/#contact
 -->
 
-        <section class="section hidden-print swatch-white-red" id="contact">
-            
+        <section class="section hidden-print swatch-white-red has-top" id="contact">
+        
             <div class="decor-top">
                 <svg class="decor" height="100%" preserveaspectratio="none" version="1.1" viewbox="0 0 100 100" width="100%" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0 0 L50 100 L100 0 L100 100 L0 100" stroke-width="0"></path>
                 </svg>
             </div>
-
+            
             <div class="container">
                 <header class="section-header underline">
                     <h1 class="headline super bold">
@@ -934,6 +969,34 @@
             },
         ];
         
+        var companies = [
+        
+            { 'photo' : 'assets/images/companies/playgound-logo.png',
+              'name' : 'playground.global', 'div' :'#companies-content'
+            },
+            { 'photo' : 'assets/images/companies/alphalabgear-logo.png',
+              'name' : 'Alpha Lab Gear', 'div' :'#companies-content'
+            },
+            { 'photo' : 'assets/images/companies/formation-8-logo.jpg',
+              'name' : 'Formation 8', 'div' :'#companies-content'
+            },
+            { 'photo' : 'assets/images/companies/hackster-logo.png',
+              'name' : 'hackster.io', 'div' :'#companies-content'
+            },
+            { 'photo' : 'assets/images/companies/hardwareclub-logo.png',
+              'name' : 'Hardware Club', 'div' :'#companies-content'
+            },
+            { 'photo' : 'assets/images/companies/highway1-logo.jpg',
+              'name' : 'Highway 1', 'div' :'#companies-content'
+            },
+            { 'photo' : 'assets/images/companies/plextronics-logo.jpg',
+              'name' : 'Plextronics', 'div' :'#companies-content'
+            },
+            { 'photo' : 'assets/images/companies/Stratasys-logo.jpg',
+              'name' : 'Stratasys', 'div' :'#companies-content'
+            },
+        ];
+        
         var qoutes = [];
             
         function init_qoutes( num )
@@ -985,6 +1048,24 @@
             });
         }
         
+        function make_company_html( company )
+        {
+            var html  = "<!-- " + company.name + "-->\n";
+                html += "<li>\n";
+                html += "   <figure>\n";
+                html += "       <img src='"+ company.photo + "' \n";
+                html += "            alt='" + company.name +"' ";
+                html += "            data-original-title='RocketPunch' data-toggle='tooltip'>\n";
+                html += "       <figcaption>\n";
+                html += "           <h3></h3>\n";
+                html += "           <p></p>\n";
+                html += "       </figcaption>\n";
+                html += "   </figure>\n";
+                html += "</li>\n";
+               
+            return html;
+        }
+        
         function make_person_html( person )
         { 
             var in_url = 'https://www.linkedin.com/in/' + person.in_id;
@@ -1034,6 +1115,12 @@
             return html;
         }
         
+        function append_company( company )
+        {
+            var html = make_company_html( company );
+            $(company.div).append( html );
+        }
+        
         function append_person( person )
         {
             var html = make_person_html( person );
@@ -1042,6 +1129,13 @@
             html = make_person_show_hide_html( person );
             $('#show-hide-panel').append( html );
         
+        }
+        
+        function add_companies( companies )
+        {
+            for( var ix = 0; ix < companies.length; ix++ ){
+                append_company( companies[ ix ] );
+            }
         }
         
         function add_persons( persons )
@@ -1075,7 +1169,8 @@
             $(sel).html( h );
         }
         
-        add_persons( people );
+        add_companies( companies );
+        add_persons  ( people    );
 
         $(document).ready( function() {
         
