@@ -323,7 +323,7 @@
                         </li>
                     </ul>
                     
-                    <div class="portfolio isotope no-transition portfolio-round row" 
+                    <div class="portfolio-people portfolio isotope no-transition portfolio-round row"
                          id="partners-content">
                     </div>  <!-- End of Partners -->
                 </div>
@@ -340,7 +340,7 @@
                             Advisory Board
                         </h1>
                     </header>
-                    <div class="portfolio isotope no-transition portfolio-round row"
+                    <div class="portfolio-people portfolio isotope no-transition portfolio-round row"
                          id="advisory-content">
                     </div>
                 </div>
@@ -402,7 +402,7 @@
                         </li>
                     </ul>
                 
-                    <div class="portfolio isotope no-transition portfolio-round row"
+                    <div class="portfolio-people portfolio isotope no-transition portfolio-round row"
                          id="startup-advisers-content">
                     
                         <!-- End of Advisers -->
@@ -556,8 +556,8 @@
         </section>
         
         <!-- Industry & Partnerships -->
-        <!--
-        <section class="section swatch-red-white has-top" id="partnerships">
+
+        <section class="section swatch-red-white" id="partnerships">
         
             <div class="decor-top">
                 <svg class="decor" height="100%" preserveaspectratio="none" version="1.1" viewbox="0 0 100 100" width="100%" xmlns="http://www.w3.org/2000/svg">
@@ -566,29 +566,24 @@
             </div>
             
             <div class="container">
-                <header class="section-header no-underline">
-                    <h1 class="headline hyper hairline">
-                        Industry & Partnerships
+                <header class="section-header underline">
+                    <h1 class="headline super hairline">
+                        Industry Players
+                    </h1>
+                    <h1 class="headline medium hairline">
+                        Bay Area Hardware Accelerators / Investors
                     </h1>
                 </header>
-                 <div id="slider-flex2" class="flexslider os-animation"
-                    data-flex-speed="7000"
-                    data-flex-itemwidth="235pxpx"
-                    data-flex-animation="slide"
-                    data-flex-controls="show"
-                    data-flex-directions="show"
-                    data-flex-controlsalign="center"
-                    data-flex-captionhorizontal=""
-                    data-flex-captionvertical=""
-                    data-flex-controlsposition=""
-                    data-flex-directions-type="">
-                
-                    <ul class="slides" id="companies-content" >
-                    </ul>
+
+                <div class="row">
+                    <div class="text-default os-animation" data-os-animation="fadeInUp" data-os-animation-delay=".0s">
+                        <div class="portfolio isotope no-transition row"
+                            id="companies-content">
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        -->
+        </section>
         
         <!-- Contact -->
  
@@ -612,7 +607,7 @@
                                                         http://reactor.barnahum.com/#contact
 -->
 
-        <section class="section hidden-print swatch-white-red has-top" id="contact">
+        <section class="section hidden-print swatch-white-red" id="contact">
         
             <div class="decor-top">
                 <svg class="decor" height="100%" preserveaspectratio="none" version="1.1" viewbox="0 0 100 100" width="100%" xmlns="http://www.w3.org/2000/svg">
@@ -621,50 +616,52 @@
             </div>
             
             <div class="container">
-                <header class="section-header underline">
-                    <h1 class="headline super bold">
-                        Drop us a line
-                    </h1>
-                    
-                    <address>
-                        <strong>
-                            ReactorLabs
-                        </strong>
-                        <br>
-                        8 10th Street<br>
-                        San Francisco CA, 94103
-                        <br>
-                        <abbr title="Phone">P:</abbr>
-                        +1 (408) 425 3891
-                        <br><br><br>
-                    </address>
-                    
-                </header>
                 <div class="row">
-                    <div class="col-xs-8 col-xs-offset-2">
-                        <form id="contactForm" class="contact-form">
-                            <div class="form-group form-icon-group">
-                                <input class="form-control" id="name" name="name" placeholder="Your name *" type="text" required/>
-                                <i class="fa fa-user"></i>
-                            </div>
-                            <div class="form-group form-icon-group">
-                                <input class="form-control" id="email" name="email" placeholder="Your email *" type="email" required>
-                                <i class="fa fa-envelope"></i>
-                            </div>
-                            <div class="form-group form-icon-group">
-                                <textarea class="form-control" id="message" name="message" placeholder="Your message" rows="10" required></textarea>
-                                <i class="fa fa-pencil"></i>
-                            </div>
-                            <div class="form-group text-center">
-                                <button class="btn btn-primary btn-icon btn-icon-right" type="submit">
-                                    Send us a message
-                                    <div class="hex-alt">
-                                        <i class="fa fa-rocket" data-animation="tada"></i>
-                                    </div>
-                                </button>
-                            </div>
-                        </form>
-                        <div id="messages"></div>
+                    <header class="section-header underline">
+                        <h1 class="headline super bold">
+                            Drop us a line
+                        </h1>
+                        
+                        <address>
+                            <strong>
+                                ReactorLabs
+                            </strong>
+                            <br>
+                            8 10th Street<br>
+                            San Francisco CA, 94103
+                            <br>
+                            <abbr title="Phone">P:</abbr>
+                            +1 (408) 425 3891
+                            <br><br><br>
+                        </address>
+                        
+                    </header>
+                    <div class="row">
+                        <div class="col-xs-8 col-xs-offset-2">
+                            <form id="contactForm" class="contact-form">
+                                <div class="form-group form-icon-group">
+                                    <input class="form-control" id="name" name="name" placeholder="Your name *" type="text" required/>
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <div class="form-group form-icon-group">
+                                    <input class="form-control" id="email" name="email" placeholder="Your email *" type="email" required>
+                                    <i class="fa fa-envelope"></i>
+                                </div>
+                                <div class="form-group form-icon-group">
+                                    <textarea class="form-control" id="message" name="message" placeholder="Your message" rows="10" required></textarea>
+                                    <i class="fa fa-pencil"></i>
+                                </div>
+                                <div class="form-group text-center">
+                                    <button class="btn btn-primary btn-icon btn-icon-right" type="submit">
+                                        Send us a message
+                                        <div class="hex-alt">
+                                            <i class="fa fa-rocket" data-animation="tada"></i>
+                                        </div>
+                                    </button>
+                                </div>
+                            </form>
+                            <div id="messages"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -915,7 +912,7 @@
             },
             {'name'      : 'Christoph Dressel', 'div':'#startup-advisers-content',
              'photo' : 'assets/images/people/ChristophDressel.jpg', 'filters':'in-europe in-tlv sw hw pd vc',
-             'in_id'     : 'chrisdressel'  , 'motto' : 'If everything seems under control, you&#39;re not going fast enough.” ― Mario Andretti',
+             'in_id'     : 'chrisdressel'  , 'motto' : "<small style='color:inherit;'>If everything seems under control, you&#39;re not going fast enough.” ― Mario Andretti</small>",
              'expertise' : 'Design & Technology, European Startups',
              'title'     : 'Partner, COO @ Kwamecorp, Design and Incubation Fund'
             },
@@ -971,29 +968,58 @@
         
         var companies = [
         
-            { 'photo' : 'assets/images/companies/playgound-logo.png',
-              'name' : 'playground.global', 'div' :'#companies-content'
+            { 'photo'   : 'assets/images/companies/playground-logo.jpg',
+              'name'    : 'playground.global', 'div' :'#companies-content',
+              'url'     : 'http://playground.global/','fb_url' : '',
+              'motto':'We realize your vision into product',
+              'filters' : 'hw accelerator'
             },
-            { 'photo' : 'assets/images/companies/alphalabgear-logo.png',
-              'name' : 'Alpha Lab Gear', 'div' :'#companies-content'
+            { 'photo'   : 'assets/images/companies/alphalabgear-logo.jpg',
+              'name'    : 'Alpha Lab Gear', 'div' :'#companies-content',
+              'url'     : 'http://alphalabgear.org/','fb_url' : 'AlphalabGear',
+              'motto'   : 'Hardware and Robotics Accelerator',
+              'filters' : 'hw accelerator'
             },
-            { 'photo' : 'assets/images/companies/formation-8-logo.jpg',
-              'name' : 'Formation 8', 'div' :'#companies-content'
+            { 'photo'   : 'assets/images/companies/formation-8-logo.jpg',
+              'name'    : 'Formation 8', 'div' :'#companies-content',
+              'url'     : 'http://formation8.com/','fb_url' : '',
+              'motto'   : 'We invest in top technology teams',
+              'filters' : 'hw tech accelerator'
             },
-            { 'photo' : 'assets/images/companies/hackster-logo.png',
-              'name' : 'hackster.io', 'div' :'#companies-content'
+            { 'photo'   : 'assets/images/companies/hackster-logo.jpg',
+              'name'    : 'hackster.io', 'div' :'#companies-content',
+              'url'     : 'http://hackster.io','fb_url' : 'hacksterio',
+              'motto'   : 'A community dedicated to learning hardware.',
+              'filters' : 'hw accelerator'
             },
-            { 'photo' : 'assets/images/companies/hardwareclub-logo.png',
-              'name' : 'Hardware Club', 'div' :'#companies-content'
+            { 'photo'   : 'assets/images/companies/hardwareclub-logo.jpg',
+              'name'    : 'Hardware Club', 'div' :'#companies-content',
+              'url'     : 'http://hardwareclub.co/','fb_url' : 'hardwareclubpage',
+              'motto'   : 'We help hardware founders build and scale amazing companies',
+              'filters' : 'hw accelerator'
             },
-            { 'photo' : 'assets/images/companies/highway1-logo.jpg',
-              'name' : 'Highway 1', 'div' :'#companies-content'
+            { 'photo'   : 'assets/images/companies/highway1-logo.jpg',
+              'name'    : 'Highway 1', 'div' :'#companies-content',
+              'url'     : 'http://highway1.io/','fb_url' : 'highway1accelerator',
+              'motto'   : 'You&#39;ve got a prototype, we&#39;ve got a roadmap',
+              'filters' : 'hw accelerator'
             },
-            { 'photo' : 'assets/images/companies/plextronics-logo.jpg',
-              'name' : 'Plextronics', 'div' :'#companies-content'
+            { 'photo'   : 'assets/images/companies/plextronics-logo.jpg',
+              'name'    : 'Plextronics', 'div' :'#companies-content',
+              'url'     : 'javascript:void(0)','fb_url' : '','motto':'',
+              'filters' : 'hw accelerator'
             },
-            { 'photo' : 'assets/images/companies/Stratasys-logo.jpg',
-              'name' : 'Stratasys', 'div' :'#companies-content'
+            { 'photo'   : 'assets/images/companies/Stratasys-logo.jpg',
+              'name'    : 'Stratasys', 'div' :'#companies-content',
+              'url'     : 'http://www.stratasys.com/','fb_url' : 'stratasys',
+              'motto'   : 'The 3D Printing Solutions Company',
+              'filters' : 'hw accelerator'
+            },
+            { 'photo'   : 'assets/images/companies/tandem-logo.jpg',
+              'name'    : 'Tandem Capital', 'div' :'#companies-content',
+              'url'     : 'http://tandemcap.com/','fb_url' : 'TandemCap',
+              'motto'   : 'Mobile Seed fund',
+              'filters' : 'hw accelerator'
             },
         ];
         
@@ -1051,17 +1077,23 @@
         function make_company_html( company )
         {
             var html  = "<!-- " + company.name + "-->\n";
-                html += "<li>\n";
-                html += "   <figure>\n";
-                html += "       <img src='"+ company.photo + "' \n";
-                html += "            alt='" + company.name +"' ";
-                html += "            data-original-title='RocketPunch' data-toggle='tooltip'>\n";
+                html += "<div class='portfolio-item infinite-item col-xs-4 filter-gallery filter-image'>\n";
+                html += "   <figure class='portfolio-figure'>\n";
+                html += "       <img class='img-responsive' height='225' src='"+ company.photo + "' \n";
+                html += "            alt='" + company.name +"' >\n";
                 html += "       <figcaption>\n";
-                html += "           <h3></h3>\n";
-                html += "           <p></p>\n";
+                html += "           <h4>"+company.name+"<br>"+company.motto+"</h4>\n";
+                html += "           <a class='link' href='" + company.url +"'\n";
+                html += "              target='_blank'>\n";
+                html += "              <i class='fa fa-link'></i>\n";
+                html += "           </a>\n";
+                html += "           <a class='more' href='http://www.facebook.com/" + company.fb_url + "'\n";
+                html += "              target='_blank'>\n";
+                html += "              <i class='fa fa-facebook'></i>\n";
+                html += "           </a>\n";
                 html += "       </figcaption>\n";
                 html += "   </figure>\n";
-                html += "</li>\n";
+                html += "</div>\n";
                
             return html;
         }
@@ -1193,7 +1225,7 @@
             
             // isotope in portfolio class set it to fitRows layout
         
-            $('.portfolio').isotope({
+            $('.portfolio-people').isotope({
                 layoutMode: 'fitRows',
                 itemSelector: '.portfolio-item'
                 });
