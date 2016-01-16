@@ -1006,7 +1006,7 @@
             },
             { 'photo'   : 'assets/images/companies/plextronics-logo.jpg',
               'name'    : 'Plextronics', 'div' :'#companies-content',
-              'url'     : 'javascript:void(0)','fb_url' : '','motto':'',
+              'url'     : '','fb_url' : '','motto':'',
               'filters' : 'hw accelerator'
             },
             { 'photo'   : 'assets/images/companies/Stratasys-logo.jpg',
@@ -1076,6 +1076,9 @@
         
         function make_company_html( company )
         {
+            var fb_url = (company.fb_url == '' )? false : company.fb_url;
+            var url    = (company.url    == '' )? false : company.url;
+            
             var html  = "<!-- " + company.name + "-->\n";
                 html += "<div class='portfolio-item infinite-item col-xs-4 filter-gallery filter-image'>\n";
                 html += "   <figure class='portfolio-figure'>\n";
@@ -1083,14 +1086,21 @@
                 html += "            alt='" + company.name +"' >\n";
                 html += "       <figcaption>\n";
                 html += "           <h4>"+company.name+"<br>"+company.motto+"</h4>\n";
-                html += "           <a class='link' href='" + company.url +"'\n";
-                html += "              target='_blank'>\n";
-                html += "              <i class='fa fa-link'></i>\n";
-                html += "           </a>\n";
-                html += "           <a class='more' href='http://www.facebook.com/" + company.fb_url + "'\n";
-                html += "              target='_blank'>\n";
-                html += "              <i class='fa fa-facebook'></i>\n";
-                html += "           </a>\n";
+                
+                if ( url != false ){
+                    html += "           <a class='link' href='" + company.url +"'\n";
+                    html += "              target='_blank'>\n";
+                    html += "              <i class='fa fa-link'></i>\n";
+                    html += "           </a>\n";
+                }
+                
+                if ( fb_url != false ){
+                    html += "       <a class='more' href='http://www.facebook.com/" + fb_url + "'\n";
+                    html += "          target='_blank'>\n";
+                    html += "          <i class='fa fa-facebook'></i>\n";
+                    html += "       </a>\n";
+                }
+                
                 html += "       </figcaption>\n";
                 html += "   </figure>\n";
                 html += "</div>\n";
