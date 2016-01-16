@@ -1085,7 +1085,20 @@
                 html += "       <img class='img-responsive' height='225' src='"+ company.photo + "' \n";
                 html += "            alt='" + company.name +"' >\n";
                 html += "       <figcaption>\n";
-                html += "           <h4>"+company.name+"<br>"+company.motto+"</h4>\n";
+                html += "          <h4>\n";
+                
+                if ( url != false){
+                    html += "      <a href='" + url + "'>";
+                }
+                
+                html += "               "+company.name+"<br>\n";
+                
+                if ( url != false){
+                    html += "      </a>";
+                }
+                
+                html += "          <small>"+company.motto+"</small>\n";
+                html += "          </h4>\n";
                 
                 if ( url != false ){
                     html += "           <a class='link' href='" + company.url +"'\n";
