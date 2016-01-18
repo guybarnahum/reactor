@@ -17,7 +17,7 @@ function init_common()
                         Auth: { 
                             tokenUrl: 'http://reactor.barnahum.com/jwt/token.php'
                         },
-                        Filter: false,
+                        Filter: true,
                         Permissions: false,
                         AnnotateItPermissions: {}
                 });
