@@ -1311,9 +1311,9 @@
             return qoutes[ q_ix ];
         }
         
-        function display_next_qoute( id )
+        function display_next_qoute( sel )
         {
-            $(id).fadeOut('slow', 
+            $(sel).fadeOut('slow',
             
             // oncompletion of fadeOut, change and fadeIn..
             function(){
@@ -1477,6 +1477,18 @@
             $(sel).html( h );
         }
         
+        function init_qoutes_div( sel, refresh )
+        {
+            // ajax does not work locally..
+            
+            if ( !isLocal() && $( sel ).length ) {
+                // get qoutes and update them every 24s
+                init_qoutes( 16 );
+                display_next_qoute( sel );
+                setInterval("display_next_qoute('" + sel + "')", refresh );
+            }
+        }
+        
         add_companies( companies );
         add_persons  ( people    );
 
@@ -1520,13 +1532,8 @@
                 
                 });
             
-            // ajax does not work locally..
-            if (!isLocal()){
-                // get qoutes and update them every 24s
-                init_qoutes( 16 );
-                display_next_qoute( '#qoute' );
-                setInterval("display_next_qoute('#qoute')", 24000);
-            }
+            init_qoutes_div( '#qoute', 24000 );
+            
         });
             
         </script>
