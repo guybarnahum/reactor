@@ -47,6 +47,11 @@
             margin-bottom:10px;
         }
         
+        div.horizontal-line.red
+        {
+            background-color:red;
+        }
+        
         div.center
         {
             margin-left:auto;
@@ -105,14 +110,14 @@
         
         <section class="section swatch-red-white" id="home">
             <div class="background-media hidden-print" style="background-image: url(''); background-repeat: ; background-size: ; background-attachment: ; background-position: ; background-size: cover;">
-                    <video poster="" style="width: 100%; height: 100%;" 
-                        loop autoplay
-                        class="section-background-video">
-                        <!-- <source type="video/mp4" src="assets/video/b.mp4"></source> -->
-                        <source type="video/mp4" src="http://theme-background-videos.s3.amazonaws.com/corporate.m4v"></source>
-                        <source type="video/webm" src=""></source>
-                        <source type="video/ogg" src=""></source>
-                    </video>
+                <video poster="" style="width: 100%; height: 100%;"
+                    loop autoplay
+                    class="section-background-video">
+                    <!-- <source type="video/mp4" src="assets/video/b.mp4"></source> -->
+                    <source type="video/mp4" src="http://theme-background-videos.s3.amazonaws.com/corporate.m4v"></source>
+                    <source type="video/webm" src=""></source>
+                    <source type="video/ogg" src=""></source>
+                </video>
             </div>
             <div class="background-overlay" style="background-color:rgba(231,76,60,0.8)"></div>
             <div class="container">
@@ -167,7 +172,7 @@
             </div>
         </section>
         
-        <!-- Value Proposition -->
+        <!-- Core Value -->
         
         <section class="section pagebreak swatch-white-red" id="value">
         
@@ -178,15 +183,13 @@
             </div>
 
             <div class="container">
-                
                 <header class="section-header no-underline">
                     <h1 class="headline super bold">
-                        Our Core Value
+                        Core Value
                     </h1>
                 </header>
-                
                 <div class="row">
-                    <div class="col-xs-12 text-default">
+                    <div class="col-xs-10 col-xs-offset-1 text-default">
                         <ul class="list-unstyled vertical-icon-border box-list">
                             <li class="row">
                                 <div class="col-xs-3">
@@ -241,51 +244,76 @@
                     </div>
                 </div>
                 
-                 <div class="row">
-                
-                    <div class="col-xs-6">
-                        <h3>For Startups we are the smartest money around</h3>
-                        <ul>
-                            <li>Think of us as a founder/partner fully committed to the startup</li>
-                            <li>Work together to discover market-fit, refine strategy, drive user acquisition and engagement, help with business development, access to potential partners, manufacturing / production and team building</li>
-                            <li>Define milestones and metrics required to complete the first significant round (Seed or A) of smart money</li>
-                            <li>Support with Silicon Valley go-to-market and help secure the next round from added market value US / global investors</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="col-xs-6">
-                        <h3>For Investors we are a gateway to untapped potential</h3>
-                        <ul>
-                            <li>Access to top talent Tel Aviv startups</li>
-                            <li>Building US companies in Silicon Valley</li>
-                            <li>Early stage incubation (initial funding, stratgey and mentorship)</li>
-                            <li>Follow-on investment opportunities</li>
-                            <li>World class personal track record and network of partners</li>
-                            <li>Deep connections to Apple, Samsung, Intel and Asian Contract Manufacturing</li>
-                            <li>Access to Silicon Valley investors ecosystem</li>
-                        </ul>
-                        <a href="javascript:void(0)">more investor information</a>
-                    </div>
-                    
-                </div>
-                
-                <br><br>
-                
                 <div class="row">
-                
-                    <div class="col-xs-6 col-xs-offset-3">
-                        <h3>We are not "just" an accelerator "program"</h3>
-                        <ul>
-                            <li>Focus on early stage (idea, initial team)</li>
-                            <li>First money into the company</li>
-                            <li>Hands on strategic involvement and incubation</li>
-                            <li>Domain expertise, know-how and execution support</li>
-                            <li>Deep network of solution experts product design and productization</li>
-                            <li>Silicon Valley go-to-market know-how</li>
-                        </ul>
+                    <div class="col-xs-10 col-xs-offset-1">
+                        <div class="panel-group">
+                            <div class="panel panel-default" id="value-proposition">
+                            
+                                <div class="panel-heading">
+                                    <a class="accordion-toggle collapsed" 
+                                       data-parent="#value-proposition" 
+                                       data-toggle="collapse" href="#vp1">
+                                       For Startups we are the smartest money around
+                                    </a>
+                                </div>
+                                <div class="panel-collapse collapse" id="vp1">
+                                    <div class="panel-body">
+                                        <ul>
+                                            <li>Think of us as a founder/partner fully committed to the startup</li>
+                                            <li>Work together to discover market-fit, refine strategy, drive user acquisition and engagement, help with business development, access to potential partners, manufacturing / production and team building</li>
+                                            <li>Define milestones and metrics required to complete the first significant round (Seed or A) of smart money</li>
+                                            <li>Support with Silicon Valley go-to-market and help secure the next round from added market value US / global investors</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="panel-heading">
+                                    <a class="accordion-toggle collapsed" 
+                                       data-parent="#value-proposition" 
+                                       data-toggle="collapse" href="#vp2">
+                                       For Investors we are a gateway to untapped potential
+                                    </a>
+                                </div>
+                                <div class="panel-collapse collapse" id="vp2">
+                                    <div class="panel-body">
+                                        <ul>
+                                            <li>Access to top talent Tel Aviv startups</li>
+                                            <li>Building US companies in Silicon Valley</li>
+                                            <li>Early stage incubation (initial funding, stratgey and mentorship)</li>
+                                            <li>Follow-on investment opportunities</li>
+                                            <li>World class personal track record and network of partners</li>
+                                            <li>Deep connections to Apple, Samsung, Intel and Asian Contract Manufacturing</li>
+                                            <li>Access to Silicon Valley investors ecosystem</li>
+                                        </ul>
+                                        <a href="javascript:void(0)">more investor information</a> 
+                                    </div>
+                                </div>
+                                
+                                <div class="panel-heading">
+                                    <a class="accordion-toggle collapsed" 
+                                       data-parent="#value-proposition" 
+                                       data-toggle="collapse" href="#vp3">
+                                       We are not "just" an accelerator "program"
+                                    </a>
+                                </div>
+                                <div class="panel-collapse collapse" id="vp3">
+                                    <div class="panel-body">
+                                        <ul>
+                                            <li>Focus on early stage (idea, initial team)</li>
+                                            <li>First money into the company</li>
+                                            <li>Hands on strategic involvement and incubation</li>
+                                            <li>Domain expertise, know-how and execution support</li>
+                                            <li>Deep network of solution experts product design and productization</li>
+                                            <li>Silicon Valley go-to-market know-how</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
                     </div>
-                    
                 </div>
+
             </div>
         </section>
 
@@ -508,6 +536,7 @@
             </div>
 
             <div class="container">
+            
                 <header class="section-header no-underline">
                     <h1 class="headline super bold">
                         What makes us different?
@@ -517,49 +546,17 @@
                         Unlike so many accelerators, we don&#39;t "mentor" or provide you with an office.
                         We are a virtual founder in your team, involved in stratgey and execution toward a Silicon Valley seed round.
                     </h1>
-                </header>
-                
-                <br><br>
-                
-                <div class="col-xs-10 col-xs-offset-1">
-                    
+                    <br><br>
                     <h3>
                         We are not "just" an accelerator "program"
+                        <br>
+                        <a href="focus.html">more about how we work</a>
                     </h3>
                     
-                    <ul>
-                        <li>Focus on early stage (team and opportunity)</li>
-                        <ul>
-                            <li>First money into the company (pre-seed / seed)</li>
-                            <li>Look for an opportunity where both market and potential investors are in the United States</li>
-                            <li>Invest in a team that has what it takes to win in Silicon Valley</li>
-                        </ul>
-                        <br>
-                        <li>Domain expertise, know-how and execution support
-                        <ul>
-                            <li>Focus on advanced IoT (includes IoT, wearables, robotics, deep learning and other enabling technologies), both Business-to-business and Business-to-consumer</li>
-                            <li>Hands on strategic involvement and incubation</li>
-                            <li>Deep network of solution experts for hardware, IoT, marketing and productization</li>
-                        </ul>
-                        <br>
-                        <li>Silicon Valley go to market know-how
-                        <ul>
-                            <li>Negotiate a vision that aligns with Silicon Valley core beliefs</li>
-                            <li>Definition of key milestones and traction metrics - critical factor in readiness for first significant round (Seed or A)</li>
-                            <li>Refine pitch and match startup with investors and partners</li>
-                        </ul>
-                    </ul>
-                    
-                    <br><br>
-                    
-                    <div class="text-center">
-                        <p class="">
-                            <a href="focus.html">more about how we work</a>
-                        </p>
-                    </div>
-                    
-                </div>
+                </header>
+                
             </div>
+            
         </section>
         
         <section class="section swatch-white-red">
@@ -571,7 +568,11 @@
             <div class="container">
                 <div class="row">
                     <ul class="list-unstyled row box-list horizontal-icon-border">
-                        <li class="col-xs-4 text-center" data-os-animation="" data-os-animation-delay="">
+                    
+                        <li class="col-xs-4 text-center" 
+                            data-os-animation=""
+                            data-os-animation-delay="">
+                            
                             <div class="box-round box-medium">
                                 <div class="box-dummy"></div>
                                 <div class="box-inner">
@@ -580,11 +581,13 @@
                                     </a>
                                 </div>
                             </div>
+                            
                             <h3 class="text-center ">
                                 <a href="talent.html">
                                     Talent
                                 </a>
                             </h3>
+                            
                             <p class="text-left">
                                 We believe in finding talent early and overseas. We look for pre-seed high quality teams that can pivot to meet opportunities.
                                 <br><br>
@@ -594,8 +597,47 @@
                             <p class="text-center">
                                 <b>70%</b> team +<b>25%</b> the-space +<b>5%</b> idea
                             </p>
+                            
+                            <br>
+                            <div class="horizontal-line red center" style="width:30%;"></div>
+                            <br>
+
+                            <p class="text-center">
+                                <h3>
+                                    <a href="javascript:void(0)">
+                                        Focus on early stage team and opportunity
+                                    </a>
+                                </h3>
+                            </p>
+                            <ul class="fa-ul">
+                                <li>
+                                    <small>
+                                    <i class="fa-li fa fa-angle-right"></i>
+                                    Invest in a team that has what it takes to win in Silicon Valley
+                                    </small>
+
+                                </li>
+                                <br>
+                                <li>
+                                    <small>
+                                    <i class="fa-li fa fa-angle-right"></i>
+                                    First money into the company (pre-seed / seed)
+                                    </small>
+                                </li>
+                                <br>
+                                <li>
+                                    <small>
+                                    <i class="fa-li fa fa-angle-right"></i>
+                                    Look for an opportunity where both market and potential investors are in the United States
+                                    </small>
+                                </li>
+                            </ul>
                         </li>
-                        <li class="col-xs-4 text-center">
+                        
+                        <li class="col-xs-4 text-center"
+                            data-os-animation=""
+                            data-os-animation-delay="">
+
                             <div class="box-round box-medium">
                                 <div class="box-dummy"></div>
                                 <div class="box-inner">
@@ -604,18 +646,53 @@
                                     </a>
                                 </div>
                             </div>
-                            <h3 class="text-center ">
+                            
+                            <h3 class="text-center">
                                 <a href="space.html">
                                     Focused Space
                                 </a>
                             </h3>
+                            
                             <p class="text-left">
                                 We focus on opportunities in a hot and productive space - Advanced Internet-Of-Things. 
                                 <br>
                                 <br>
                                 We believe that smart connected devices are the next big thing for the internet, and were our experience, expertise and contacts can add value to startups.
                             </p>
+                            <br>
+                            <div class="horizontal-line red center" style="width:30%;"></div>
+                            <br>
+                            <p class="text-center">
+                                <h3>
+                                    <a href="javascript:void(0)">
+                                        Domain expertise, know-how and execution support
+                                    </a>
+                                </h3>
+                                <ul class="fa-ul">
+                                    <li>
+                                        <small>
+                                        <i class="fa-li fa fa-angle-right"></i>
+                                        Focus on advanced IoT (includes IoT, wearables, robotics, deep learning and other enabling technologies), both Business-to-business and Business-to-consumer
+                                        </small>
+                                    </li>
+                                    <br>
+                                    <li>
+                                        <small>
+                                        <i class="fa-li fa fa-angle-right"></i>
+                                        Hands on strategic involvement and incubation
+                                        </small>
+                                    </li>
+                                    <br>
+                                    <li>
+                                        <small>
+                                       <i class="fa-li fa fa-angle-right"></i>
+                                         Deep network of solution experts for hardware, IoT, marketing and productization
+                                        </small>
+                                    </li>
+                                </ul>
+                            </p>
                         </li>
+                        
                         <li class="col-xs-4 text-center">
                             <div class="box-round box-medium">
                                 <div class="box-dummy"></div>
@@ -625,7 +702,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <h3 class="text-center ">
+                            <h3 class="text-center">
                                 <a href="focus.html">Focused Value</a>
                             </h3>
                             <p class="text-left">
@@ -635,7 +712,43 @@
                                 <br><br>
                                 The second is traction that earns the seed round from from a Bay Area Venture Capital firm.
                             </p>
+                            <br>
+                                <div class="horizontal-line red center" style="width:30%;"></div>
+                            <br>
+                            <p class="text-center">
+                                
+                                <h3 class="text-center">
+                                    <a href="javascript:void(0)">
+                                        Silicon Valley go to market know-how
+                                    </a>
+                                </h3>
+                                
+                                <ul class="fa-ul">
+                                    <li>
+                                    <small>
+                                        <i class="fa-li fa fa-angle-right"></i>
+                                            Negotiate a vision that aligns with Silicon Valley core beliefs
+                                        </small>
+                                    </li>
+                                    <br>
+                                    <li>
+                                        <small>
+                                        <i class="fa-li fa fa-angle-right"></i>
+                                        Definition of key milestones and traction metrics - critical factor in readiness for first significant round (Seed or A)
+                                        </small>
+                                    </li>
+                                    <br>
+                                    <li>
+                                        <small>
+                                        <i class="fa-li fa fa-angle-right"></i>
+                                        Refine pitch and match startup with investors and partners
+                                        </small>
+                                    </li>
+                                </ul>
+                                
+                            </p>
                         </li>
+                        
                     </ul>
                 </div>
             </div>
@@ -884,7 +997,7 @@
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><h5><a href="index-alt.html#value">Our value proposition</a></h5></li>
+                                        <li><h5><a href="index-alt.html#value">Core value</a></h5></li>
                                         <li><h5><a href="index-alt.html#how-we-work">How are we different?</a></h5></li>
                                         <li><h5><a href="faq.html">Q/A</a></h5></li>
                                     </ul>
