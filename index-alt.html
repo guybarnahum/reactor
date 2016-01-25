@@ -1307,7 +1307,7 @@
             if ( quotes.length == 0 ) return false;
             
             q_ix = ( q_ix + 1 ) % quotes.length;
-            return '#' + quotes[ q_ix ].toCamelCase();
+            return quotes[ q_ix ];
         }
         
         function display_next_quote( sel )
