@@ -1504,7 +1504,7 @@
                 display_next_quote( sel );
                 
                 refresh = $( sel ).data('refresh');
-                console.log('start_quotes - timer started ' + refresh + ' ms');
+                // console.log('start_quotes - timer started ' + refresh + ' ms');
                 timer = setInterval("display_next_quote('" + sel + "')", refresh );
                 $(sel).data( 'timer' , timer );
             }
@@ -1516,7 +1516,7 @@
             
                 if ( $(sel).data( 'timer') !== false ){
                     
-                    console.log('stop_quotes : timer stopped');
+                    // console.log('stop_quotes : timer stopped');
                     timer = $(sel).data( 'timer' );
                     clearInterval( timer );
                     $(sel).data( 'timer' , false );
@@ -1527,13 +1527,13 @@
         
         function video_play()
         {
-            console.log( 'video_play' );
+            // console.log( 'video_play' );
             $('video').each(function () { this.play(); });
         }
         
         function video_pause()
         {
-            console.log( 'video_pause' );
+            // console.log( 'video_pause' );
             $('video').each(function () { this.pause(); });
         }
         
@@ -1592,8 +1592,8 @@
                 
                 });
             
-            init_quotes_div( '#quote', 16000 );
-            start_quotes( '#quote' );
+            init_quotes_div( '#quote' , 16000 );
+            start_quotes   ( '#quote' );
             
             // save resources when not page is not visible..
             set_page_visible_callback( page_visible_callback );
