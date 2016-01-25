@@ -1065,6 +1065,13 @@
         
         <script>
         
+        String.prototype.toCamelCase = function() {
+            return this.replace(/^([A-Z])|\s(\w)/g, function(match, p1, p2, offset) {
+                if (p2) return p2.toUpperCase();
+                return p1.toLowerCase();        
+            });
+        };
+
         var people = [
         
             // Partners
@@ -1294,15 +1301,13 @@
         }
 
         var q_ix   = 0;
-        var q_pre  = '#';
-        var q_post = '';
         
         function get_next_quote()
         {
             if ( quotes.length == 0 ) return false;
             
             q_ix = ( q_ix + 1 ) % quotes.length;
-            return q_pre + quotes[ q_ix ] + q_post;
+            return '#' + quotes[ q_ix ].toCamelCase();
         }
         
         function display_next_quote( sel )
