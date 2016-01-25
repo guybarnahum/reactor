@@ -5,7 +5,7 @@
         [ 'content' =>"Make someting great!", 'title' =>'' ],
         [ 'content' =>"Just do it!", 'title' =>'Nike' ],
         [ 'content' =>"You are not alone", 'title' =>'' ],
-        [ 'content' =>"Together we can make this happen", 'title' =>'' ],
+        [ 'content' =>"Together we can make it happen", 'title' =>'' ],
         [ 'content' =>"Most of the value is in the network", 'title' =>'' ],
     ];
     

@@ -1284,6 +1284,7 @@
                         
                         if ( item.hasOwnProperty('content') ){
                             q = item.content;
+                            
                             console.log(ix +" : " +q);
                             quotes.push( q );
                         }
@@ -1292,14 +1293,16 @@
             });
         }
 
-        var q_ix = 0;
+        var q_ix   = 0;
+        var q_pre  = '#';
+        var q_post = '';
         
         function get_next_quote()
         {
             if ( quotes.length == 0 ) return false;
             
             q_ix = ( q_ix + 1 ) % quotes.length;
-            return quotes[ q_ix ];
+            return q_pre + quotes[ q_ix ] + q_post;
         }
         
         function display_next_quote( sel )
