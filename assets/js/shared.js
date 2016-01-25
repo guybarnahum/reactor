@@ -45,3 +45,48 @@ function init_common()
 }
 
 if (!isLocal()) init_common();
+
+var hidden, visibilityChange;
+
+function init_page_visibility_api( callback )
+{
+    // Set the name of the hidden property and the change event for visibility
+    if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and later support
+        hidden = "hidden";
+        visibilityChange = "visibilitychange";
+    } else if (typeof document.mozHidden !== "undefined") {
+        hidden = "mozHidden";
+        visibilityChange = "mozvisibilitychange";
+    } else if (typeof document.msHidden !== "undefined") {
+        hidden = "msHidden";
+        visibilityChange = "msvisibilitychange";
+    } else if (typeof document.webkitHidden !== "undefined") {
+        hidden = "webkitHidden";
+        visibilityChange = "webkitvisibilitychange";
+    }
+}
+
+function set_page_visible_callback( callback )
+{
+    var ok = (typeof document.addEventListener !== "undefined" ) &&
+             (typeof document[hidden]         !== "undefined" )  ;
+    
+    if (ok){
+        document.addEventListener(visibilityChange, callback, false);
+    }
+    
+    return ok;
+}
+
+function isPageHidden()
+{
+    var dh;
+    if ( typeof document[hidden] !== "undefined" ){
+        dh = document[hidden];
+    }
+    
+    return dh; // maybe undefined!
+}
+
+init_page_visibility_api();
+

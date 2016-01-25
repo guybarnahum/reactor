@@ -1483,8 +1483,64 @@
             if ( !isLocal() && $( sel ).length ) {
                 // get quotes and update them every 24s
                 init_quotes( 16 );
+                $( sel ).refresh = refresh;
+                $( sel ).timer   = false;
+            }
+        }
+        
+        function start_quotes( sel )
+        {
+            // stop running timers if any
+            stop_quotes();
+            
+            // start new timer
+            if ( !isLocal() && 
+                  $( sel ).length && 
+                  ( typeof $( sel ).refresh !== 'undefined' ) ) {
+                
+                refresh = $( sel ).refresh;
+                console.log('start_quotes - timer started ' + refresh + ' ms');
                 display_next_quote( sel );
-                setInterval("display_next_quote('" + sel + "')", refresh );
+                
+                $(sel).timer = setInterval("display_next_quote('" + sel + "')", refresh );
+            }
+        }
+        
+        function stop_quotes( sel )
+        {
+            if ( typeof $(sel).timer !== 'undefined' ){
+            
+                if ( $(sel).timer ){
+                    
+                    console.log('stop_quotes : timer stopped');
+                    clearInterval( $(sel).timer );
+                    $(sel).timer = false;
+                }
+            }
+        }
+        
+        
+        function video_play()
+        {
+            console.log( 'video_play' );
+            $('video').each(function () { this.play(); });
+        }
+        
+        function video_pause()
+        {
+            console.log( 'video_pause' );
+            $('video').each(function () { this.pause(); });
+        }
+        
+        function page_visible_callback()
+        {
+            if ( isPageHidden() ){ 
+                video_pause();
+                stop_quotes( '#quote' );
+            }
+            else{ 
+                video_play();
+                start_quotes( '#quote' );
             }
         }
         
@@ -1532,9 +1588,13 @@
                 });
             
             init_quotes_div( '#quote', 16000 );
+            start_quotes( '#quote' );
+            
+            // save resources when not page is not visible..
+            set_page_visible_callback( page_visible_callback );
             
         });
-            
+        
         </script>
         
         <script src="http://assets.annotateit.org/annotator/v1.2.10/annotator-full.min.js"></script>
