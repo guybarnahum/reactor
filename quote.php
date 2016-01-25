@@ -1,6 +1,6 @@
 <?php
 
-    $reactor_qoutes = [
+    $reactor_quotes = [
     
         [ 'content' =>"Make someting great!", 'title' =>'' ],
         [ 'content' =>"Just do it!", 'title' =>'Nike' ],
@@ -9,7 +9,7 @@
         [ 'content' =>"Most of our value is in our network", 'title' =>'' ],
     ];
     
-    $sw_qoutes = [
+    $sw_quotes = [
     
     [ 'content' =>"Java is to JavaScript what Car is to Carpet.", 'title' =>'Chris Heilmann' ],
     [ 'content' =>"It&#39;s hard enough to find an error in your code when you&#39;re looking for it; it&#39;s even harder when you&#39;ve assumed your code is error-free.", 'title' =>'Steve McConnell' ],
@@ -42,32 +42,32 @@
     
     ];
 
-// ......................................................... get_shuffled_qoutes
+// ......................................................... get_shuffled_quotes
     
-function get_shuffled_qoutes( $qoutes, $num )
+function get_shuffled_quotes( $quotes, $num )
 {
-    return get_random_qoutes( $qoutes, $num, $shuffle = true );
+    return get_random_quotes( $quotes, $num, $shuffle = true );
 }
     
-// ........................................................... get_random_qoutes
+// ........................................................... get_random_quotes
     
-function get_random_qoutes( $qoutes, $num, $shuffle = false )
+function get_random_quotes( $quotes, $num, $shuffle = false )
 {
     $a = array();
     $q = array();
     
     while( $num-- ){
     
-        // refill source of qoutes?
-        if ( count($a) == 0 ) $a = $qoutes;
+        // refill source of quotes?
+        if ( count($a) == 0 ) $a = $quotes;
     
-        // pick random $qoute
+        // pick random $quote
         $qix   = mt_rand( 0, count( $a ) - 1 );
-        $qoute = (object)$a[ $qix ];
+        $quote = (object)$a[ $qix ];
         
         // make html
-        $qoute->content = nl2br( $qoute->content,false);
-        $q[] = $qoute;
+        $quote->content = nl2br( $quote->content,false);
+        $q[] = $quote;
         
         if ( $shuffle ){
             unset( $a[ $qix ] );
@@ -79,34 +79,34 @@ function get_random_qoutes( $qoutes, $num, $shuffle = false )
 }
     
 // .................................................................... response
-function response( $qoutes = false )
+function response( $quotes = false )
 {
     $args = $_REQUEST;
 
     $dbg  = isset( $args[ 'debug' ] );
     
-    if ( $qoutes === false ){
+    if ( $quotes === false ){
 
-        global $sw_qoutes, $reactor_qoutes;
+        global $sw_quotes, $reactor_quotes;
         
         $type = isset( $args[ 'type' ] )? $args[ 'type' ] : 'sw';
     
         switch( $type ){
             
             default         :
-            case 'sw'       : $qoutes = $sw_qoutes      ; break;
-            case 'reactor'  : $qoutes = $reactor_qoutes ; break;
+            case 'sw'       : $quotes = $sw_quotes      ; break;
+            case 'reactor'  : $quotes = $reactor_quotes ; break;
         }
     }
 
-    // we should $qoutes defined here..
+    // we should $quotes defined here..
 
     if ( $dbg ){
-        echo '<pre>' . print_r( $qoutes, true ) . '</pre>' ;
+        echo '<pre>' . print_r( $quotes, true ) . '</pre>' ;
     }
     
     if ( isset( $args[ 'max' ] ) ){
-        $num = min( count( $qoutes ), $args[ 'max' ] );
+        $num = min( count( $quotes ), $args[ 'max' ] );
     }
     else{
         $num   = isset( $args[ 'num' ] )? $args[ 'num'   ] : 16;
@@ -117,8 +117,8 @@ function response( $qoutes = false )
     switch( $order ){
 
         default         :
-        case 'rand'     : $q = get_random_qoutes  ( $qoutes, $num ); break;
-        case 'shuffle'  : $q = get_shuffled_qoutes( $qoutes, $num ); break;
+        case 'rand'     : $q = get_random_quotes  ( $quotes, $num ); break;
+        case 'shuffle'  : $q = get_shuffled_quotes( $quotes, $num ); break;
     }
     
     if ( $dbg )

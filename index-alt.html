@@ -126,7 +126,11 @@
                     <h1 class="headline super hairline">
                     An Incubator focusing on advanced Internet-Of-Things startups
                     </h1>
-                    <h1 class="headline medium hairline" id='qoute'></h1>
+                    
+                    <!-- Reactor quotes -->
+                    
+                    <h1 class="headline medium hairline" id='quote'></h1>
+                    
                 </header>
             </div>
         </section>
@@ -1276,11 +1280,11 @@
             },
         ];
         
-        var qoutes = [];
+        var quotes = [];
             
-        function init_qoutes( num )
+        function init_quotes( num )
         {
-            var url = 'http://reactor.barnahum.com/qoute.php?type=reactor&max=' + num;
+            var url = 'http://reactor.barnahum.com/quote.php?type=reactor&max=' + num;
             
             // call back function from url
             $.getJSON( url, function(data) {
@@ -1294,7 +1298,7 @@
                         if ( item.hasOwnProperty('content') ){
                             q = item.content;
                             console.log(ix +" : " +q);
-                            qoutes.push( q );
+                            quotes.push( q );
                         }
                     }
                 }
@@ -1303,25 +1307,25 @@
 
         var q_ix = 0;
         
-        function get_next_qoute()
+        function get_next_quote()
         {
-            if ( qoutes.length == 0 ) return false;
+            if ( quotes.length == 0 ) return false;
             
-            q_ix = ( q_ix + 1 ) % qoutes.length;
-            return qoutes[ q_ix ];
+            q_ix = ( q_ix + 1 ) % quotes.length;
+            return quotes[ q_ix ];
         }
         
-        function display_next_qoute( sel )
+        function display_next_quote( sel )
         {
             $(sel).fadeOut('slow',
             
             // oncompletion of fadeOut, change and fadeIn..
             function(){
             
-                var qoute = get_next_qoute();
+                var quote = get_next_quote();
                 
-                if ( qoute !== false ){
-                    $(this).html( qoute );
+                if ( quote !== false ){
+                    $(this).html( quote );
                     $(this).fadeIn('slow');
                 }
             });
@@ -1477,15 +1481,15 @@
             $(sel).html( h );
         }
         
-        function init_qoutes_div( sel, refresh )
+        function init_quotes_div( sel, refresh )
         {
             // ajax does not work locally..
             
             if ( !isLocal() && $( sel ).length ) {
-                // get qoutes and update them every 24s
-                init_qoutes( 16 );
-                display_next_qoute( sel );
-                setInterval("display_next_qoute('" + sel + "')", refresh );
+                // get quotes and update them every 24s
+                init_quotes( 16 );
+                display_next_quote( sel );
+                setInterval("display_next_quote('" + sel + "')", refresh );
             }
         }
         
@@ -1532,7 +1536,7 @@
                 
                 });
             
-            init_qoutes_div( '#qoute', 24000 );
+            init_quotes_div( '#quote', 24000 );
             
         });
             
