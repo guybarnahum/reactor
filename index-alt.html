@@ -1483,8 +1483,7 @@
             if ( !isLocal() && $( sel ).length ) {
                 // get quotes and update them every 24s
                 init_quotes( 16 );
-                $( sel ).refresh = refresh;
-                $( sel ).timer   = false;
+                $( sel ).extend( { refresh : refresh, timer : false } );
             }
         }
         
