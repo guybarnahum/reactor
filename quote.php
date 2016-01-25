@@ -6,7 +6,7 @@
         [ 'content' =>"Just do it!", 'title' =>'Nike' ],
         [ 'content' =>"You are not alone", 'title' =>'' ],
         [ 'content' =>"Together we can make this happen", 'title' =>'' ],
-        [ 'content' =>"Most of our value is in our network", 'title' =>'' ],
+        [ 'content' =>"Most of the value is in the network", 'title' =>'' ],
     ];
     
     $sw_quotes = [
@@ -112,12 +112,13 @@ function response( $quotes = false )
         $num   = isset( $args[ 'num' ] )? $args[ 'num'   ] : 16;
     }
     
-    $order = isset( $args[ 'order' ] )? $args[ 'order' ] : 'rand';
+    $order = isset( $args[ 'order' ] )? $args[ 'order' ] : 'none';
 
     switch( $order ){
 
-        default         :
         case 'rand'     : $q = get_random_quotes  ( $quotes, $num ); break;
+        
+        default         :
         case 'shuffle'  : $q = get_shuffled_quotes( $quotes, $num ); break;
     }
     
