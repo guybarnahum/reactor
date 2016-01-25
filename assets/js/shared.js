@@ -1,4 +1,3 @@
-// Annotator
 
 function isString(x) {
     return x !== null &&
@@ -6,11 +5,16 @@ function isString(x) {
            x.constructor === String
 }
 
+// .......................................................... js local execution
+
 function isLocal(){
     return (window.location.protocol == 'file:');
 }
 
-function init_common()
+// all services that can't work locally are initialized here
+// Annotator, Version, etc
+
+function init_non_local()
 {
     $('.container').annotator()
                    .annotator('setupPlugins', null, {
@@ -44,7 +48,9 @@ function init_common()
                     });
 }
 
-if (!isLocal()) init_common();
+if (!isLocal()) init_non_local();
+
+// ................................................... Page Visibility API setup
 
 var hidden, visibilityChange;
 
@@ -69,7 +75,7 @@ function init_page_visibility_api( callback )
 function set_page_visible_callback( callback )
 {
     var ok = (typeof document.addEventListener !== "undefined" ) &&
-             (typeof document[hidden]         !== "undefined" )  ;
+             (typeof document[hidden]          !== "undefined" )  ;
     
     if (ok){
         document.addEventListener(visibilityChange, callback, false);
@@ -78,6 +84,7 @@ function set_page_visible_callback( callback )
     return ok;
 }
 
+// Helper routine for callback
 function isPageHidden()
 {
     var dh;
