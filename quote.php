@@ -11,6 +11,7 @@
     
     $sw_quotes = [
     
+    [ 'content' =>"Understanding software is visualizing data flows", 'title' =>'Guy' ],
     [ 'content' =>"Java is to JavaScript what Car is to Carpet.", 'title' =>'Chris Heilmann' ],
     [ 'content' =>"It&#39;s hard enough to find an error in your code when you&#39;re looking for it; it&#39;s even harder when you&#39;ve assumed your code is error-free.", 'title' =>'Steve McConnell' ],
     [ 'content' =>"If debugging is the process of removing software bugs,\n then programming must be the process of putting them in.", 'title'=>' Edsger Dijkstra' ],
