@@ -1486,8 +1486,8 @@
                 init_quotes( 16 );
                 
                 // store timer properties in object
-                $(sel).attr( 'refresh' ) = refresh;
-                $(sel).attr( 'timer'   ) = false  ;
+                $(sel).data( 'refresh' , refresh );
+                $(sel).data( 'timer'   , false   );
             }
         }
         
@@ -1499,25 +1499,27 @@
             // start new timer
             if ( !isLocal() && 
                   $( sel ).length && 
-                  ( typeof $( sel ).refresh !== 'undefined' ) ) {
+                  ( typeof $( sel ).data('refresh') !== 'undefined' ) ) {
                 
-                refresh = $( sel ).refresh;
-                console.log('start_quotes - timer started ' + refresh + ' ms');
                 display_next_quote( sel );
                 
-                $(sel).timer = setInterval("display_next_quote('" + sel + "')", refresh );
+                refresh = $( sel ).data('refresh');
+                console.log('start_quotes - timer started ' + refresh + ' ms');
+                timer = setInterval("display_next_quote('" + sel + "')", refresh );
+                $(sel).data( 'timer' , timer );
             }
         }
         
         function stop_quotes( sel )
         {
-            if ( typeof $(sel).timer !== 'undefined' ){
+            if ( typeof $(sel).data( 'timer') !== 'undefined' ){
             
-                if ( $(sel).timer ){
+                if ( $(sel).data( 'timer') !== false ){
                     
                     console.log('stop_quotes : timer stopped');
-                    clearInterval( $(sel).timer );
-                    $(sel).timer = false;
+                    timer = $(sel).data( 'timer' );
+                    clearInterval( timer );
+                    $(sel).data( 'timer' , false );
                 }
             }
         }
