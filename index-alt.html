@@ -1481,9 +1481,13 @@
             // ajax does not work locally..
             
             if ( !isLocal() && $( sel ).length ) {
-                // get quotes and update them every 24s
+                
+                // get quotes
                 init_quotes( 16 );
-                $( sel ).extend( { refresh : refresh, timer : false } );
+                
+                // store timer properties in object
+                $(sel).attr( 'refresh' ) = refresh;
+                $(sel).attr( 'timer'   ) = false  ;
             }
         }
         
