@@ -1672,9 +1672,12 @@
                     targets = $(dp).find( '.show-hide-target' );
                 }
                 
-                console.log( 'data-target:' + dt );
-                console.log( 'data-parent:' + dp );
-                console.log( 'targets    :' + targets );
+                if ( typeof targets !== 'undefined'  ){
+                    
+                    for( ix = 0 ; ix < targets.length; ix++ ){
+                        console.log( 'target :' + targets[ ix ] );
+                    }
+                }
                 
                 set_html( this, toggle=true );
             
