@@ -1442,7 +1442,7 @@
             }
             
             var html  = "<!-- " + person.name + " bio -->\n";
-                html += "<div id='" + person.in_id + "-bio' style='display: none;'>\n";
+                html += "<div class='hide-on-click' id='" + person.in_id + "-bio' style='display: none;'>\n";
                 html += "   <div class='well'  id='" + person.in_id + "-bio-content'>\n";
                 html += "   </div>\n";
                 html += "</div>\n";
@@ -1670,7 +1670,7 @@
                 });
             
             // clicking on collapse should dismiss it
-            $('.collapse').click( 
+            $('.hide-on-click').click( 
                 function(e)
                 { 
                     $(this).slideToggle();
