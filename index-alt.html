@@ -1672,12 +1672,14 @@
                     targets = $(dp).find( '.show-hide-target' );
                 }
                 
-                if ( typeof targets !== 'undefined'  ){
-                    
+                if ( typeof targets === 'undefined'  ){
+                
                     for( ix = 0 ; ix < targets.length; ix++ ){
                         id = $( targets[ ix ] ).attr('id');
                         
-                        console.log( 'target :' +  id );
+                        if ( (id != dt ) && $( '#' +id ).is(":visible") ){
+                            $( '#' +id ).slideToggle();
+                        }
                     }
                 }
                 
