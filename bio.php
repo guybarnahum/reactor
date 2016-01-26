@@ -11,8 +11,6 @@ function id_to_uri( $id )
     
 function get_bio_html( $id )
 {
-    $uri  = id_to_uri( $id );
-    $html = ( $uri !== false )? file_get_contents( $uri ) : '';
     
     return $html;
 }
@@ -25,14 +23,18 @@ function response()
     $dbg  = isset( $args[ 'debug' ] );
     
     $id   = isset( $args[ 'q' ] )? $args[ 'q' ] : 'none';
-    $html = get_bio_html( $id );
-
-
-    if ( $dbg ){
-        echo '<pre>' . print_r( $html, true ) . '</pre>' ;
+    $uri  = id_to_uri( $id );
+    $err  = 'ok';
+    
+    try{
+        $html = file_get_contents( $uri );
+    }
+    exception( $e ){
+        $html = '';
+        $err  = $e.message();
     }
     
-    $res = (object)[ 'q' => $id, 'html'=> $html ];
+    $res = (object)[ 'q' => $id, 'html'=> $html, 'err'=> $err ];
 
     return json_encode( $res );
 }
