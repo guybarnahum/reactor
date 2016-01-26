@@ -1675,7 +1675,9 @@
                 if ( typeof targets !== 'undefined'  ){
                     
                     for( ix = 0 ; ix < targets.length; ix++ ){
-                        console.log( 'target :' + targets[ ix ] );
+                        id = $(targets[ ix ]).id;
+                        
+                        console.log( 'target :' +  id );
                     }
                 }
                 
