@@ -1442,8 +1442,8 @@
             }
             
             var html  = "<!-- " + person.name + " bio -->\n";
-                html += "<div class='well'>\n";
-                html += "   <div id='" + person.in_id + "-bio' style='display:none;'>\n";
+                html += "<div id='" + person.in_id + "-bio' style="display: none;">\n";
+                html += "   <div class='well'  id='" + person.in_id + "-bio-content'>\n";
                 html += "   </div>\n";
                 html += "</div>\n";
                 
@@ -1489,7 +1489,7 @@
                     (function(this_person) {
                         return function(data) {
                         
-                            sel = '#' +this_person.in_id +'-bio';
+                            sel = '#' +this_person.in_id +'-bio-content';
                             
                             if ( typeof data.html !==  'undefined'){
                                 $( sel ).html( data.html );
