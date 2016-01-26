@@ -444,11 +444,7 @@
                     <div class="portfolio-people portfolio isotope no-transition portfolio-round row"
                          id="partners-content">
                     </div>
-                    <div id="partners-content-bios-group">
-                        <div class="accordion-group" style="border:0;padding:0;margin:0">
-                            <div id="partners-content-bios">
-                            </div>
-                        </div>
+                    <div id="partners-content-bios" class="accordion-group">
                     </div>
                     <!-- End of Partners -->
                 </div>
@@ -1424,7 +1420,7 @@
                 if ( typeof person.bio_url !== 'undefined' ){
                     html += "<a class='btn btn-xs btn-link' role='button'\n";
                     html += "        data-toggle='collapse'\n";
-                    html += "        data-parent='" + person.div + "-bios-group'\n";
+                    html += "        data-parent='" + person.div + "-bios'\n";
                     html += "        data-target='#" + person.in_id+"-bio'>\n";
                     html += "   bio\n";
                     html += "</a>\n";
