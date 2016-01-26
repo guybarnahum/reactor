@@ -1675,10 +1675,10 @@
                 if ( typeof targets !== 'undefined'  ){
                 
                     for( ix = 0 ; ix < targets.length; ix++ ){
-                        id = $( targets[ ix ] ).attr('id');
+                        id = '#' + $( targets[ ix ] ).attr('id');
                         
-                        if ( (id != dt ) && $( '#' +id ).is(":visible") ){
-                            $( '#' +id ).slideToggle();
+                        if ( (id != dt ) && $(id).is(":visible") ){
+                            $(id).slideToggle();
                         }
                     }
                 }
