@@ -443,7 +443,10 @@
                     
                     <div class="portfolio-people portfolio isotope no-transition portfolio-round row"
                          id="partners-content">
-                    </div>  <!-- End of Partners -->
+                    </div>
+                    <div id="partners-content-bios">
+                    </div>
+                    <!-- End of Partners -->
                 </div>
             </div>
         </section>   
@@ -460,6 +463,8 @@
                     </header>
                     <div class="portfolio-people portfolio isotope no-transition portfolio-round row"
                          id="advisory-content">
+                    </div>
+                    <div id="advisory-content-bios">
                     </div>
                 </div>
             </div>
@@ -522,10 +527,10 @@
                 
                     <div class="portfolio-people portfolio isotope no-transition portfolio-round row"
                          id="startup-advisers-content">
-                    
-                        <!-- End of Advisers -->
-                    
                     </div>
+                    <div id="startup-advisers-content-bios">
+                    </div>
+                    <!-- End of Advisers -->
                 </div>
             </div>
 
@@ -1095,7 +1100,8 @@
              'photo'     : 'assets/images/people/OdedHermoni.jpg', 'filters':'in-sf in-tlv vc',
              'in_id'     : 'odedhermoni'  , 'motto' : 'Lets build it!',
              'expertise' : 'Early Stage Investments',
-             'title'     : 'Israel and Bay Area VC @ Rhodium, J-Angels'
+             'title'     : 'Israel and Bay Area VC @ Rhodium, J-Angels',
+             'bio_url'   : 'bio.php&q=odedhermoni'
             },
             
             // Advisory Board
@@ -1409,6 +1415,15 @@
                 html += "       <a href='" + in_url + "' target='_blank'>\n";
                 html += "        " + person.name + "\n";
                 html += "       </a>\n";
+                
+                if ( typeof person.bio_url !== 'undefined' ){
+                    html += "<a class='btn btn-xs btn-link' role='button'\n";
+                    html += "        data-toggle='collapse'\n";
+                    html += "        data-target='#" + person.in_id+"-bio'>\n";
+                    html += "   bio\n";
+                    html += "</a>\n";
+                }
+                
                 html += "       <small class='block'>" + person.expertise + "</small>\n";
                 html += "   </h3>\n";
                 html += "   <p class='text-center'>\n";
@@ -1417,6 +1432,25 @@
                 html += "</div>\n";
                 
                 return html;
+        }
+        
+        function make_person_bio_html( person )
+        {
+            if ( typeof person.bio_url === 'undefined' ){
+                return false;
+            }
+            
+            var html  = "<!-- " + person.name + " bio -->\n";
+                html += "<div class='collapse' id='" + person.in_id + "-bio'>\n";
+                html += "   <div class='well'>\n";
+                html += "       <a href='" + person.bio_url + "' target='_blank'>\n";
+                html += "           " + person.name + " bio link";
+                html += "       </a>\n";
+                html += "       <div id='" + person.in_id + "-bio-content'></div>";
+                html += "   </div>\n";
+                html += "</div>\n";
+                
+            return html;
         }
         
         function make_person_show_hide_html( person )
@@ -1442,7 +1476,33 @@
         
             html = make_person_show_hide_html( person );
             $('#show-hide-panel').append( html );
-        
+            
+            // bio
+            html = make_person_bio_html( person );
+            if ( html !== false ){
+                bios_div = person.div + '-bios';
+                
+                if ($(bios_div).length){
+                    $(bios_div).append( html );
+                }
+                
+                // get bio html
+                $.getJSON( person.bio_url, 
+                
+                    (function(this_person) {
+                        return function(data) {
+                        
+                            sel = '#' + this_person.div +'-bios-content';
+                            
+                            if ( typeof data.html !==  'undefined'){
+                                $( sel ).html = data.html;
+                            }
+                        };
+                    }(person)) // calling the function with the current value
+                );
+            });
+
+            }
         }
         
         function add_companies( companies )
