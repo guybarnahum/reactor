@@ -1492,7 +1492,7 @@
                     (function(this_person) {
                         return function(data) {
                         
-                            sel = '#' + this_person.div +'-bios-content';
+                            sel = this_person.div +'-bios-content';
                             
                             if ( typeof data.html !==  'undefined'){
                                 $( sel ).html = data.html;
