@@ -1442,7 +1442,8 @@
             }
             
             var html  = "<!-- " + person.name + " bio -->\n";
-                html += "<div class='collapse' id='" + person.in_id + "-bio'>\n";
+                html += "<div class='collapse' id='" + person.in_id + "-bio'\n";
+                html += "     data-parent='" + person.div + "-bios'>\n";
                 html += "   <div class='well'  id='" + person.in_id + "-bio-content'>\n";
                 html += "   </div>\n";
                 html += "</div>\n";
