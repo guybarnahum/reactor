@@ -1418,8 +1418,7 @@
                 html += "       </a>\n";
                 
                 if ( typeof person.bio_url !== 'undefined' ){
-                    html += "<a class='btn btn-xs btn-link' role='button'\n";
-                    html += "        data-toggle='collapse'\n";
+                    html += "<a class='btn btn-xs btn-link show-hide' role='button'\n";
                     html += "        data-parent='" + person.div + "-bios'\n";
                     html += "        data-target='#" + person.in_id+"-bio'>\n";
                     html += "   bio\n";
@@ -1443,7 +1442,7 @@
             }
             
             var html  = "<!-- " + person.name + " bio -->\n";
-                html += "<div class='collapse' id='" + person.in_id + "-bio'>\n";
+                html += "<div id='" + person.in_id + "-bio'>\n";
                 html += "   <div class='well'  id='" + person.in_id + "-bio-content'>\n";
                 html += "   </div>\n";
                 html += "</div>\n";
@@ -1674,7 +1673,7 @@
             $('.collapse').click( 
                 function(e)
                 { 
-                    $(this).slideToggle(); 
+                    $(this).slideToggle();
                 }
             );
             
