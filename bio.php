@@ -29,7 +29,7 @@ function response()
     try{
         $html = file_get_contents( $uri );
     }
-    exception( $e ){
+    catch( $e ){
         $html = '';
         $err  = $e.message();
     }
