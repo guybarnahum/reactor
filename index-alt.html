@@ -1671,7 +1671,12 @@
                 });
             
             // clicking on collapse should dismiss it
-            $('.collapse').click( function(e){ $(this).collapse(); });
+            $('.collapse').click( 
+                function(e)
+                { 
+                    $(this).collapse(); 
+                }
+            );
             
             init_quotes_div( '#quote' , 16000 );
             start_quotes   ( '#quote' );
