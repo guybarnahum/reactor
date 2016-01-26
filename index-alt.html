@@ -1055,7 +1055,7 @@
                         <a class="show-hide text-center" href="javascript:void(0)"
                             data-target="show-hide-panel">&copy;</a>
                     </div>
-                    <div class="swatch-white-red" id="show-hide-panel" 
+                    <div class="swatch-white-red show-hide-target" id="show-hide-panel"
                          style="display: none;">
                     </div>
                 </div>
@@ -1442,7 +1442,7 @@
             }
             
             var html  = "<!-- " + person.name + " bio -->\n";
-                html += "<div class='hide-on-click' id='" + person.in_id + "-bio' style='display: none;'>\n";
+                html += "<div class='show-hide-target hide-on-click' id='" + person.in_id + "-bio' style='display: none;'>\n";
                 html += "   <div class='well'  id='" + person.in_id + "-bio-content'>\n";
                 html += "   </div>\n";
                 html += "</div>\n";
@@ -1660,17 +1660,32 @@
             });
             
             $('a.show-hide').click( function(e){
-            
-                div = '#' + $(this).attr('data-target');
-            
+
+                var targets;
+                dt = '#' + $(this).attr('data-target');
+
+                // do we have data-parent?
+                
+                if ( typeof $(this).attr('data-parent') !== 'undefined' )
+                {
+                    dp = '#' + $(this).attr('data-parent');
+                    if ( $(dp).length ){
+                        targets = $(dp).find( '.show-hide-target' );
+                    }
+                }
+                
+                console.log( 'data-target:' + dt );
+                console.log( 'data-parent:' + dp );
+                console.log( 'targets    :' + targets );
+                
                 set_html( this, toggle=true );
             
-                $(div).slideToggle();
+                $(dt).slideToggle();
                 
                 });
             
             // clicking on collapse should dismiss it
-            $('.hide-on-click').click( 
+            $('.hide-on-click').click(
                 function(e)
                 { 
                     $(this).slideToggle();
