@@ -1495,7 +1495,7 @@
                             sel = '#' +this_person.in_id +'-bios-content';
                             
                             if ( typeof data.html !==  'undefined'){
-                                $( sel ).html = data.html;
+                                $( sel ).html( data.html );
                             }
                         };
                     }(person)) // calling the function with the current value
