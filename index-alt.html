@@ -1056,7 +1056,7 @@
                             data-target="#show-hide-panel">&copy;</a>
                     </div>
                     <div class="swatch-white-red show-hide-target" id="show-hide-panel"
-                         style="display: none;">
+                         style="display:none;">
                     </div>
                 </div>
             </div>
@@ -1442,7 +1442,8 @@
             }
             
             var html  = "<!-- " + person.name + " bio -->\n";
-                html += "<div class='show-hide-target hide-on-click' id='" + person.in_id + "-bio' style='display: none;'>\n";
+                html += "<div class='show-hide-target hide-on-click'\n";
+                html += "     id='" + person.in_id + "-bio' style='display: none;'>\n";
                 html += "   <div class='well'  id='" + person.in_id + "-bio-content'>\n";
                 html += "   </div>\n";
                 html += "</div>\n";
@@ -1453,8 +1454,9 @@
         function make_person_show_hide_html( person )
         {
             var html  = "<a class='show-hide' href='javascript:void(0)'\n";
-                html += "   data-target='#" + person.in_id + "'>+" +
-                            person.name + "</a>\n";
+                html += "   data-target='#" + person.in_id + "'";
+                html += "   data-show='+' data-hide='-'>\n";
+                html += "+" + person.name + "</a>\n";
                 html += "<br>\n";
                 
             return html;
@@ -1514,8 +1516,15 @@
             }
         }
         
-        function set_html( sel, toggle )
+        function toggle_html( sel, toggle )
         {
+            if ( ( typeof $(sel).attr( 'data-show' ) === 'undefined' ) ||
+                 ( typeof $(sel).attr( 'data-hide' ) === 'undefined' ) ||
+                 ( typeof $(sel).attr('data-target') === 'undefined' )  )
+            {
+                return;
+            }
+            
             div = $(sel).attr('data-target');
         
             var h = $(sel).html();
@@ -1527,11 +1536,15 @@
                 toggle = !$(div).is(":visible");
             }
            
+            show = $(sel).attr('data-show');
+            hide = $(sel).attr('data-hide');
+           
+            
             if ( toggle ){
-                from = '-'; to = '+';
+                from = hide; to = show;
             }
             else{
-                from = '+'; to = '-';
+                from = show; to = hide;
             }
             
             h = h.split( from ).join( to );
@@ -1656,7 +1669,7 @@
                 });
                 
             $( 'a.show-hide' ).each( function(){
-                set_html( this, toggle=false );
+                toggle_html( this, toggle=false );
             });
             
             $('a.show-hide').click( function(e){
@@ -1683,7 +1696,7 @@
                     }
                 }
                 
-                set_html( this, toggle=true );
+                toggle_html( this, toggle=true );
             
                 $(dt).slideToggle();
                 
