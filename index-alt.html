@@ -1591,6 +1591,15 @@
                 sortBy: 'order'
                 });
 
+            $('.portfolio').isotope({
+            
+                getSortData: { order : function( $item ) {
+                                            return $item.attr('data-order');
+                                       }
+                            },
+                sortBy: 'order'
+                });
+                
             $( 'a.show-hide' ).each( function(){
                 set_html( this, toggle=false );
             });
