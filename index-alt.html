@@ -1441,9 +1441,12 @@
                 return false;
             }
             
+            var parent = person.div + '-bios';
+                parent = parent.substring(1);
+            
             var html  = "<!-- " + person.name + " bio -->\n";
                 html += "<div class='collapse' id='" + person.in_id + "-bio'\n";
-                html += "     data-parent='" + person.div + "-bios'>\n";
+                html += "     data-parent='" + parent + "'>\n";
                 html += "   <div class='well'  id='" + person.in_id + "-bio-content'>\n";
                 html += "   </div>\n";
                 html += "</div>\n";
