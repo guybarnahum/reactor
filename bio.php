@@ -29,9 +29,9 @@ function response()
     try{
         $html = file_get_contents( $uri );
     }
-    catch( $e ){
+    catch( Exception $e ){
         $html = '';
-        $err  = $e.message();
+        $err  = $e->getMessage();
     }
     
     $res = (object)[ 'q' => $id, 'html'=> $html, 'err'=> $err ];
