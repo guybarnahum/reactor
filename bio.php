@@ -48,5 +48,5 @@ function response()
     return json_encode( $res );
 }
 
-header("Access-Control-Allow-Origin: http://localhost");
+header("Access-Control-Allow-Origin: *");
 echo response();
