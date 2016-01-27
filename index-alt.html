@@ -72,6 +72,17 @@
         }
         
         </style>
+        <script>
+        
+        function isString(x) {
+            return x !== null &&
+                   x !== undefined && 
+                   x.constructor === String
+        }
+
+        function isLocal(){ return (window.location.protocol == 'file:'); }
+        
+        </script>
     </head>
     <body>
         <header id="masthead" class="navbar navbar-sticky swatch-red-white" role="banner">
@@ -1095,7 +1106,8 @@
              'photo'     : 'assets/images/people/MichaelRosenblatt.jpg', 'filters':'in-sf hw sw pd',
              'in_id'     : 'mrosenblatt'  , 'motto' : 'Lets build it!',
              'expertise' : 'Product Design, Manufacturing & Hardware Technologies',
-             'title'     : 'Ex Director @ Samsung, Apple, MIT'
+             'title'     : 'Ex Director @ Samsung, Apple, MIT',
+             'bio_url'   : 'bio.php?q=mrosenblatt'
             },
             {'name'      : 'Oded Hermoni', 'order':'Hermoni', 'div':'#partners-content',
              'photo'     : 'assets/images/people/OdedHermoni.jpg', 'filters':'in-sf in-tlv vc',
@@ -1486,7 +1498,13 @@
                 }
                 
                 // get bio html
-                $.getJSON( person.bio_url,
+                bio_url = person.bio_url;
+                
+                if (isLocal()){
+                    bio_url = 'http://localhost/~guyb/reactor/' + bio_url;
+                }
+                
+                $.getJSON( bio_url,
                     
                     (function(this_person) {
                         return function(data) {
