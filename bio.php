@@ -1,5 +1,6 @@
 <?php
-
+    
+$ACAO = '*';
 
 set_error_handler(function($errno, $errstr, $errfile, $errline, array $errcontext) {
     // error was suppressed with the @-operator
@@ -43,10 +44,13 @@ function response()
         $err  = $e->getMessage();
     }
     
-    $res = (object)[ 'q' => $id, 'html'=> $html, 'err'=> $err ];
+    $res = (object)[ 'q'    => $id,
+                     'html' => $html,
+                     'err'  => $err,
+                     'Access-Control-Allow-Origin' => $ACAO ];
 
     return json_encode( $res );
 }
 
-header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Origin: " . $ACAO );
 echo response();
