@@ -49,15 +49,14 @@ function response()
     $res = (object)[ 'q'    => $id,
                      'html' => $html,
                      'err'  => $err,
-                     'Access-Control-Allow-Origin' => $acao ];
-
+                     'acao' => $acao ];
     return $res ;
 }
 
 $res = response();
     
-if ( $res->Access-Control-Allow-Origin ){
-    header("Access-Control-Allow-Origin: " . $res->Access-Control-Allow-Origin );
+if ( $res->acao ){
+    header("Access-Control-Allow-Origin: " . $res->acao );
 }
 
 echo json_encode($res);
