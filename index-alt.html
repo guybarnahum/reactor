@@ -80,7 +80,10 @@
                    x.constructor === String
         }
 
-        function isLocal(){ return (window.location.protocol == 'file:'); }
+        function isLocal(){ 
+            return ( window.location.protocol == 'file:'    )||
+                   ( window.location.hostname == 'localhost');
+        }
         
         </script>
     </head>
@@ -1068,6 +1071,12 @@
                     </div>
                     <div class="swatch-white-red show-hide-target" id="show-hide-panel"
                          style="display:none;">
+                         
+                         <div>
+                            <pre>To debug locally load through http://localhost/ hostname</pre>
+                        </div>
+                         <div id="show-hide-panel-people"></div>
+                         
                     </div>
                 </div>
             </div>
@@ -1301,7 +1310,7 @@
             
         function init_quotes( num )
         {
-            var url = 'http://reactor.barnahum.com/quote.php?type=reactor&max=' + num;
+            var url = 'quote.php?type=reactor&max=' + num;
             
             // call back function from url
             $.getJSON( url, function(data) {
@@ -1486,7 +1495,7 @@
             $(person.div).append( html );
         
             html = make_person_show_hide_html( person );
-            $('#show-hide-panel').append( html );
+            $('#show-hide-panel-people').append( html );
             
             // bio
             html = make_person_bio_html( person );
@@ -1499,10 +1508,6 @@
                 
                 // get bio html
                 bio_url = person.bio_url;
-                
-                if (isLocal()){
-                    bio_url = 'http://localhost/~guyb/reactor/' + bio_url;
-                }
                 
                 $.getJSON( bio_url,
                     
@@ -1573,7 +1578,7 @@
         {
             // ajax does not work locally..
             
-            if ( !isLocal() && $( sel ).length ) {
+            if ( /*!isLocal() &&*/ $( sel ).length ) {
                 
                 // get quotes
                 init_quotes( 16 );
@@ -1590,7 +1595,7 @@
             stop_quotes(sel);
             
             // start new timer
-            if ( !isLocal() && 
+            if ( /*!isLocal() &&*/
                   $( sel ).length && 
                   ( typeof $( sel ).data('refresh') !== 'undefined' ) ) {
                 
