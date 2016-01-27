@@ -1,2 +1,21 @@
-<h1>Guy Bar-Nahum</h1>
-<h6>This is a test!</h6>
+<div class="container">
+
+    <h1 class="headline super bold">
+        Guy Bar-Nahum
+    </h1>
+
+    <h1 class="headline medium hairline">
+    Guy joined Apple as the first member of the iPod Software engineering team in 2001, where he held key positions and was instrumental in building the team, and shaping iPod and iPhone technology till 2008.
+    </h1>
+
+    <p>
+    During his tenure at Apple,he had a chance to participate in the “movement” that defined the mobile era we live in today, and transformed Apple from a troubled computer company into a cultural and business power house.
+    <br>
+    After Apple, Guy was vice president of Samsung Mobile User Experience Lab at Silicon Valley, responsible for creating new disruptive mobile products and services for Samsung Mobile. He is working on deep integration of web and 3rd party value in to the mobile experience, development of new mobile sensors and capabilities and new form factors, beyond the handset and tablet.
+    <br>
+    Prior to joining Apple, Guy was a software architect at Philips Semiconductors where he was responsible for ASIC validation, low level software and OS bring up for the Nexperia Media SoC family. Before joining Semiconductors, Guy was a software architect for Philips Electronics where he formulated the initial Digital Monitor Thin Client concept for Business Unit Monitors creating a new line of business. Prior to joining Philips, Guy was a software engineer at Scitex Corporation in Israel.
+    <br>
+    Guy graduated with a BS degree in Mathematics and Physics from the Tel Aviv University.
+    </p>
+
+</div>
