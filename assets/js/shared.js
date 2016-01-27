@@ -1,16 +1,4 @@
 
-function isString(x) {
-    return x !== null &&
-           x !== undefined && 
-           x.constructor === String
-}
-
-// .......................................................... js local execution
-
-function isLocal(){
-    return (window.location.protocol == 'file:');
-}
-
 // all services that can't work locally are initialized here
 // Annotator, Version, etc
 
