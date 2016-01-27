@@ -56,8 +56,8 @@ function response()
 
 $res = response();
     
-if ( $res.Access-Control-Allow-Origin ){
-    header("Access-Control-Allow-Origin: " . $res.Access-Control-Allow-Origin );
+if ( $res->Access-Control-Allow-Origin ){
+    header("Access-Control-Allow-Origin: " . $res->Access-Control-Allow-Origin );
 }
 
 echo json_encode($res);
