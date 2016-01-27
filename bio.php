@@ -1,6 +1,6 @@
 <?php
     
-$ACAO = '*';
+$_REQUEST[ 'Access-Control-Allow-Origin' ] = '*';
 
 set_error_handler(function($errno, $errstr, $errfile, $errline, array $errcontext) {
     // error was suppressed with the @-operator
@@ -35,6 +35,8 @@ function response()
     $id   = isset( $args[ 'q' ] )? $args[ 'q' ] : 'none';
     $uri  = id_to_uri( $id );
     $err  = 'ok';
+    $acao = isset($args[ 'Access-Control-Allow-Origin' ])?
+                  $args[ 'Access-Control-Allow-Origin' ] : false;
     
     try{
         $html = file_get_contents( $uri );
@@ -47,10 +49,16 @@ function response()
     $res = (object)[ 'q'    => $id,
                      'html' => $html,
                      'err'  => $err,
-                     'Access-Control-Allow-Origin' => $ACAO ];
+                     'Access-Control-Allow-Origin' => $acao ];
 
-    return json_encode( $res );
+    return $res ;
 }
 
-header("Access-Control-Allow-Origin: " . $ACAO );
-echo response();
+$res = response();
+    
+if ( $res.Access-Control-Allow-Origin ){
+    header("Access-Control-Allow-Origin: " . $res.Access-Control-Allow-Origin );
+}
+
+echo json_encode($res);
+    
