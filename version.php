@@ -2,8 +2,8 @@
 
 function get_version( $touch = false )
 {
-    $ver   = file_get_contents( __DIR__ . '/version.txt' );
-    $build = file_get_contents( __DIR__ . '/build.txt'   );
+    $ver   = @file_get_contents( __DIR__ . '/version.txt' );
+    $build = @file_get_contents( __DIR__ . '/build.txt'   );
     
     $num = intval( $build ); // its 0 in case of missing or invalid value
     
