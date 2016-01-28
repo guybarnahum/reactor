@@ -85,6 +85,25 @@
                    ( window.location.hostname == 'localhost');
         }
         
+        function isGoogleChrome()
+        {
+        // please note, 
+        // that IE11 now returns undefined again for window.chrome
+        // and new Opera 30 outputs true for window.chrome
+        // and new IE Edge outputs to true now for window.chrome
+        // so use the below updated condition
+        
+        var isChromium = window.chrome,
+            vendorName = window.navigator.vendor,
+            isOpera    = window.navigator.userAgent.indexOf("OPR" ) > -1,
+            isIEedge   = window.navigator.userAgent.indexOf("Edge") > -1;
+            
+        return (isChromium !== null          &&
+                isChromium !== undefined     &&
+                vendorName === "Google Inc." &&
+                isOpera     == false         &&
+                isIEedge    == false         );
+        }
         </script>
     </head>
     <body>
@@ -121,8 +140,9 @@
                     </ul>
                 </nav>
             </div>
+            <div id="sticky-message">
+            </div>
         </header>
-
         <!-- Home -->
         
         <section class="section swatch-red-white" id="home">
@@ -1739,6 +1759,10 @@
             // save resources when not page is not visible..
             set_page_visible_callback( page_visible_callback );
             
+            if (!isGoogleChrome()){
+                h = "<pre>This site works best on Google Chrome</pre>\n";
+                $('#sticky-message').html( h );
+            }
         });
         
         </script>
