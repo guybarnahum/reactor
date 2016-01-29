@@ -102,7 +102,8 @@ if (!empty($repo)){
 if (!empty($repo)){
 
     $msg[] = 'attempting to git pull for ' . $repo . ' from ' . $repos[$repo]['path'] ;
-    $msg[] = exec('whoami;cd ' . $repos[$repo]['path'] . ';git pull' );
+    $cmd = 'whoami;cd ' . $repos[$repo]['path'] . ';git pull' ;
+    exec( $cmd, $msg );
 
     $body  = stripslashes( implode( "<br>", $msg ) );
     $touch = ( stripos( $body, 'Already up-to-date' ) === false );
