@@ -103,6 +103,7 @@ if (!empty($repo)){
 
     $msg[] = 'attempting to git pull for ' . $repo . ' from ' . $repos[$repo]['path'] ;
     $cmd = 'whoami;cd ' . $repos[$repo]['path'] . ';git pull' ;
+    $msg[] = 'exec("' . $cmd . '")';
     exec( $cmd, $msg );
 
     $body  = stripslashes( implode( "<br>", $msg ) );
