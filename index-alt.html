@@ -34,6 +34,7 @@
         
         <!-- Add an underline for active seclection of a.active class -->
         <style>
+        
         .underline-active li a.active{
             text-decoration: underline;
         }
@@ -107,6 +108,9 @@
         </script>
     </head>
     <body>
+        
+        <div class="navbar-fixed-bottom swatch-yellow-black" id="sticky-message"></div>
+
         <header id="masthead" class="navbar navbar-sticky swatch-red-white" role="banner">
             <div class="container">
                 <div class="navbar-header">
@@ -139,8 +143,6 @@
                         </li>
                     </ul>
                 </nav>
-            </div>
-            <div id="sticky-message">
             </div>
         </header>
         <!-- Home -->
@@ -1669,11 +1671,40 @@
             }
         }
         
+        function make_sticky_message_html( msg )
+        {
+            h  = "<div class='container'>\n";
+            h += "  <div class='row'>\n";
+            h += "      <div class='col-xs-8 col-xs-offset-1'>\n";
+            h += "          <small>\n";
+            h += "              " + msg + "\n";
+            h += "          </small>\n";
+            h += "      </div>\n";
+            h += "      <div class='col-xs-1'>\n";
+            h += "          <small>\n";
+            h += "              <a class='btn btn-xs btn-link show-hide' role='button'\n";
+            h += "                  data-target='#sticky-message'>\n";
+            h += "                  Close\n";
+            h += "              </a>\n";
+            h += "          </small>\n";
+            h += "      </div>\n";
+            h += "  </div>\n";
+            h += "</div>\n";
+            
+            return h;
+        }
+        
         add_companies( companies );
         add_persons  ( people    );
 
         $(document).ready( function() {
         
+            if (!isGoogleChrome()){
+                msg = 'This site works best with Google Chrome';
+                h = make_sticky_message_html( msg );
+                $('#sticky-message').html( h );
+            }
+
             var isIE = ( window.navigator.userAgent.indexOf("MSIE ") > 0 );
             
             // ul select auto reset
@@ -1761,11 +1792,7 @@
             // save resources when not page is not visible..
             set_page_visible_callback( page_visible_callback );
             
-            if (!isGoogleChrome()){
-                h = "<pre>This site works best on Google Chrome</pre>\n";
-                $('#sticky-message').html( h );
-            }
-        });
+            });
         
         </script>
         
