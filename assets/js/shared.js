@@ -1,13 +1,11 @@
 
-// all services that can't work locally are initialized here
-// Annotator, Version, etc
 
-function init_non_local()
+function init_shared()
 {
     $('.container').annotator()
                    .annotator('setupPlugins', null, {
                         Auth: { 
-                            tokenUrl: 'http://reactor.barnahum.com/jwt/token.php'
+                            tokenUrl: 'jwt/token.php'
                         },
                         Filter: false,
                         Permissions: false,
@@ -17,7 +15,7 @@ function init_non_local()
 
     // version ajax
 
-    var url  = 'http://reactor.barnahum.com/version.php';
+    var url  = 'version.php';
  
     // call back function from url
     $.getJSON( url, function(data) {
@@ -36,7 +34,7 @@ function init_non_local()
                     });
 }
 
-if (!isLocal()) init_non_local();
+init_shared();
 
 // ................................................... Page Visibility API setup
 
