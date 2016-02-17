@@ -33,7 +33,13 @@ foreach($posts as $post)
 
 	// Post, category name
 	$category = htmlspecialchars(Post::category(),ENT_QUOTES, 'UTF-8');
-
+    $tags     = Post::tags(true);
+    $tags_cs = '';
+    
+    foreach( $tags as $tag ){
+        $tags_cs .=  $tag['name_human'] . ',';
+    }
+    
 	// Post, full content
 	// Absolute images src
     $content = Post::content(true);
@@ -49,6 +55,7 @@ foreach($posts as $post)
                          'url'      => $permalink,
                          'updated'  => $date,
                          'category' => $category,
+                         'tags'     => $tags_cs,
                         ];
 }
 
