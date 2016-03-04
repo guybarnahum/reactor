@@ -6,25 +6,25 @@ function unescape( str ) {
     return str;
 }
 
-function nibbleblog_entries_to_tags( data )
+function nibbleblog_entries_to_tags_csv( data )
 {
-    var tags = "";
+    var tags_csv = "";
     
     for(var ix=0; ix < data.length; ix++ ){
-        var entry_tags = data[ix].tags.split(',');
         
-        for( var jx=0; jx< entry_tags.length; jx++ ){
-            var tag = entry_tags[ jx ];
-            if ( tags.indexOf( tag ) == -1 ){
-                tags += tag + ",";
+        var tags = data[ix].tags;
+        for( var jx=0; jx< tags.length; jx++ ){
+            var tag = tags[ jx ].name_human;
+            if ( tags_csv.indexOf( tag ) == -1 ){
+                tags_csv += tag + ",";
             }
         }
     }
     
-    return tags;
+    return tags_csv;
 }
 
-function nibbleblog_tags_to_filter_html( tags_csv )
+function nibbleblog_tags_csv_to_filter_html( tags_csv )
 {
     var tags = tags_csv.split( ',' );
     if ( tags.length < 2 ) return '';
@@ -47,15 +47,22 @@ function nibbleblog_tags_to_filter_html( tags_csv )
     return html;
 }
 
-function nibbleblog_entry_to_html( entry, tags )
+function nibbleblog_entry_to_html( entry )
 {
+    var title    = entry.title;
     var content  = unescape( entry.content );
     var category = entry.category;
     var url      = entry.url;
     var updated  = new Date( entry.updated ).toDateString();
+    var tags     = entry.tags;
+    var tags_str = '';
     
-    var html = "<!-- blog entry: " + entry.title + " tags: " + tags + "-->" ;
-    html += "<li class='col-xs-6 post-item isotope-item " + tags +"'>\n";
+    for( var ix = 0; ix < tags.length; ix++ ){
+        tags_str += tags[ ix ].name_human + ' ';
+    }
+    
+    var html = "<!-- blog entry: " + title + " tags: " + tags_str + "-->" ;
+    html += "<li class='col-xs-6 post-item isotope-item " + tags_str +"'>\n";
     html += "   <div class='grid-post swatch-white-red'>\n";
     html += "       <article class='post post-showinfo'>\n";
     html += "           <div class='post-media overlay'>\n";
@@ -70,7 +77,7 @@ function nibbleblog_entry_to_html( entry, tags )
     html += "           <div class='post-head small-screen-center'>\n";
     html += "               <h2 class='post-title'>\n";
     html += "                   <a href='#'>\n";
-    html +=                         entry.title;
+    html +=                         title;
     html += "                   </a>\n";
     html += "               </h2>\n";
     html += "               <small class='post-author'>\n";
@@ -101,12 +108,22 @@ function nibbleblog_entry_to_html( entry, tags )
     html += "                          "+category+"\n";
     html += "                       </a>\n";
     html += "                   </span>\n";
-    html += "                   <span class='post-tags'>\n";
-    html += "                       <i class='fa fa-tags'></i>\n";
-    html += "                       <a href='"+url+"'>\n";
-    html += "                       "+tags+"\n";
-    html += "                       </a>\n";
-    html += "                   </span>\n";
+    
+    if ( tags.length > 0 ){
+        html += "                   <span class='post-tags'>\n";
+        html += "                       <i class='fa fa-tags'></i>\n";
+        for( var ix = 0 ; ix < tags.length; ix++ ){
+            
+            var tag_url  = tags[ ix ].url;
+            var tag_name = tags[ ix ].name_human;
+            
+            html += "                       <a href='"+tag_url+"'>\n";
+            html += "                       "+tag_name+"\n";
+            html += "                       </a>\n";
+        }
+        html += "                   </span>\n";
+    }
+    
     html += "                   <span class='post-link'>\n";
     html += "                       <a href='"+url+"'>\n";
     html += "                           <i class='fa fa-comments'></i>\n";
@@ -126,8 +143,7 @@ function nibbleblog_entries_to_html( data )
 {
     var html  = "<ul class='list-unstyled isotope no-transition row blog-entries'>\n";
     for( var ix = 0 ; ix < data.length; ix++ ){
-        var tags = data[ ix ].tags.split(',').join(' ');
-        html += nibbleblog_entry_to_html( data[ ix ], tags );
+        html += nibbleblog_entry_to_html( data[ ix ] );
     }
     html += "</ul>\n";
     
@@ -137,10 +153,10 @@ function nibbleblog_entries_to_html( data )
 function nibbleblog_to_html( obj )
 {
     var entries  = obj.data;
-    var tags_csv = nibbleblog_entries_to_tags( entries );
+    var tags_csv = nibbleblog_entries_to_tags_csv( entries );
     
     var html  = "<div class='container'>\n";
-        html += nibbleblog_tags_to_filter_html( tags_csv );
+        html += nibbleblog_tags_csv_to_filter_html( tags_csv );
         html += nibbleblog_entries_to_html( entries );
         html += "<\div>\n";
     

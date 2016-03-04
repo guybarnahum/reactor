@@ -2,15 +2,17 @@
 
 function init_shared()
 {
-    $('.container').annotator()
-                   .annotator('setupPlugins', null, {
-                        Auth: { 
-                            tokenUrl: 'jwt/token.php'
-                        },
-                        Filter: false,
-                        Permissions: false,
-                        AnnotateItPermissions: {}
-                });
+    if ($('.container').annotator ){
+        $('.container').annotator()
+                       .annotator('setupPlugins', null, {
+                            Auth: { 
+                                tokenUrl: 'jwt/token.php'
+                            },
+                            Filter: false,
+                            Permissions: false,
+                            AnnotateItPermissions: {}
+                    });
+    }
 
 
     // version ajax

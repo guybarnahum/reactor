@@ -133,7 +133,10 @@
                             <a href="#people">People</a>
                         </li>
                         <li>
-                            <a href="#how-we-work">How we work</a>
+                            <a href="#how-we-work">How We Work</a>
+                        </li>
+                        <li>
+                            <a href="#blog-feed">Blog</a>
                         </li>
                         <li>
                             <a href="#structure">Structure</a>
@@ -801,6 +804,42 @@
             </div>
         </section>
         
+        <!-- Blog Feed -->
+        
+        <section class="section swatch-red-white" id="blog-feed">
+            <div class="decor-top">
+                <svg class="decor" height="100%" preserveaspectratio="none" version="1.1" viewbox="0 0 100 100" width="100%" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0 L100 100 L0 100" stroke-width="0"></path>
+                </svg>
+            </div>
+            <div class="container">
+                <header class="section-header underline">
+                    <h1 class="headline hyper hairline">
+                        Blog Feed
+                    </h1>
+                    <br>
+                    <h1 class="headline medium hairline">
+                        <a href="https://twitter.com/reactor_labs">
+                            Twitter@ReactorLabs
+                        </a>
+                    </h1>
+                </header>
+                <div class="row">
+                    <div class="text-default os-animation"
+                        data-os-animation="fadeInUp"
+                        data-os-animation-delay=".0s">
+                        
+                        <a class="twitter-grid"
+                            href="https://twitter.com/TwitterDev/timelines/704695587858419713">
+                            Tweets by @Reactor_Labs
+                        </a>
+                        <script async src="//platform.twitter.com/widgets.js" charset="utf-8">
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
         <!-- Industry & Partnerships -->
 
         <section class="section swatch-red-white" id="partnerships">
@@ -1018,7 +1057,7 @@
                                 </li>
                                 <br>
                                 <li>
-                                    <a href="focus.html#">How we work</a>
+                                    <a href="focus.html#">How We Work</a>
                                 </li>
                                 <li>
                                     <ul>
@@ -1099,6 +1138,26 @@
                          <div>
                             <pre>To debug locally load through http://localhost/ hostname</pre>
                         </div>
+                        <div>
+                            <a class="twitter-timeline"  
+                                href="https://twitter.com/reactor_labs" 
+                                data-widget-id="704691406682656769">
+                                Tweets by @reactor_labs
+                            </a>
+                            <script>
+                            !function(d,s,id)
+                            {
+                                var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+                                
+                                if(!d.getElementById(id)){
+                                    js=d.createElement(s);
+                                    js.id=id;
+                                    js.src=p+"://platform.twitter.com/widgets.js";
+                                    fjs.parentNode.insertBefore(js,fjs);
+                                }
+                            }(document,"script","twitter-wjs");
+                            </script>
+                         </div>
                          <div id="show-hide-panel-people"></div>
                          <div class="blog"></div>
                     </div>
@@ -1115,7 +1174,6 @@
         <script src="assets/js/contact.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js"></script>
         <script src="assets/js/map.min.js"></script>
-        
         <script>
         
         String.prototype.toCamelCase = function() {
