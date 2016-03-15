@@ -72,6 +72,42 @@
             text-decoration: underline;
         }
         
+        .dynamic-height-wrap {
+            overflow: hidden;
+            position: relative;
+            -webkit-transition: max-height 0.25s ease-in-out;
+            -moz-transition: max-height 0.25s ease-in-out;
+            -o-transition: max-height 0.25s ease-in-out;
+            transition: max-height 0.25s ease-in-out;
+            width: 100%;
+        }
+
+        /* Bottom gradient (optional, but recommended)*/
+        .dynamic-height-active .dynamic-height-wrap:before {
+            background: -moz-linear-gradient(top,  rgba(240,249,255,0) 0%, rgba(255,255,255,1) 100%);
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(240,249,255,0)), color-stop(100%,rgba(255,255,255,1)));
+            background: -webkit-linear-gradient(top,  rgba(240,249,255,0) 0%,rgba(255,255,255,1) 100%);
+            background: -o-linear-gradient(top,  rgba(240,249,255,0) 0%,rgba(255,255,255,1) 100%);
+            background: -ms-linear-gradient(top,  rgba(240,249,255,0) 0%,rgba(255,255,255,1) 100%);
+            background: linear-gradient(to bottom,  rgba(240,249,255,0) 0%,rgba(255,255,255,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00f0f9ff', endColorstr='#ffffff',GradientType=0 );
+            bottom: 0;
+            content:'';
+            height: 20%;
+            left: 0;
+            position: absolute;
+            right: 0;
+            z-index: 1;
+        }
+
+        .js-dynamic-show-hide {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            right: 20px;
+            bottom: 50%;
+          }
+
         </style>
         <script>
         
@@ -411,7 +447,7 @@
                 <p class="lead">
                     <div class="emulate-selected bigger hairline">
                         <b>In San Francisco</b>, companies spend <b>3</b> months<br>
-                        raising a <b>$2m+</b> seed round from Bay Area venture capital firm
+                        raising a <b>$2m+</b> Silicon Valley seed round
                     </div>
                     <h1><br><br><br><br></h1>
                 </p>
@@ -688,11 +724,11 @@
                                 <a href="focus.html">Focused Value</a>
                             </h3>
                             <p class="text-left">
-                                We focus on preparing the startup for a Bay Area seed round.
+                                We focus on preparing the startup for a Silicon Valley seed round.
                                 <br><br>
                                 This translates to two major steps. The first is to tune the idea into something the market will respond to.
                                 <br><br>
-                                The second is traction that earns the seed round from a Bay Area Venture Capital firm.
+                                The second is traction that earns the seed round from a Silicon Valley Venture Capital firm.
                             </p>
                         </li>
                         
@@ -825,16 +861,30 @@
                     </h1>
                 </header>
                 <div class="row">
-                    <div class="text-default os-animation"
-                        data-os-animation="fadeInUp"
-                        data-os-animation-delay=".0s">
-                        
-                        <a class="twitter-grid"
-                            href="https://twitter.com/TwitterDev/timelines/704695587858419713">
-                            Tweets by @Reactor_Labs
-                        </a>
-                        <script async src="//platform.twitter.com/widgets.js" charset="utf-8">
-                        </script>
+                    <div class="js-dynamic-height" data-maxheight="900">
+                        <div class="dynamic-height-wrap">
+                            <div class="text-default os-animation"
+                                data-os-animation="fadeInUp"
+                                data-os-animation-delay=".0s">
+                            
+                                <a class="twitter-grid"
+                                    href="https://twitter.com/TwitterDev/timelines/704695587858419713">
+                                    Tweets by @Reactor_Labs
+                                </a>
+                                <script src="//platform.twitter.com/widgets.js" charset="utf-8">
+                                </script>
+                                <script>
+                                twttr.events.bind( 'loaded',
+                                    function (event) {
+                                        $('.js-dynamic-height').dynamicMaxHeight();
+                                    }
+                                );
+
+                                </script>
+                            </div>
+                        </div>
+                        <a href="javascript:void(0)" class="btn btn-lg btn-primary js-dynamic-show-hide"
+                            title="Show More" data-replace-text="Show Less">Show More</a>
                     </div>
                 </div>
             </div>
@@ -844,19 +894,20 @@
 
         <section class="section swatch-red-white" id="partnerships">
         
+            <!--
             <div class="decor-top">
                 <svg class="decor" height="100%" preserveaspectratio="none" version="1.1" viewbox="0 0 100 100" width="100%" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0 0 L100 100 L0 100" stroke-width="0"></path>
                 </svg>
             </div>
-            
+            -->
             <div class="container">
                 <header class="section-header underline">
                     <h1 class="headline super hairline">
                         Industry Players & Partnerships
                     </h1>
                     <h1 class="headline medium hairline">
-                        Bay Area Hardware Accelerators / Investors
+                        Silicon Valley Hardware Accelerators / Investors
                     </h1>
                 </header>
 
@@ -1138,6 +1189,9 @@
                          <div>
                             <pre>To debug locally load through http://localhost/ hostname</pre>
                         </div>
+                        
+                        <!--
+                        
                         <div>
                             <a class="twitter-timeline"  
                                 href="https://twitter.com/reactor_labs" 
@@ -1158,6 +1212,9 @@
                             }(document,"script","twitter-wjs");
                             </script>
                          </div>
+                         
+                         -->
+                         
                          <div id="show-hide-panel-people"></div>
                          <div class="blog"></div>
                     </div>
@@ -1174,6 +1231,8 @@
         <script src="assets/js/contact.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js"></script>
         <script src="assets/js/map.min.js"></script>
+        <script src="assets/js/jquery.dynamicmaxheight.min.js"></script>
+
         <script>
         
         String.prototype.toCamelCase = function() {
@@ -1206,7 +1265,7 @@
              'photo'     : 'assets/images/people/OdedHermoni.jpg', 'filters':'in-sf in-tlv vc',
              'in_id'     : 'odedhermoni'  , 'motto' : 'Lets build it!',
              'expertise' : 'Early Stage Investments',
-             'title'     : 'Israel and Bay Area VC @ Rhodium, J-Angels',
+             'title'     : 'Israel and Silicon Valley VC @ Rhodium, J-Angels',
              'bio_url'   : 'bio.php?q=odedhermoni'
             },
             
@@ -1233,12 +1292,15 @@
             },
             
             // Startup Advisers
+            
+            /*
             {'name'      : 'Michael Cornwell', 'order':'Cornwell','div':'#startup-advisers-content',
              'photo'     : 'assets/images/people/MichaelCornwell.jpg', 'filters':'in-asia hw sw',
              'in_id'     : 'cornwell'  , 'motto' : 'Show me the money!',
              'expertise' : 'Technology, Asia',
              'title'     : 'Ex Apple, Sun, CTO @Pure Storage'
             },
+            */
             
             {'name'      : 'Andy Grignon', 'order':'Grignon', 'div':'#startup-advisers-content',
              'photo'     : 'assets/images/people/AndyGrignon.jpg', 'filters':'in-sf sw hw',
@@ -1291,12 +1353,14 @@
              'title'     : 'Partner, COO @ Kwamecorp, Design and Incubation Fund'
             },
             
+            /*
             {'name'      : 'Byeong Cheol (BC) Hwang', 'order':'Hwang', 'div':'#startup-advisers-content',
              'photo'     : 'assets/images/people/BCHwang.jpg', 'filters':'in-asia in-sf sw vc',
              'in_id'     : 'kinghwang'  , 'motto' : 'Oppa is Gangnam Style!',
              'expertise' : 'Samsung Business Development, Korea',
              'title'     : 'Ex Sr. Director Mobile UX @ Samsung'
             },
+            */
             
             {'name'      : 'Max Alt', 'order':'Alt', 'div':'#startup-advisers-content',
              'photo'     : 'assets/images/people/Unknown.png', 'filters':'in-sf sw',
@@ -1340,12 +1404,14 @@
              'title'     : 'Ex Apple, Ex VP, mHealth Samsung, Ex New Strategic Initiative, Devices Group @ Nokia'
             },
             
+            /*
             {'name'      : 'Shuki Nir', 'order':'Nir', 'div':'#startup-advisers-content',
              'photo'     : 'assets/images/people/ShukiNir.jpg', 'filters':'in-sf pd',
              'in_id'     : 'shuki-nir-45b69815'  , 'motto' : 'Do Something Great!',
              'expertise' : 'Growth, Retail, Consumer Marketing and Product Development',
              'title'     : 'SVP, General Manager, Consumer BU @ SanDisk'
             },
+            */
         ];
         
         var companies = [
@@ -1873,10 +1939,10 @@
         
         </script>
         
-        <script src="assets/js/nibbleblog.js"></script>
-        
         <script src="http://assets.annotateit.org/annotator/v1.2.10/annotator-full.min.js"></script>
         <link rel="stylesheet" href="http://assets.annotateit.org/annotator/v1.2.10/annotator.min.css">
         <script src="assets/js/shared.js"></script>
+
+        </script>
      </body>
 </html>
